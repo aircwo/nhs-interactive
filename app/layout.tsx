@@ -2,6 +2,7 @@ import '@/styles/tailwind.scss';
 import { Metadata } from 'next';
 import { Header } from './components/nhs/header';
 import { Footer } from './components/nhs/footer';
+import { wrapper } from './components/nhs/wrapper';
 
 export const metadata: Metadata = {
   title: 'NHS - Interactive',
@@ -17,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Header />
-          {children}
+          { wrapper(children)}
         <Footer />
       </body>
     </html>

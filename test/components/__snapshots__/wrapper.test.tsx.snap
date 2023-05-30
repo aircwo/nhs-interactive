@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`wrapper rendered component should match snapshot 1`] = `
+<div>
+  <div
+    class="nhsuk-width-container"
+  >
+    <main
+      class="nhsuk-main-wrapper"
+      id="maincontent"
+      role="main"
+    >
+      <div
+        class="nhsuk-grid-row"
+      >
+        <div
+          class="nhsuk-grid-column-two-thirds"
+        >
+          content
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+`;
