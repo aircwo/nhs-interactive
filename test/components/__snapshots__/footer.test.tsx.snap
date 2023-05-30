@@ -1,0 +1,118 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component renders the NHSFooter component with the List and ListItem elements 1`] = `
+<div>
+  <footer>
+    <div
+      class="nhsuk-footer"
+    >
+      <div
+        class="nhsuk-width-container"
+      >
+        <h2
+          class="nhsuk-u-visually-hidden"
+        >
+          Support links
+        </h2>
+        <ul
+          class="nhsuk-footer__list"
+        >
+          <li
+            class="nhsuk-footer__list-item"
+          >
+            <a
+              class="nhsuk-footer__list-item-link"
+              href="/"
+            >
+              back to top
+            </a>
+          </li>
+        </ul>
+        <p
+          class="nhsuk-footer__copyright"
+        >
+          © 
+        </p>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`NHS Footer component renders the NHSFooter component with the correct elements 1`] = `
+<div>
+  <footer>
+    <div
+      class="nhsuk-footer"
+    >
+      <div
+        class="nhsuk-width-container"
+      >
+        <h2
+          class="nhsuk-u-visually-hidden"
+        >
+          Support links
+        </h2>
+        <ul
+          class="nhsuk-footer__list"
+        >
+          <li
+            class="nhsuk-footer__list-item"
+          >
+            <a
+              class="nhsuk-footer__list-item-link"
+              href="/"
+            >
+              back to top
+            </a>
+          </li>
+        </ul>
+        <p
+          class="nhsuk-footer__copyright"
+        >
+          © 
+        </p>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
+
+exports[`NHSFooter component renders the NHSFooter component with the correct elements 1`] = `
+<div>
+  <footer>
+    <div
+      class="nhsuk-footer"
+    >
+      <div
+        class="nhsuk-width-container"
+      >
+        <h2
+          class="nhsuk-u-visually-hidden"
+        >
+          Support links
+        </h2>
+        <ul
+          class="nhsuk-footer__list"
+        >
+          <li
+            class="nhsuk-footer__list-item"
+          >
+            <a
+              class="nhsuk-footer__list-item-link"
+              href="/"
+            >
+              back to top
+            </a>
+          </li>
+        </ul>
+        <p
+          class="nhsuk-footer__copyright"
+        >
+          © 
+        </p>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
