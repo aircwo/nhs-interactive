@@ -1,8 +1,7 @@
 const config = {
   preset: 'ts-jest',
-  // testEnvironment: 'node',
   testEnvironment: 'jsdom',
-  testMatch: ['<rootDir>/test/**/*.test.tsx'],
+  testMatch: ['<rootDir>/test/**/*.test.tsx', '<rootDir>/test/**/*.test.ts'],
   transform: {
     '\\.[jt]sx?$': 'babel-jest',
   },
