@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Header } from '../../app/components/nhs/header';
+import { Header } from '../../app/components/nhs/Header';
 import { load } from 'cheerio';
 
 describe('NHSHeader component', () => {
