@@ -23,7 +23,9 @@ export async function POST(req: Request): Promise<Response> {
       apiKey: string;
     };
 
-    const stream = await openAIStream(model, prompt, apiKey);
+    const key = apiKey === 'local' ? process.env.OPENAI_API_KEY : apiKey;
+    
+    const stream = await openAIStream(model, prompt, key);
     return new Response(stream);
   } catch (error) {
     console.error(error);
