@@ -17,14 +17,14 @@ export const runtime = 'edge';
  */
 export async function POST(req: Request): Promise<Response> {
   try {
-    const { model, prompt, apiKey } = (await req.json()) as {
-      model: OpenAIModel;
+    const { prompt, apiKey } = (await req.json()) as {
       prompt: string;
       apiKey: string;
     };
 
     const key = apiKey === 'local' ? process.env.OPENAI_API_KEY : apiKey;
-    
+    const model = process.env.OPENAI_MODEL ?? OpenAIModel.DAVINCI_TURBO;
+
     const stream = await openAIStream(model, prompt, key);
     return new Response(stream);
   } catch (error) {
