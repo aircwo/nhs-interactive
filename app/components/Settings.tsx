@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, Input } from "nhsuk-react-components";
-import { useEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { LOCAL_KEY_ID } from "../lib/utils/constants";
 
 export const Settings = () => {
@@ -45,7 +45,7 @@ export const Settings = () => {
             value={apiKey}
             type="password"
             error={error ? 'provide a valid OpenAi API Key' : ''}
-            onChange={(e) => {
+            onChange={(e: ChangeEvent<HTMLInputElement>) => {
               setApiKey(e.target.value);
             }}
           />
