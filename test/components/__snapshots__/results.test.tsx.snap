@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Results rendered component should match snapshot 1`] = `
+<div>
+  <p
+    class="text-md text-blue-500"
+  >
+    Question
+  </p>
+  <p
+    class="italic"
+  >
+    test query
+     (?)
+  </p>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <p
+    class="text-blue-500 mb-2"
+  >
+    Answer
+  </p>
+  <p
+    class="overflow-auto"
+  >
+    test answer
+  </p>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <p
+    class="text-blue-500"
+  >
+    Sources
+  </p>
+  <div
+    class="mt-1 overflow-auto"
+  >
+    [1] 
+    <a
+      class="hover:cursor-pointer hover:underline"
+      href="https://www.link1"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      link1
+    </a>
+  </div>
+  <div
+    class="mt-1 overflow-auto"
+  >
+    [2] 
+    <a
+      class="hover:cursor-pointer hover:underline"
+      href="https://www.link2"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      link2
+    </a>
+  </div>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <button
+    aria-disabled="false"
+    class="nhsuk-button"
+    type="submit"
+  >
+    Ask New Question
+  </button>
+</div>
+`;
+
+exports[`Results renders correctly with unrelated answer 1`] = `
+<div>
+  <p
+    class="text-md text-blue-500"
+  >
+    Question
+  </p>
+  <p
+    class="italic"
+  >
+    test query
+     (?)
+  </p>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <p
+    class="text-blue-500 mb-2"
+  >
+    Answer
+  </p>
+  <p>
+    It looks like your query may not be answerable.
+  </p>
+  <div
+    class="nhsuk-details__text mb-6"
+  >
+    <p>
+      This could be for several reasons:
+    </p>
+    <ul>
+      <li>
+        your query is not health related
+      </li>
+      <li>
+        your query contained inappropriate language
+      </li>
+      <li>
+        your query did not give enough detail
+      </li>
+    </ul>
+  </div>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <p
+    class="text-blue-500"
+  >
+    Sources
+  </p>
+  <div
+    class="mt-1 overflow-auto"
+  >
+    [1] 
+    <a
+      class="hover:cursor-pointer hover:underline"
+      href="https://www.link1"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      link1
+    </a>
+  </div>
+  <div
+    class="mt-1 overflow-auto"
+  >
+    [2] 
+    <a
+      class="hover:cursor-pointer hover:underline"
+      href="https://www.link2"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      link2
+    </a>
+  </div>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <button
+    aria-disabled="false"
+    class="nhsuk-button"
+    type="submit"
+  >
+    Ask New Question
+  </button>
+</div>
+`;

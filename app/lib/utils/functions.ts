@@ -25,12 +25,17 @@ export const openAIStream = async (model: string, prompt: string, apiKey: string
         { role: "user", content: prompt }
       ],
       max_tokens: 120,
-      temperature: 0.0,
-      stream: true
+      temperature: 0.1,
+      stream: true,
+      stop: "\n"
     })
   });
 
   if (res.status !== 200) {
+    if (res.status === 429) {
+      throw new Error("Your API key has hit too many requests");
+    }
+    console.log('Status: ' + res.status);
     throw new Error("OpenAI API returned an error");
   }
 
