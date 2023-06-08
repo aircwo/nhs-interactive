@@ -1,4 +1,7 @@
+import { Source } from "@/types";
 import { createParser, ParsedEvent, ReconnectInterval } from "eventsource-parser";
+import { UNRELATED_ANSWER } from "./constants";
+import endent from "endent";
 
 /**
  * @async
@@ -93,4 +96,104 @@ export const cleanSourceText = (text: string) => {
     .replace(/ {3,}/g, "  ")
     .replace(/\t/g, "")
     .replace(/\n+(\s*\n)*/g, "\n");
+};
+
+/**
+ * Asynchronous function that sends a POST request to the `/api/sources` endpoint with the `query`
+ * parameter as the request body. Returns an array of `Source` objects from the response
+ * body.
+ * 
+ * @async
+ * @function
+ * @name fetchSources
+ * @kind variable
+ * @param {string} query
+ * @returns {Promise<Source[]>}
+ * @exports
+ */
+export const fetchSources = async (query: string) => {
+  const response = await fetch("/api/sources", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ query }),
+  });
+
+  if (!response.ok) {
+    throw new Error(response.statusText);
+  }
+
+  const { sources }: { sources: Source[] } = await response.json();
+  return sources;
+};
+
+/**
+ * A function that takes in several parameters. It is an asynchronous function that sends a POST request to the `/api/answer` endpoint with the `prompt`
+ * and `apiKey` as the request body. It then reads the response body as a stream and updates the answer using the
+ * `onAnswerUpdate` callback function. Finally, it sets the `done` state to `true` using the `onDone` callback function and
+ * sets the `loading` state to `false` using the `setLoading` callback function. If an error occurs, it updates the answer
+ * with the `UNRELATED_ANSWER` constant.
+ * 
+ * @async
+ * @function
+ * @name handleStream
+ * @kind variable
+ * @param {string} query
+ * @param {Source[]} sources
+ * @param {string} apiKey
+ * @param {(answer: string) => void} onAnswerUpdate
+ * @param {(searchQuery: SearchQuery) => void} onSearch
+ * @param {(done: boolean) => void} onDone
+ * @param {(loading: boolean) => void} setLoading
+ * @returns {Promise<void>}
+ * @exports
+ */
+export const handleStream = async (query: string, sources: Source[], apiKey: string, onAnswerUpdate: (answer: string) => void, onSearch: (searchQuery: SearchQuery) => void, onDone: (done: boolean) => void, setLoading: (loading: boolean) => void) => {
+  if (sources.length <= 0) {
+    setLoading(false);
+    onAnswerUpdate(UNRELATED_ANSWER);
+    onSearch({ query, sourceLinks: [] });
+    return;
+  }
+  try {
+    const prompt = endent`Provide a 1 to 3 sentence answer (with the last sentence ending with a full stop) to the query based on the following sources. Be original, concise, accurate, and helpful. Cite sources as [1] or [2] or [3] after each sentence (not just the very end) to back up your answer (Ex: Correct: [1], Correct: [2][3], Incorrect: [1, 2]).
+    ${sources
+      .map((source, idx) => `Source [${idx + 1}]:\n${source.text}`)
+      .join("\n\n")}
+    `;
+
+    const response = await fetch("/api/answer", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ prompt, apiKey }),
+    });
+
+    if (!response.ok) {
+      throw new Error(response.statusText);
+    }
+
+    // call this here to ensure query is shown before answer
+    onSearch({ query, sourceLinks: sources.map((source) => source.url) });
+
+    const reader = response.body?.getReader();
+    const decoder = new TextDecoder();
+    let done = false;
+
+    while (!done) {
+      if (!reader) break;
+      const { value, done: doneReading } = await reader.read();
+      done = doneReading;
+      const chunkValue = decoder.decode(value);
+      onAnswerUpdate(chunkValue);
+    }
+
+    onDone(true);
+  } catch (err) {
+    onAnswerUpdate(UNRELATED_ANSWER);
+  } finally {
+    setLoading(false);
+  }
 };
