@@ -17,12 +17,11 @@ export const runtime = 'edge';
  */
 export async function POST(req: Request): Promise<Response> {
   try {
-    const { prompt, apiKey } = (await req.json()) as {
+    const { prompt } = (await req.json()) as {
       prompt: string;
-      apiKey: string;
     };
 
-    const key = apiKey === 'local' ? process.env.OPENAI_API_KEY : apiKey;
+    const key = process.env.OPENAI_API_KEY;
     const model = process.env.OPENAI_MODEL ?? OpenAIModel.DAVINCI_TURBO;
     if (!key) {
       throw new Error('Api key not set');
