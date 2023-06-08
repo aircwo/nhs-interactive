@@ -24,3 +24,7 @@ next-env.d.ts
 
 ### debug ###
 npm-debug.log*
+
+### DB ###
+/pb_data
+/pb_migrations

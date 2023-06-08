@@ -3,8 +3,12 @@ import { FC } from "react";
 import { makeSourcesLinks } from "./defaults";
 import { UNRELATED_ANSWER } from "../lib/utils/constants";
 import { ResultProps } from "../lib/utils/interfaces";
+import { useApiLog } from "../lib/utils/hooks";
+import { LogData } from "@/types";
 
 export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset }) => {
+  const logData: LogData = { searchQuery, answer };
+  useApiLog(logData, done);
   return (
     <>
       <p className='text-md text-blue-500'>Question</p>
