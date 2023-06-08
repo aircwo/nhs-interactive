@@ -191,8 +191,9 @@ export const handleStream = async (query: string, sources: Source[], apiKey: str
     }
 
     onDone(true);
-  } catch (err) {
+  } catch (error: any) {
     onAnswerUpdate(UNRELATED_ANSWER);
+    onSearch({ query: error.message ?? 'Error', sourceLinks: [] });
   } finally {
     setLoading(false);
   }

@@ -24,11 +24,13 @@ export async function POST(req: Request): Promise<Response> {
 
     const key = apiKey === 'local' ? process.env.OPENAI_API_KEY : apiKey;
     const model = process.env.OPENAI_MODEL ?? OpenAIModel.DAVINCI_TURBO;
-
+    if (!key) {
+      throw new Error('Api key not set');
+    }
     const stream = await openAIStream(model, prompt, key);
     return new Response(stream);
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
-    return new Response("Internal Server Error", { status: 500 });
+    return new Response(error.statusText, { status: 500, statusText: error.message ?? error.statusText });
   }
 };

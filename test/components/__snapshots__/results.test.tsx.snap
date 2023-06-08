@@ -32,7 +32,7 @@ exports[`Results rendered component should match snapshot 1`] = `
   <p
     class="text-blue-500"
   >
-    Sources
+    Trusted Sources
   </p>
   <div
     class="mt-1 overflow-auto"
@@ -89,11 +89,6 @@ exports[`Results renders correctly with unrelated answer 1`] = `
   <hr
     class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
   />
-  <p
-    class="text-blue-500 mb-2"
-  >
-    Answer
-  </p>
   <p>
     It looks like your query may not be answerable.
   </p>
@@ -121,7 +116,7 @@ exports[`Results renders correctly with unrelated answer 1`] = `
   <p
     class="text-blue-500"
   >
-    Sources
+    Trusted Sources
   </p>
   <div
     class="mt-1 overflow-auto"

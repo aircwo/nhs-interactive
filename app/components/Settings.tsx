@@ -1,7 +1,7 @@
 "use client";
 
 import { Button, Input } from "nhsuk-react-components";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { LOCAL_KEY_ID } from "../lib/utils/constants";
 import { useApiKey } from "../lib/utils/hooks";
 

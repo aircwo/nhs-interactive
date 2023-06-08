@@ -14,7 +14,6 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
       <p className='text-md text-blue-500'>Question</p>
       <p className='italic'>{searchQuery.query} (?)</p>
       <hr className='nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible' />
-      <p className='text-blue-500 mb-2'>Answer</p>
       { answer === UNRELATED_ANSWER ? <>
         <p>It looks like your query may not be answerable.</p>
         <div className='nhsuk-details__text mb-6'>
@@ -25,16 +24,18 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
             <li>your query did not give enough detail</li>
           </ul>
         </div>
-        </> : 
-        <p className='overflow-auto'>
-          {makeSourcesLinks(answer, searchQuery.sourceLinks)}
-        </p>
+        </> : <>
+          <p className='text-blue-500 mb-2'>Answer</p>
+          <p className='overflow-auto'>
+            {makeSourcesLinks(answer, searchQuery.sourceLinks)}
+          </p>
+        </>
       }
       
       {done && (
         <>
           <hr className='nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible' />
-          <p className='text-blue-500'>Sources</p>
+          <p className='text-blue-500'>Trusted Sources</p>
           {searchQuery.sourceLinks.map((source, index) => (
             <div key={index} className='mt-1 overflow-auto'>
               {`[${index + 1}] `}
