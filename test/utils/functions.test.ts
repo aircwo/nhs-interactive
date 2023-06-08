@@ -71,7 +71,6 @@ describe("handleStream", () => {
     await handleStream(
       "query",
       sources,
-      apiKey,
       onAnswerUpdate,
       onSearch,
       onDone,
