@@ -1,7 +1,9 @@
-import { cleanSourceText, openAIStream } from '../../app/lib/utils/functions';
+import { Source } from '@/types';
+import { cleanSourceText, fetchSources, handleStream, openAIStream } from '../../app/lib/utils/functions';
 
 import fetchMock from 'jest-fetch-mock';
 import { TextEncoder, TextDecoder } from 'util';
+import { UNRELATED_ANSWER } from '../../app/lib/utils/constants';
 
 describe('openAIStream', () => {
   // todo: more api call tests
@@ -46,4 +48,39 @@ describe('cleanSourceText', () => {
   test('should remove empty lines', () => {
     expect(cleanSourceText('\nhello\n\n\nworld\n\n')).toBe('hello \nworld');
   });
+});
+
+describe("fetchSources", () => {
+  test.todo("Needs tests written for all functionality");
+});
+
+describe("handleStream", () => {
+  beforeEach(() => {
+    fetchMock.resetMocks();
+  });
+  it("returns an unrelated answer if an error is thrown", async () => {
+    const onAnswerUpdate = jest.fn();
+    const setLoading = jest.fn();
+    const onSearch = jest.fn();
+    const onDone = jest.fn();
+    const apiKey = "123";
+    const sources: Source[] = [];
+
+    fetchMock.mockRejectedValue(new Error("Failed to fetch"));
+
+    await handleStream(
+      "query",
+      sources,
+      apiKey,
+      onAnswerUpdate,
+      onSearch,
+      onDone,
+      setLoading
+    );
+
+    expect(onAnswerUpdate).toHaveBeenCalledWith(UNRELATED_ANSWER);
+    expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [] });
+    expect(setLoading).toHaveBeenNthCalledWith(1, false);
+  });
+  test.todo("Needs tests written for success");
 });
