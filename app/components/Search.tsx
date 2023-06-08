@@ -4,8 +4,9 @@ import { ChangeEvent, FC, KeyboardEvent, useEffect, useRef, useState } from "rea
 import { ActionLink, Button, Input, InsetText } from "nhsuk-react-components";
 import { Source } from "@/types";
 import endent from "endent";
-import { LOCAL_KEY_ID, UNRELATED_ANSWER } from "../lib/utils/constants";
+import { UNRELATED_ANSWER } from "../lib/utils/constants";
 import { SearchProps } from "../lib/utils/interfaces";
+import { useApiKey } from "../lib/utils/hooks";
 
 export const Search: FC<SearchProps> = ({
   onSearch,
@@ -18,13 +19,8 @@ export const Search: FC<SearchProps> = ({
   const [apiKey, setApiKey] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
-
-  useEffect(() => {
-    const API_KEY = localStorage.getItem(LOCAL_KEY_ID);
-    if (API_KEY) {
-      setApiKey(JSON.parse(API_KEY));
-    }
-  }, []);
+  
+  useApiKey(setApiKey);
 
   const handleSearch = async () => {
     if (!query) {

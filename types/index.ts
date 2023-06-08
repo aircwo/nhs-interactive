@@ -11,3 +11,8 @@ export type SearchQuery = {
 export type SourceData = {
   sources: Source[];
 };
+
+export type LogData = {
+  searchQuery: SearchQuery;
+  answer: string;
+};
