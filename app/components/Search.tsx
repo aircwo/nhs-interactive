@@ -31,7 +31,7 @@ export const Search: FC<SearchProps> = ({
     setLoading(true);
     try {
       const sources = await fetchSources(query);
-      await handleStream(query, sources, onAnswerUpdate, onSearch, onDone, setLoading, setError);
+      await handleStream(query, sources, onAnswerUpdate, onSearch, onDone, setLoading);
     } catch (error) {
       setLoading(false);
     }
@@ -47,6 +47,7 @@ export const Search: FC<SearchProps> = ({
           </span>
         </>
       ) : (
+        <>
         <div className='relative w-full'>
           <Input
             id="search-input"
@@ -65,6 +66,7 @@ export const Search: FC<SearchProps> = ({
             Submit
           </Button>
         </div>
+        </>
       )}
     </>
   );
