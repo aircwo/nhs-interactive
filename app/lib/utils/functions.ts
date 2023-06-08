@@ -1,4 +1,4 @@
-import { Source } from "@/types";
+import { SearchQuery, Source } from "@/types";
 import { createParser, ParsedEvent, ReconnectInterval } from "eventsource-parser";
 import { UNRELATED_ANSWER } from "./constants";
 import endent from "endent";
