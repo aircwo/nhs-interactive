@@ -32,7 +32,8 @@ export async function POST(req: Request): Promise<Response> {
   const record = await pb.collection('searches').create({
     "query": searchQuery?.query,
     "result": answer,
-    "links": searchQuery?.sourceLinks
+    "links": searchQuery?.sourceLinks,
+    "db_access_key": process.env.DB_ACCESS_KEY
   });
 
   if(!record.ok) {

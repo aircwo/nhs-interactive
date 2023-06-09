@@ -6,6 +6,7 @@ declare global {
       OPENAI_MODEL: string;
       DB_STORE: boolean;
       DB_URL: string;
+      DB_ACCESS_KEY: string;
     }
   }
 }
