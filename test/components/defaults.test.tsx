@@ -53,7 +53,7 @@ describe('makeSourcesLinks', () => {
 
     expect($('a').length).toBe(2);
     expect($('a').text()).toBe("[1][2]");
-    expect($('a').hasClass('text-blue-500')).toBeTruthy();
+    expect($('a').hasClass('text-nhs-blue')).toBeTruthy();
     expect($('a').hasClass('hover:cursor-pointer')).toBeTruthy();
     expect($('svg').length).toBe(0);
     expect($('p').length).toBe(0);
