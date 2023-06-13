@@ -3,7 +3,7 @@
 exports[`Results rendered component should match snapshot 1`] = `
 <div>
   <p
-    class="text-md text-blue-500"
+    class="text-md text-nhs-blue"
   >
     Question
   </p>
@@ -17,7 +17,7 @@ exports[`Results rendered component should match snapshot 1`] = `
     class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
   />
   <p
-    class="text-blue-500 mb-2"
+    class="text-nhs-blue mb-2"
   >
     Answer
   </p>
@@ -30,7 +30,7 @@ exports[`Results rendered component should match snapshot 1`] = `
     class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
   />
   <p
-    class="text-blue-500"
+    class="text-nhs-blue"
   >
     Trusted Sources
   </p>
@@ -76,7 +76,7 @@ exports[`Results rendered component should match snapshot 1`] = `
 exports[`Results renders correctly with unrelated answer 1`] = `
 <div>
   <p
-    class="text-md text-blue-500"
+    class="text-md text-nhs-blue"
   >
     Question
   </p>
@@ -114,7 +114,7 @@ exports[`Results renders correctly with unrelated answer 1`] = `
     class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
   />
   <p
-    class="text-blue-500"
+    class="text-nhs-blue"
   >
     Trusted Sources
   </p>

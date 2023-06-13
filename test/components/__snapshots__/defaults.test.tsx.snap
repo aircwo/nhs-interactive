@@ -43,7 +43,7 @@ exports[`makeSourcesLinks rendered component should match snapshot 1`] = `
 <div>
   The running fox jumped over the hill. They jump so high due to their ability to contract muscles 
   <a
-    class="hover:cursor-pointer text-blue-500"
+    class="hover:cursor-pointer text-nhs-blue text-base"
     href="link1"
     rel="noopener noreferrer"
     target="_blank"
@@ -52,7 +52,7 @@ exports[`makeSourcesLinks rendered component should match snapshot 1`] = `
   </a>
    at lightning speed. 
   <a
-    class="hover:cursor-pointer text-blue-500"
+    class="hover:cursor-pointer text-nhs-blue text-base"
     href="link2"
     rel="noopener noreferrer"
     target="_blank"
