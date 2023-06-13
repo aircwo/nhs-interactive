@@ -42,7 +42,7 @@ export const Search: FC<SearchProps> = ({
       {loading ? (
         <>
           <span className='inline-flex'>
-            <div className='h-6 w-6 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] mr-2'></div>
+            <div data-testid='animated-progress' className='h-6 w-6 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] mr-2'></div>
             <p>Thinking...</p>
           </span>
         </>

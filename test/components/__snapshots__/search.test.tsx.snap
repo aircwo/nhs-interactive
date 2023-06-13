@@ -1,5 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Search displays loading spinner when searching 1`] = `
+<span
+  class="inline-flex"
+>
+  <div
+    class="h-6 w-6 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] mr-2"
+    data-testid="animated-progress"
+  />
+  <p>
+    Thinking...
+  </p>
+</span>
+`;
+
 exports[`Search renders correctly and matches snapshot 1`] = `
 <div>
   <div
