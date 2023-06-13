@@ -11,7 +11,7 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
   useApiLog(logData, done);
   return (
     <>
-      <p className='text-md text-blue-500'>Question</p>
+      <p className='text-md text-nhs-blue'>Question</p>
       <p className='italic'>{searchQuery.query} (?)</p>
       <hr className='nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible' />
       { answer === UNRELATED_ANSWER ? <>
@@ -25,7 +25,7 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
           </ul>
         </div>
         </> : <>
-          <p className='text-blue-500 mb-2'>Answer</p>
+          <p className='text-nhs-blue mb-2'>Answer</p>
           <p className='overflow-auto'>
             {makeSourcesLinks(answer, searchQuery.sourceLinks)}
           </p>
@@ -35,7 +35,7 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
       {done && (
         <>
           <hr className='nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible' />
-          <p className='text-blue-500'>Trusted Sources</p>
+          <p className='text-nhs-blue'>Trusted Sources</p>
           {searchQuery.sourceLinks.map((source, index) => (
             <div key={index} className='mt-1 overflow-auto'>
               {`[${index + 1}] `}
