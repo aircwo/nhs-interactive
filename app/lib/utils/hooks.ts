@@ -1,12 +1,13 @@
 import { LogData } from '@/types';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { LOCAL_KEY_ID, UNRELATED_ANSWER } from './constants';
 
 /**
- * A custom React hook that takes in two parameters: `logData` of type `LogData` and `done` of
- * type `boolean`. It sets up an effect that sends a POST request to the `/api/log` endpoint with the `logData` object as
- * the request body when `done` is true or when `logData.answer` is equal to `UNRELATED_ANSWER`. The hook also manages the
- * state of `logSubmitted` using the `useState` hook to ensure that the POST request is only sent once.
+ * `export const useApiLog` is defining a custom React hook that takes in two parameters: `logData` of type `LogData` and
+ * `done` of type `boolean`. It sets up an effect that sends a POST request to the `/api/log` endpoint with the `logData`
+ * object as the request body when `done` is true or when `logData.answer` is equal to `UNRELATED_ANSWER`. The hook also
+ * manages the state of `logSubmitted` using the `useState` hook to ensure that the POST request is only sent once. This
+ * hook can be exported and used in other parts of the application.
  * 
  * @function
  * @name useApiLog
@@ -17,33 +18,24 @@ import { LOCAL_KEY_ID, UNRELATED_ANSWER } from './constants';
  * @exports
  */
 export const useApiLog = (logData: LogData, done: boolean) => {
-  const [logSubmitted, setLogSubmitted] = useState(false);
+  const isEffectActive = useRef<boolean>(false);
   useEffect(() => {
-    const fetchApiLog = async () => {
-      try {
-        const response = await fetch('/api/log', {
+    if (!isEffectActive.current && (done || logData.answer === UNRELATED_ANSWER)) {
+      const fetchApiLog = async () => {
+        await fetch('/api/log', {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(logData),
         });
-
-        if (!response.ok) {
-          // Handle error case
-        }
-      } catch (error) {
-        // Handle network error
-      }
-    };
-    if (!logSubmitted) {
-      if (done || logData.answer === UNRELATED_ANSWER) {
-        fetchApiLog();
-        setLogSubmitted(true);
+        // do we really need error handling here..?
       };
-    };
-    
-  }, [logData, done, logSubmitted]);
+
+      fetchApiLog();
+      isEffectActive.current = true;
+    }
+  }, [logData, done]);
 };
 
 /**
