@@ -149,7 +149,7 @@ export const fetchSources = async (query: string) => {
  * @returns {Promise<void>}
  * @exports
  */
-export const handleStream = async (query: string, sources: Source[], apiKey: string, onAnswerUpdate: (answer: string) => void, onSearch: (searchQuery: SearchQuery) => void, onDone: (done: boolean) => void, setLoading: (loading: boolean) => void) => {
+export const handleStream = async (query: string, sources: Source[], onAnswerUpdate: (answer: string) => void, onSearch: (searchQuery: SearchQuery) => void, onDone: (done: boolean) => void, setLoading: (loading: boolean) => void) => {
   if (sources.length <= 0) {
     setLoading(false);
     onAnswerUpdate(UNRELATED_ANSWER);
@@ -168,7 +168,7 @@ export const handleStream = async (query: string, sources: Source[], apiKey: str
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ prompt, apiKey }),
+      body: JSON.stringify({ prompt }),
     });
 
     if (!response.ok) {

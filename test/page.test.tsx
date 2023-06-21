@@ -18,7 +18,6 @@ describe('Home page', () => {
     expect($('h1').text()).toBe('NHSInteractive');
     expect($('h2').length).toBe(0);
     expect($('a').length).toBe(1);
-    expect($('svg').length).toBe(1);
-    expect($('p').length).toBe(2);
+    expect($('p').length).toBe(1);
   });
 });

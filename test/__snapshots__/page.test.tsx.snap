@@ -32,45 +32,44 @@ exports[`Home page rendered component should match snapshot 1`] = `
     </p>
   </div>
   <div
-    class="nhsuk-inset-text"
+    class="relative w-full"
   >
-    <span
-      class="nhsuk-u-visually-hidden"
+    <div
+      class="nhsuk-form-group"
     >
-      An Open AI Key must be set in order to search.
-    </span>
-    <p>
-      An Open AI Key must be set in order to search.
-    </p>
-  </div>
-  <div
-    class="nhsuk-action-link"
-  >
+      <label
+        class="nhsuk-label"
+        for="search-input"
+        id="search-input--label"
+      >
+        Enter a health related query
+      </label>
+      <div
+        class="nhsuk-hint"
+        id="search-input--hint"
+      >
+        e.g What is an HRT PPC?
+      </div>
+      <input
+        aria-describedby="search-input--hint"
+        aria-labelledby="search-input--label"
+        class="nhsuk-input"
+        id="search-input"
+        name="search"
+        placeholder="type something here"
+        type="text"
+        value=""
+      />
+    </div>
     <a
-      class="nhsuk-action-link__link"
-      href="/settings"
+      aria-disabled="false"
+      class="nhsuk-button"
+      data-prevent-double-click="true"
+      draggable="false"
+      id="submit"
+      role="button"
     >
-      <svg
-        aria-hidden="true"
-        class="nhsuk-icon nhsuk-icon__arrow-right-circle"
-        height="32"
-        viewBox="0 0 24 24"
-        width="32"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 0h24v24H0z"
-          fill="none"
-        />
-        <path
-          d="M12 2a10 10 0 0 0-9.95 9h11.64L9.74 7.05a1 1 0 0 1 1.41-1.41l5.66 5.65a1 1 0 0 1 0 1.42l-5.66 5.65a1 1 0 0 1-1.41 0 1 1 0 0 1 0-1.41L13.69 13H2.05A10 10 0 1 0 12 2z"
-        />
-      </svg>
-      <span
-        class="nhsuk-action-link__text"
-      >
-        You can change the OpenAI API Key here
-      </span>
+      Submit
     </a>
   </div>
 </div>

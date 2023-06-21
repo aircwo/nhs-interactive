@@ -1,5 +1,5 @@
 import { Source } from '@/types';
-import { cleanSourceText, fetchSources, handleStream, openAIStream } from '../../app/lib/utils/functions';
+import { cleanSourceText, handleStream, openAIStream } from '../../app/lib/utils/functions';
 
 import fetchMock from 'jest-fetch-mock';
 import { TextEncoder, TextDecoder } from 'util';
@@ -63,7 +63,6 @@ describe("handleStream", () => {
     const setLoading = jest.fn();
     const onSearch = jest.fn();
     const onDone = jest.fn();
-    const apiKey = "123";
     const sources: Source[] = [];
 
     fetchMock.mockRejectedValue(new Error("Failed to fetch"));
@@ -71,7 +70,6 @@ describe("handleStream", () => {
     await handleStream(
       "query",
       sources,
-      apiKey,
       onAnswerUpdate,
       onSearch,
       onDone,
