@@ -1,5 +1,7 @@
 # nhs-interactive
 
+![landing](landing.png)
+
 A ChatGPT POC built within the NHS Front-end toolkit and React components.
 
 ## Run the app
@@ -15,6 +17,12 @@ Run the app:
 
 ```bash
 npm run dev
+```
+
+Run tests:
+
+```bash
+npm run test
 ```
 
 Optional DB integration
@@ -33,7 +41,6 @@ Options:
 
 ```bash
 OPENAI_API_KEY: string;
-OPENAI_MODEL: string;
 DB_STORE: boolean;
 DB_URL: string;
 ```
