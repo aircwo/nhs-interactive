@@ -28,7 +28,7 @@ exports[`Home page rendered component should match snapshot 1`] = `
       </span>
     </h3>
     <p>
-      This is a mock service made to look like an NHS website using their frontend toolkit and react components. Information given may also differ from truth. Do not use this for real medical advice or as a source of truth.
+      This is a mock service made to look like an NHS website for educational purposes only. Information given may also differ from truth. Do not use this for real medical advice or as a source of truth.
     </p>
   </div>
   <div

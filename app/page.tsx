@@ -26,8 +26,7 @@ export default function Page() {
       <WarningCallout>
         <WarningCallout.Label>Disclaimer</WarningCallout.Label>
         <p>
-          This is a mock service made to look like an NHS website using their
-          frontend toolkit and react components. Information given may also
+          This is a mock service made to look like an NHS website for educational purposes only. Information given may also
           differ from truth. Do not use this for real medical advice or as a source of truth.
         </p>
       </WarningCallout>
