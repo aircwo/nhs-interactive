@@ -20,6 +20,7 @@ export const GitHubIcon = () => {
       href="https://github.com/worti3"
       target="_blank"
       rel="noreferrer"
+      aria-label="Github Profile"
     >
       <IconBrandGithub />
     </a>

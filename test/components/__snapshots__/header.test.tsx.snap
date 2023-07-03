@@ -59,6 +59,7 @@ exports[`NHSHeader component rendered component should match snapshot 1`] = `
     </div>
   </header>
   <a
+    aria-label="Github Profile"
     class="absolute top-2 right-2 p-4 cursor-pointer text-white hover:text-yellow-400 visited:text-white"
     href="https://github.com/worti3"
     rel="noreferrer"
