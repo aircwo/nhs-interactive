@@ -1,8 +1,6 @@
 import { LOCAL_DB_URL } from "@/app/lib/utils/constants";
 import PocketBase from "pocketbase";
 
-export const runtime = "edge";
-
 /**
  * This POST handler takes two params from the request object
  * and uses them to log data into a pocketbase db.

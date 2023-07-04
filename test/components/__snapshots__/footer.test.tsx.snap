@@ -21,18 +21,16 @@ exports[`NHSFooter component rendered component should match snapshot 1`] = `
             class="nhsuk-footer__list-item"
           >
             <a
+              aria-label="Github Profile"
               class="nhsuk-footer__list-item-link"
-              href="/"
+              href="https://github.com/worti3"
+              rel="noreferrer"
+              target="_blank"
             >
-              back to top
+              Github
             </a>
           </li>
         </ul>
-        <p
-          class="nhsuk-footer__copyright"
-        >
-          © 
-        </p>
       </div>
     </div>
   </footer>
