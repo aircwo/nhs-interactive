@@ -33,14 +33,16 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
       }
     });
 
-    const filteredLinks = links.filter((link, idx) => {
+    const filteredLinks: string[] = [];
+    for (const link of links) {
       const domain = new URL(link).hostname;
 
-      if (!URL_WHITELIST.some((site) => domain.includes(site))) return false;
-      return (
-        links.findIndex((link) => new URL(link).hostname === domain) === idx
-      );
-    });
+      if (URL_WHITELIST.some((site) => domain.includes(site))) {
+        if (!filteredLinks.some((filteredLink) => new URL(filteredLink).hostname === domain)) {
+          filteredLinks.push(link);
+        }
+      }
+    }
 
     const numberOfSources = 4;
     const finalLinks = filteredLinks.slice(0, numberOfSources);
@@ -55,7 +57,6 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
 
         if (parsed) {
           let sourceText = cleanSourceText(parsed.textContent);
-
           return { url: link, text: sourceText };
         }
       })
@@ -64,7 +65,7 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
     const filteredSources = sources.filter((source) => source !== undefined);
 
     for (const source of filteredSources) {
-      source.text = source.text.slice(0, 1500);
+      source.text = source.text.slice(0, 1000);
     }
     const responseHeaders = {
       "Content-Type": "application/json",
