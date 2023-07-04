@@ -14,7 +14,12 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
       query: string;
     };
 
-    const response = await fetch(SEARCH_URL + query + "nhs"); // current experiment for garunteeing sources.
+    const response = await fetch(SEARCH_URL + query, {
+      headers: {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36",
+      },
+    });
+     // current experiment for garunteeing sources.
     const html = await response.text();
     const $ = load(html);
     const linkTags = $("a");
