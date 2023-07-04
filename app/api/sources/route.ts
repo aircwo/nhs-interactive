@@ -14,12 +14,7 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
       query: string;
     };
 
-    const response = await fetch(SEARCH_URL + query, {
-      headers: {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.182 Safari/537.36",
-      },
-    });
-     // current experiment for garunteeing sources.
+    const response = await fetch(SEARCH_URL + query);
     const html = await response.text();
     const $ = load(html);
     const linkTags = $("a");
@@ -62,6 +57,8 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
 
         if (parsed) {
           let sourceText = cleanSourceText(parsed.textContent);
+          console.log("link: " + link);
+          
           return { url: link, text: sourceText };
         }
       })
@@ -72,6 +69,12 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
     for (const source of filteredSources) {
       source.text = source.text.slice(0, 1000);
     }
+
+    if (filteredSources.length <= 0) {
+      console.log("No sources found, searching NHS");
+      const nhsSearchResults = await fetchNhsSearchResults(query);
+      filteredSources.push(...nhsSearchResults);
+    }
     const responseHeaders = {
       "Content-Type": "application/json",
       "Cache-Control": "s-maxage=300, stale-while-revalidate",
@@ -81,4 +84,36 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
     console.log(error);
     return NextResponse.json({ sources: [] }, { status: 500 });
   }
+}
+
+/**
+ * The `fetchNhsSearchResults` function is an asynchronous function that takes a `query` parameter of type string. It
+ * fetches search results from the NHS website based on the provided query.
+ * 
+ * @async
+ * @function
+ * @name fetchNhsSearchResults
+ * @kind function
+ * @param {string} query
+ * @returns {Promise<Source[]>}
+ */
+async function fetchNhsSearchResults(query: string) {
+  const nhsSearchUrl = `https://www.nhs.uk/search/results?q=${query}`;
+  const response = await fetch(nhsSearchUrl);
+  const html = await response.text();
+  const dom = new JSDOM(html);
+  const doc = dom.window.document;
+  const results = doc.querySelectorAll('ul.nhsuk-list li');
+
+  // 3 is the default number of li elements on the page without results.
+  if (results.length <= 3) return [];
+  const sources: Source[] = [];
+  let sourceText = '';
+  results.forEach((result) => {
+    const snippetElement = result.querySelector('p.nhsuk-body-s');
+    const snippet = snippetElement?.textContent ? snippetElement.textContent.trim() : '';
+    sourceText += snippet;
+  });
+  sources.push({ url: nhsSearchUrl, text: sourceText });
+  return sources;
 }
