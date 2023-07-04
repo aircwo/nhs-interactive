@@ -15,8 +15,7 @@ describe('NHSFooter component', () => {
     const $ = load(html);
     const nhsFooter = $('.nhsuk-footer');
   
-    expect(nhsFooter.text()).toContain('back to top');
-    expect(nhsFooter.find('p').length).toBe(1);
+    expect(nhsFooter.text()).toContain('Support linksGithub');
     expect(nhsFooter.find('a').length).toBe(1);
   });
 });
