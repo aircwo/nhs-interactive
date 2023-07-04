@@ -1,0 +1,32 @@
+# flyctl launch added from .gitignore
+### Local .env files ###
+**/.env.*
+
+### TS ###
+**/*.tsbuildinfo
+**/next-env.d.ts
+
+### deps ###
+node_modules
+
+### Tests ###
+coverage
+
+### next.js ###
+.next
+out
+
+### production ###
+build
+
+### misc ###
+**/.DS_Store
+**/*.pem
+
+### debug ###
+**/npm-debug.log*
+
+### DB ###
+pb_data
+pb_migrations
+fly.toml
