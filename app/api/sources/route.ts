@@ -6,7 +6,7 @@ import { load } from "cheerio";
 import { NextResponse } from "next/server";
 
 const SEARCH_URL = "https://www.google.co.uk/search?q=";
-const URL_WHITELIST = ["nhs", "nhsbsa", "gov.uk", "nhs.uk"];
+const URL_WHITELIST = ["hscni.net", "nhs24.scot", "nhs.wales", "nhsbsa", "gov.uk", "nhs.uk"];
 
 export async function POST(req: Request): Promise<NextResponse<SourceData>> {
   try {
