@@ -14,11 +14,13 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_GB',
     url: SERVICE_URL,
+    images: [{ url: 'landing.png', alt: SERVICE_NAME }],
   },
   twitter: {
     title: SERVICE_NAME,
     description: SERVICE_DESC,
     card: 'summary',
+    images: [{ url: 'landing.png', alt: SERVICE_NAME }],
   },
 };
 
