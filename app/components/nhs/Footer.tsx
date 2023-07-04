@@ -6,9 +6,9 @@ export const Footer = () => {
   return (
     <NHSFooter>
       <NHSFooter.List>
-        <NHSFooter.ListItem href="/">back to top</NHSFooter.ListItem>
+        <NHSFooter.ListItem href="https://github.com/worti3" target="_blank" rel="noreferrer" aria-label="Github Profile">Github</NHSFooter.ListItem>
       </NHSFooter.List>
-      <NHSFooter.Copyright>&copy; </NHSFooter.Copyright>
+      {/* <NHSFooter.Copyright>&copy; </NHSFooter.Copyright> */}
     </NHSFooter>
   );
 }
