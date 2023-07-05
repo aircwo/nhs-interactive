@@ -107,13 +107,21 @@ async function fetchNhsSearchResults(query: string) {
 
   // 3 is the default number of li elements on the page without results.
   if (results.length <= 3) return [];
+
   const sources: Source[] = [];
-  let sourceText = '';
-  results.forEach((result) => {
-    const snippetElement = result.querySelector('p.nhsuk-body-s');
-    const snippet = snippetElement?.textContent ? snippetElement.textContent.trim() : '';
-    sourceText += snippet;
-  });
-  sources.push({ url: nhsSearchUrl, text: sourceText });
+  const firstResult = results[0];
+  const link = firstResult.querySelector('a');
+  const linkHref = link?.getAttribute('href');
+  // couild find based on matching words in query as a possibility
+  if (linkHref) {
+    const firstResultUrl = `https://www.nhs.uk/${linkHref}`;
+    const response = await fetch(firstResultUrl);
+    const linkedHtml = await response.text();
+    const linkedDom = new JSDOM(linkedHtml);
+    const linkedDoc = linkedDom.window.document;
+    const linkedText = linkedDoc.body.textContent?.trim() || '';
+    sources.push({ url: firstResultUrl, text: linkedText });
+  }
+
   return sources;
 }
