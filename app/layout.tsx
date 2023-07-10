@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en_GB">
       <body>
         <Header />
           { wrapper(children)}

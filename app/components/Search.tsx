@@ -62,7 +62,13 @@ export const Search: FC<SearchProps> = ({
             onKeyDown={handleKeyDown}
             error={error}
           />
-          <Button id='submit' as='a' data-prevent-double-click onClick={handleSearch}>
+          <Button
+            id='submit'
+            as='a'
+            data-prevent-double-click
+            onClick={handleSearch}
+            disabled={!!error && query === ''}
+          >
             Submit
           </Button>
         </div>
