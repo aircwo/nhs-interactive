@@ -1,6 +1,6 @@
 
 import { IconBrandGithub } from "@tabler/icons-react";
-import { OpenAIModel } from "../lib/utils/constants";
+import { OpenAIModel } from "../../lib/utils/constants";
 
 /**
  * `export const GitHubIcon = () => {` is defining a React functional component that returns an anchor tag with the GitHub
@@ -82,3 +82,16 @@ export const makeSourcesLinks = (answer: string, sourceLinks: string[]) => {
 
   return elements;
 };
+
+export const CountrySelector = () => {
+  return (
+    <>
+    <p className="nhsuk-body-s nhsuk-u-secondary-text-color nhsuk-u-margin-top-7 nhsuk-u-margin-bottom-0">
+      Model: { OpenAIModel.DAVINCI_TURBO }
+    </p>
+    <span
+    className={`fi fis inline-block mr-2 fi-gb`}/>
+    
+    </>
+  );
+}

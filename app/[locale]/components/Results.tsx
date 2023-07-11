@@ -1,31 +1,35 @@
+// "use client";
+
 import { Button } from "nhsuk-react-components";
 import { FC } from "react";
 import { makeSourcesLinks } from "./defaults";
-import { UNRELATED_ANSWER } from "../lib/utils/constants";
-import { ResultProps } from "../lib/utils/interfaces";
-import { useApiLog } from "../lib/utils/hooks";
+import { UNRELATED_ANSWER } from "../../lib/utils/constants";
+import { ResultProps } from "../../lib/utils/interfaces";
+import { useApiLog } from "../../lib/utils/hooks";
 import { LogData } from "@/types";
+import { useTranslations } from "next-intl";
 
 export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset }) => {
+  const translate = useTranslations('results');
   const logData: LogData = { searchQuery, answer };
   useApiLog(logData, done);
   return (
     <>
-      <p className='text-md text-nhs-blue'>Question</p>
+      <p className='text-md text-nhs-blue'>{translate('question')}</p>
       <p className='italic'>{searchQuery.query} (?)</p>
       <hr className='nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible' />
       { answer === UNRELATED_ANSWER ? <>
-        <p>It looks like your query may not be answerable.</p>
+        <p>{translate('error.paragraphOne')}</p>
         <div className='nhsuk-details__text mb-6'>
-          <p>This could be for several reasons:</p>
+          <p>{translate('error.paragraphTwo')}</p>
           <ul>
-            <li>your query is not health related</li>
-            <li>your query contained inappropriate language</li>
-            <li>your query did not give enough detail</li>
+            <li>{translate('error.list.one')}</li>
+            <li>{translate('error.list.two')}</li>
+            <li>{translate('error.list.three')}</li>
           </ul>
         </div>
         </> : <>
-          <p className='text-nhs-blue mb-2'>Answer</p>
+          <p className='text-nhs-blue mb-2'>{translate('answer')}</p>
           <p className='overflow-auto'>
             {makeSourcesLinks(answer, searchQuery.sourceLinks)}
           </p>
@@ -35,7 +39,7 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
       {done && (
         <>
           <hr className='nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible' />
-          <p className='text-nhs-blue'>Trusted Sources</p>
+          <p className='text-nhs-blue'>{translate('sources')}</p>
           {searchQuery.sourceLinks.map((source, index) => (
             <div key={index} className='mt-1 overflow-auto'>
               {`[${index + 1}] `}
@@ -53,7 +57,7 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
         </>
       )}
       { (done || answer === UNRELATED_ANSWER) && (
-        <Button onClick={onReset}>Ask New Question</Button>
+        <Button onClick={onReset}>{translate('button.newQuery')}</Button>
       )}
     </>
   );

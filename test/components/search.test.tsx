@@ -1,6 +1,6 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Search } from '../../app/components/Search';
+import { Search } from '../../app/[locale]/components/Search';
 
 describe('Search', () => {
   test('renders correctly and matches snapshot', () => {

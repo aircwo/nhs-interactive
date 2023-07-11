@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Footer } from '../../app/components/nhs/Footer';
+import { Footer } from '../../app/[locale]/components/nhs/Footer';
 import { load } from 'cheerio';
 
 describe('NHSFooter component', () => {

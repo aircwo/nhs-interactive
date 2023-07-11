@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { wrapper } from '../../app/components/nhs/wrapper';
+import { wrapper } from '../../app/[locale]/components/nhs/wrapper';
 import { load } from 'cheerio';
 
 describe('wrapper', () => {

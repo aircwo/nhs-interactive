@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { Results } from '../../app/components/Results';
-// import { UNRELATED_ANSWER } from '../../app/lib/utils/constants';
+import { Results } from '../../app/[locale]/components/Results';
 import { ResultProps } from '@/app/lib/utils/interfaces';
 import { load } from 'cheerio';
 

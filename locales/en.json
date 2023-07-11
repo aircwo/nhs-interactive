@@ -1,0 +1,43 @@
+{
+  "landing": {
+    "nhs": "NHS",
+    "title": "Interactive",
+    "warning": {
+      "title": "Disclaimer",
+      "content": "This is a mock service made to look like an NHS website for educational purposes only. Information given may also differ from truth. Do not use this for real medical advice or as a source of truth."
+    }
+  },
+  "search": {
+    "query": "Enter a health related query",
+    "hint": "e.g What is an HRT PPC?",
+    "error": "must provide a search term",
+    "loading": "Thinking...",
+    "placeholder": "type something here",
+    "button": {
+      "submit": "Submit"
+    }
+  },
+  "header": {
+    "title": "Interactive",
+    "button": {
+      "language": "Language"
+    }
+  },
+  "results": {
+    "error": {
+      "paragraphOne": "it looks like your query may not be answerable.",
+      "paragraphTwo": "his could be for several reasons:",
+      "list": {
+        "one": "your query is not health related",
+        "two": "your query contained inappropriate language",
+        "three": "your query did not give enough detail"
+      }
+    },
+    "question": "Question",
+    "answer": "Answer",
+    "sources": "Trusted Sources",
+    "button": {
+      "newQuery": "Ask new question"
+    }
+  }
+}

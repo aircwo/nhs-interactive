@@ -1,13 +1,15 @@
 "use client";
 
+import { useTranslations } from 'next-intl';
 import { WarningCallout } from "nhsuk-react-components";
 import { Search } from "./components/Search";
+import { Results } from "./components/Results";
 import { useState } from "react";
 import { SearchQuery } from "@/types";
-import { Results } from "./components/Results";
 import { ModelInfo } from "./components/defaults";
 
 export default function Page() {
+  const translate = useTranslations('landing');
   const [searchQuery, setSearchQuery] = useState<SearchQuery>({
     query: "",
     sourceLinks: [],
@@ -18,17 +20,14 @@ export default function Page() {
   return (
     <>
       <h1>
-        NHS
+        {translate('nhs')}
         <span className='ml-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-500 to-purple-700'>
-          Interactive
+          {translate('title')}
         </span>
       </h1>
       <WarningCallout>
-        <WarningCallout.Label>Disclaimer</WarningCallout.Label>
-        <p>
-          This is a mock service made to look like an NHS website for educational purposes only. Information given may also
-          differ from truth. Do not use this for real medical advice or as a source of truth.
-        </p>
+        <WarningCallout.Label>{translate('warning.title')}</WarningCallout.Label>
+        <p>{translate('warning.content')}</p>
       </WarningCallout>
       {results ? (
         <>

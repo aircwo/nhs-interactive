@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { GitHubIcon, ModelInfo, makeSourcesLinks } from '../../app/components/defaults';
+import { GitHubIcon, ModelInfo, makeSourcesLinks } from '../../app/[locale]/components/defaults';
 import { load } from 'cheerio';
 
 describe('GitHubIcon', () => {
