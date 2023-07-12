@@ -1,8 +1,13 @@
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Results } from '../../app/[locale]/components/Results';
-import { ResultProps } from '@/app/lib/utils/interfaces';
+import { ResultProps } from '@/app/utils/interfaces';
 import { load } from 'cheerio';
+import { useTranslations } from 'next-intl';
+
+jest.mock('next-intl', () => ({
+  useTranslations: jest.fn().mockReturnValue(() => 'Translated Text'),
+}));
 
 describe('Results', () => {
   let props: ResultProps;

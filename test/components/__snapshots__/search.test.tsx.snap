@@ -27,13 +27,13 @@ exports[`Search renders correctly and matches snapshot 1`] = `
         for="search-input"
         id="search-input--label"
       >
-        Enter a health related query
+        Translated Text
       </label>
       <div
         class="nhsuk-hint"
         id="search-input--hint"
       >
-        e.g What is an HRT PPC?
+        Translated Text
       </div>
       <input
         aria-describedby="search-input--hint"
@@ -41,7 +41,7 @@ exports[`Search renders correctly and matches snapshot 1`] = `
         class="nhsuk-input"
         id="search-input"
         name="search"
-        placeholder="type something here"
+        placeholder="Translated Text"
         type="text"
         value=""
       />
@@ -54,7 +54,7 @@ exports[`Search renders correctly and matches snapshot 1`] = `
       id="submit"
       role="button"
     >
-      Submit
+      Translated Text
     </a>
   </div>
 </div>

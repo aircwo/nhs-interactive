@@ -1,9 +1,9 @@
 import { Source } from '@/types';
-import { cleanSourceText, handleStream, openAIStream } from '../../app/lib/utils/functions';
+import { cleanSourceText, handleStream, openAIStream } from '../../app/utils/functions';
 
 import fetchMock from 'jest-fetch-mock';
 import { TextEncoder, TextDecoder } from 'util';
-import { UNRELATED_ANSWER } from '../../app/lib/utils/constants';
+import { UNRELATED_ANSWER } from '../../app/utils/constants';
 
 describe('openAIStream', () => {
   // todo: more api call tests

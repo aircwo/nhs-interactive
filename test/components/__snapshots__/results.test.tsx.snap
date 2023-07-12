@@ -5,7 +5,7 @@ exports[`Results rendered component should match snapshot 1`] = `
   <p
     class="text-md text-nhs-blue"
   >
-    Question
+    Translated Text
   </p>
   <p
     class="italic"
@@ -19,7 +19,7 @@ exports[`Results rendered component should match snapshot 1`] = `
   <p
     class="text-nhs-blue mb-2"
   >
-    Answer
+    Translated Text
   </p>
   <p
     class="overflow-auto"

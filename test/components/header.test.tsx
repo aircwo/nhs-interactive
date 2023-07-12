@@ -3,14 +3,25 @@ import '@testing-library/jest-dom/extend-expect';
 import { Header } from '../../app/[locale]/components/nhs/Header';
 import { load } from 'cheerio';
 
+jest.mock('next-intl', () => ({
+  useTranslations: jest.fn().mockReturnValue(() => ({
+    header: {
+      title: "Interactive",
+      button: {
+        language: "Language"
+      }
+    },
+  })),
+}));
+
 describe('NHSHeader component', () => {
   test('rendered component should match snapshot', () => {
-    const { container } = render(<Header />);
+    const { container } = render(<Header locale={'en'} />);
     expect(container).toMatchSnapshot();
   });
 
   test('should render the component with the correct links & elements', () => {
-    const { container } = render(<Header />);
+    const { container } = render(<Header locale={'en'} />);
     const html = container.innerHTML;
     const $ = load(html);
     const nhsHeader = $('.nhsuk-header');

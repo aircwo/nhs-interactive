@@ -1,6 +1,23 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Search } from '../../app/[locale]/components/Search';
+import { useTranslations } from 'next-intl';
+
+jest.mock('next-intl', () => ({
+  useTranslations: jest.fn().mockReturnValue(() => ({
+    search: {
+      lang: 'english',
+      query: 'Enter a health related query',
+      hint: 'e.g What is an HRT PPC?',
+      error: 'must provide a search term',
+      loading: 'Thinking...',
+      placeholder: 'type something here',
+      button: {
+        submit: 'Submit',
+      },
+    },
+  })),
+}));
 
 describe('Search', () => {
   test('renders correctly and matches snapshot', () => {
