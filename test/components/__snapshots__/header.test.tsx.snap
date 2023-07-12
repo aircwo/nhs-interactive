@@ -66,7 +66,7 @@ exports[`NHSHeader component rendered component should match snapshot (cy) 1`] =
             aria-haspopup="menu"
             class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
             data-headlessui-state=""
-            id="headlessui-menu-button-:r1:"
+            id="language-button"
             type="button"
           >
             Iaith
@@ -173,7 +173,7 @@ exports[`NHSHeader component rendered component should match snapshot (en) 1`] =
             aria-haspopup="menu"
             class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
             data-headlessui-state=""
-            id="headlessui-menu-button-:r0:"
+            id="language-button"
             type="button"
           >
             Language
@@ -280,7 +280,7 @@ exports[`NHSHeader component rendered component should match snapshot (gd) 1`] =
             aria-haspopup="menu"
             class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
             data-headlessui-state=""
-            id="headlessui-menu-button-:r2:"
+            id="language-button"
             type="button"
           >
             Cànan

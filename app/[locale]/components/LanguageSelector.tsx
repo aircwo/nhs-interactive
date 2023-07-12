@@ -14,7 +14,7 @@ export default function LanguageSelector({translate, locale}: {translate: any, l
     <Menu as='div' className='relative max-lg:absolute max-lg:right-4 float-right inline-block text-left'>
       <div>
         {/* Hover style made need changed to match NHS */}
-        <Menu.Button className='inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'>
+        <Menu.Button id='language-button' className='inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'>
           {translate('button.language')}
           <IconWorld
             className='-mr-1 h-5 w-5 text-gray-400'
@@ -33,11 +33,11 @@ export default function LanguageSelector({translate, locale}: {translate: any, l
         leaveTo='transform opacity-0 scale-95'
       >
         <Menu.Items className='absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
-          <div className=''>
+          <div className='langs'>
             {langs.map(lang => {
               if (lang !== locale) {
                 return (
-                  <Menu.Item key={lang}>
+                  <Menu.Item key={lang} data-testid="language-item">
                     {({ active }) => (
                       <Link
                         href='/'

@@ -1,0 +1,472 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LanguageSelector component rendered component should match snapshot (cy) 1`] = `
+<div>
+  <div
+    class="relative max-lg:absolute max-lg:right-4 float-right inline-block text-left"
+    data-headlessui-state=""
+  >
+    <div>
+      <button
+        aria-expanded="false"
+        aria-haspopup="menu"
+        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        data-headlessui-state=""
+        id="language-button"
+        type="button"
+      >
+        Iaith
+        <svg
+          aria-hidden="true"
+          class="-mr-1 h-5 w-5 text-gray-400"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+          />
+          <path
+            d="M3.6 9l16.8 0"
+          />
+          <path
+            d="M3.6 15l16.8 0"
+          />
+          <path
+            d="M11.5 3a17 17 0 0 0 0 18"
+          />
+          <path
+            d="M12.5 3a17 17 0 0 1 0 18"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LanguageSelector component rendered component should match snapshot (en) 1`] = `
+<div>
+  <div
+    class="relative max-lg:absolute max-lg:right-4 float-right inline-block text-left"
+    data-headlessui-state=""
+  >
+    <div>
+      <button
+        aria-expanded="false"
+        aria-haspopup="menu"
+        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        data-headlessui-state=""
+        id="language-button"
+        type="button"
+      >
+        Language
+        <svg
+          aria-hidden="true"
+          class="-mr-1 h-5 w-5 text-gray-400"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+          />
+          <path
+            d="M3.6 9l16.8 0"
+          />
+          <path
+            d="M3.6 15l16.8 0"
+          />
+          <path
+            d="M11.5 3a17 17 0 0 0 0 18"
+          />
+          <path
+            d="M12.5 3a17 17 0 0 1 0 18"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LanguageSelector component rendered component should match snapshot (gd) 1`] = `
+<div>
+  <div
+    class="relative max-lg:absolute max-lg:right-4 float-right inline-block text-left"
+    data-headlessui-state=""
+  >
+    <div>
+      <button
+        aria-expanded="false"
+        aria-haspopup="menu"
+        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        data-headlessui-state=""
+        id="language-button"
+        type="button"
+      >
+        Cànan
+        <svg
+          aria-hidden="true"
+          class="-mr-1 h-5 w-5 text-gray-400"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+          />
+          <path
+            d="M3.6 9l16.8 0"
+          />
+          <path
+            d="M3.6 15l16.8 0"
+          />
+          <path
+            d="M11.5 3a17 17 0 0 0 0 18"
+          />
+          <path
+            d="M12.5 3a17 17 0 0 1 0 18"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LanguageSelector component should render the component with the correct links & elements (cy) 1`] = `
+<div>
+  <div
+    class="relative max-lg:absolute max-lg:right-4 float-right inline-block text-left"
+    data-headlessui-state="open"
+  >
+    <div>
+      <button
+        aria-controls="headlessui-menu-items-:rb:"
+        aria-expanded="true"
+        aria-haspopup="menu"
+        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        data-headlessui-state="open"
+        id="language-button"
+        type="button"
+      >
+        Iaith
+        <svg
+          aria-hidden="true"
+          class="-mr-1 h-5 w-5 text-gray-400"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+          />
+          <path
+            d="M3.6 9l16.8 0"
+          />
+          <path
+            d="M3.6 15l16.8 0"
+          />
+          <path
+            d="M11.5 3a17 17 0 0 0 0 18"
+          />
+          <path
+            d="M12.5 3a17 17 0 0 1 0 18"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      aria-labelledby="language-button"
+      class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition ease-out duration-100 transform opacity-0 scale-95"
+      data-headlessui-state="open"
+      id="headlessui-menu-items-:rb:"
+      role="menu"
+      tabindex="0"
+    >
+      <div
+        class="langs"
+        role="none"
+      >
+        <link
+          class="text-gray-700 block px-4 py-2 text-sm rounded-md"
+          data-headlessui-state=""
+          data-testid="language-item"
+          href="/"
+          id="headlessui-menu-item-:rc:"
+          locale="en"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <p
+            class="mb-0 py-2"
+          >
+            <span
+              aria-hidden="true"
+              class="mr-4 h-5 w-5 rounded-md fi fis fi-gb"
+            />
+            English
+          </p>
+        </link>
+        <link
+          class="text-gray-700 block px-4 py-2 text-sm rounded-md"
+          data-headlessui-state=""
+          data-testid="language-item"
+          href="/"
+          id="headlessui-menu-item-:rd:"
+          locale="gd"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <p
+            class="mb-0 py-2"
+          >
+            <span
+              aria-hidden="true"
+              class="mr-4 h-5 w-5 rounded-md fi fis fi-gb-sct"
+            />
+            Gaelic
+          </p>
+        </link>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LanguageSelector component should render the component with the correct links & elements (en) 1`] = `
+<div>
+  <div
+    class="relative max-lg:absolute max-lg:right-4 float-right inline-block text-left"
+    data-headlessui-state="open"
+  >
+    <div>
+      <button
+        aria-controls="headlessui-menu-items-:r7:"
+        aria-expanded="true"
+        aria-haspopup="menu"
+        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        data-headlessui-state="open"
+        id="language-button"
+        type="button"
+      >
+        Language
+        <svg
+          aria-hidden="true"
+          class="-mr-1 h-5 w-5 text-gray-400"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+          />
+          <path
+            d="M3.6 9l16.8 0"
+          />
+          <path
+            d="M3.6 15l16.8 0"
+          />
+          <path
+            d="M11.5 3a17 17 0 0 0 0 18"
+          />
+          <path
+            d="M12.5 3a17 17 0 0 1 0 18"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      aria-labelledby="language-button"
+      class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition ease-out duration-100 transform opacity-0 scale-95"
+      data-headlessui-state="open"
+      id="headlessui-menu-items-:r7:"
+      role="menu"
+      tabindex="0"
+    >
+      <div
+        class="langs"
+        role="none"
+      >
+        <link
+          class="text-gray-700 block px-4 py-2 text-sm rounded-md"
+          data-headlessui-state=""
+          data-testid="language-item"
+          href="/"
+          id="headlessui-menu-item-:r8:"
+          locale="cy"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <p
+            class="mb-0 py-2"
+          >
+            <span
+              aria-hidden="true"
+              class="mr-4 h-5 w-5 rounded-md fi fis fi-gb-wls"
+            />
+            Cymraeg
+          </p>
+        </link>
+        <link
+          class="text-gray-700 block px-4 py-2 text-sm rounded-md"
+          data-headlessui-state=""
+          data-testid="language-item"
+          href="/"
+          id="headlessui-menu-item-:r9:"
+          locale="gd"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <p
+            class="mb-0 py-2"
+          >
+            <span
+              aria-hidden="true"
+              class="mr-4 h-5 w-5 rounded-md fi fis fi-gb-sct"
+            />
+            Gaelic
+          </p>
+        </link>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LanguageSelector component should render the component with the correct links & elements (gd) 1`] = `
+<div>
+  <div
+    class="relative max-lg:absolute max-lg:right-4 float-right inline-block text-left"
+    data-headlessui-state="open"
+  >
+    <div>
+      <button
+        aria-controls="headlessui-menu-items-:rf:"
+        aria-expanded="true"
+        aria-haspopup="menu"
+        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        data-headlessui-state="open"
+        id="language-button"
+        type="button"
+      >
+        Cànan
+        <svg
+          aria-hidden="true"
+          class="-mr-1 h-5 w-5 text-gray-400"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 12m-9 0a9 9 0 1 0 18 0a9 9 0 1 0 -18 0"
+          />
+          <path
+            d="M3.6 9l16.8 0"
+          />
+          <path
+            d="M3.6 15l16.8 0"
+          />
+          <path
+            d="M11.5 3a17 17 0 0 0 0 18"
+          />
+          <path
+            d="M12.5 3a17 17 0 0 1 0 18"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      aria-labelledby="language-button"
+      class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition ease-out duration-100 transform opacity-0 scale-95"
+      data-headlessui-state="open"
+      id="headlessui-menu-items-:rf:"
+      role="menu"
+      tabindex="0"
+    >
+      <div
+        class="langs"
+        role="none"
+      >
+        <link
+          class="text-gray-700 block px-4 py-2 text-sm rounded-md"
+          data-headlessui-state=""
+          data-testid="language-item"
+          href="/"
+          id="headlessui-menu-item-:rg:"
+          locale="en"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <p
+            class="mb-0 py-2"
+          >
+            <span
+              aria-hidden="true"
+              class="mr-4 h-5 w-5 rounded-md fi fis fi-gb"
+            />
+            English
+          </p>
+        </link>
+        <link
+          class="text-gray-700 block px-4 py-2 text-sm rounded-md"
+          data-headlessui-state=""
+          data-testid="language-item"
+          href="/"
+          id="headlessui-menu-item-:rh:"
+          locale="cy"
+          role="menuitem"
+          tabindex="-1"
+        >
+          <p
+            class="mb-0 py-2"
+          >
+            <span
+              aria-hidden="true"
+              class="mr-4 h-5 w-5 rounded-md fi fis fi-gb-wls"
+            />
+            Cymraeg
+          </p>
+        </link>
+      </div>
+    </div>
+  </div>
+</div>
+`;

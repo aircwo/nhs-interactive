@@ -56,9 +56,7 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
         const parsed = new Readability(doc).parse();
 
         if (parsed) {
-          let sourceText = cleanSourceText(parsed.textContent);
-          console.log("link: " + link);
-          
+          let sourceText = cleanSourceText(parsed.textContent);          
           return { url: link, text: sourceText };
         }
       })
