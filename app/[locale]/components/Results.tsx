@@ -1,11 +1,9 @@
-// "use client";
-
 import { Button } from "nhsuk-react-components";
 import { FC } from "react";
 import { makeSourcesLinks } from "./defaults";
-import { UNRELATED_ANSWER } from "../../lib/utils/constants";
-import { ResultProps } from "../../lib/utils/interfaces";
-import { useApiLog } from "../../lib/utils/hooks";
+import { UNRELATED_ANSWER } from "../../utils/constants";
+import { ResultProps } from "../../utils/interfaces";
+import { useApiLog } from "../../utils/hooks";
 import { LogData } from "@/types";
 import { useTranslations } from "next-intl";
 

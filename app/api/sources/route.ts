@@ -1,7 +1,7 @@
 import { Source, SourceData } from "@/types";
 import { Readability } from "@mozilla/readability";
 import { JSDOM } from "jsdom";
-import { cleanSourceText } from "@/app/lib/utils/functions";
+import { cleanSourceText } from "@/app/utils/functions";
 import { load } from "cheerio";
 import { NextResponse } from "next/server";
 

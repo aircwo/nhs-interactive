@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 import { Header } from './components/nhs/Header';
 import { Footer } from './components/nhs/Footer';
 import { wrapper } from './components/nhs/wrapper';
-import { SERVICE_DESC, SERVICE_NAME, SERVICE_URL } from '../lib/utils/constants';
+import { SERVICE_DESC, SERVICE_NAME, SERVICE_URL } from '../utils/constants';
 
 export const metadata: Metadata = {
   title: SERVICE_NAME,
