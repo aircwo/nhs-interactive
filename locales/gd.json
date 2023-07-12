@@ -1,0 +1,44 @@
+{
+  "landing": {
+    "nhs": "NHS",
+    "title": "Ìre-thaiceil",
+    "warning": {
+      "title": "Rùn-fhiosrachaidh",
+      "content": "Is e seirbheis mòr-fhichead na h-aithrisean a tha seo airson ionnsachadh a-mhàin. Dh'fhaodadh fiosrachadh a thoirt a bharrachd bho dh'fhìrinne. Na cleachd seo airson comhairle leigheis fìor no mar fhoinn-inneach."
+    }
+  },
+  "search": {
+    "lang": "gaelic",
+    "query": "Cuir fiosrachadh a bhaineas ri slàinte",
+    "hint": "e.g. Dè tha PPC HRT?",
+    "error": "feumaidh tu freagairt a thoirt airson fiosrachadh",
+    "loading": "A' smaoineachadh...",
+    "placeholder": "cuir rudeigin an seo",
+    "button": {
+      "submit": "Cuir ris"
+    }
+  },
+  "header": {
+    "title": "Ìre-thaiceil",
+    "button": {
+      "language": "Cànan"
+    }
+  },
+  "results": {
+    "error": {
+      "paragraphOne": "tha coltas gum b'urrainn nach biodh freagairt agad air do chuirimh.",
+      "paragraphTwo": "Dh'fhaodadh seo a bhith airson grunn fiosrachaidhean:",
+      "list": {
+        "one": "chan eil do chuirimh a' buntainn ri slàinte",
+        "two": "tha cànan sgrìobhte nach bu chòir ann do chuirimh",
+        "three": "cha tugadh tu digriannan gu leòr le do chuirimh"
+      }
+    },
+    "question": "Ceist",
+    "answer": "Freagairt",
+    "sources": "Fhoillseachaidhean Tionndaidh",
+    "button": {
+      "newQuery": "Cur ceist ùr"
+    }
+  }
+}

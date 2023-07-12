@@ -1,5 +1,5 @@
-import { OpenAIModel } from "@/app/lib/utils/constants";
-import { openAIStream } from "@/app/lib/utils/functions";
+import { OpenAIModel } from "@/app/utils/constants";
+import { openAIStream } from "@/app/utils/functions";
 
 export const runtime = 'edge';
 

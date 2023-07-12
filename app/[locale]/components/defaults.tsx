@@ -1,31 +1,4 @@
-
-import { IconBrandGithub } from "@tabler/icons-react";
-import { OpenAIModel } from "../lib/utils/constants";
-
-/**
- * `export const GitHubIcon = () => {` is defining a React functional component that returns an anchor tag with the GitHub
- * icon from the `@tabler/icons-react` library. The anchor tag has a link to the GitHub profile of the user `worti3`. This
- * component can be imported and used in other parts of the codebase.
- * 
- * @function
- * @name GitHubIcon
- * @kind variable
- * @returns {JSX.Element}
- * @exports
- */
-export const GitHubIcon = () => {
-  return (
-    <a
-      className="absolute top-2 right-2 p-4 cursor-pointer text-white hover:text-yellow-400 visited:text-white"
-      href="https://github.com/worti3"
-      target="_blank"
-      rel="noreferrer"
-      aria-label="Github Profile"
-    >
-      <IconBrandGithub />
-    </a>
-  );
-};
+import { OpenAIModel } from "../../utils/constants";
 
 /**
  * `export const ModelInfo` is defining a React functional component that returns a paragraph element displaying

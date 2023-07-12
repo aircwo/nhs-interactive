@@ -14,7 +14,81 @@ exports[`Search displays loading spinner when searching 1`] = `
 </span>
 `;
 
-exports[`Search renders correctly and matches snapshot 1`] = `
+exports[`Search displays loading spinner when searching 2`] = `
+<span
+  class="inline-flex"
+>
+  <div
+    class="h-6 w-6 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] mr-2"
+    data-testid="animated-progress"
+  />
+  <p>
+    Ystyried...
+  </p>
+</span>
+`;
+
+exports[`Search displays loading spinner when searching 3`] = `
+<span
+  class="inline-flex"
+>
+  <div
+    class="h-6 w-6 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] mr-2"
+    data-testid="animated-progress"
+  />
+  <p>
+    A' smaoineachadh...
+  </p>
+</span>
+`;
+
+exports[`Search rendered component should match snapshot (cy) 1`] = `
+<div>
+  <div
+    class="relative w-full"
+  >
+    <div
+      class="nhsuk-form-group"
+    >
+      <label
+        class="nhsuk-label"
+        for="search-input"
+        id="search-input--label"
+      >
+        Rhowch gwestiwn sy'n ymwneud â iechyd
+      </label>
+      <div
+        class="nhsuk-hint"
+        id="search-input--hint"
+      >
+        e.e. Beth yw HRT PPC?
+      </div>
+      <input
+        aria-describedby="search-input--hint"
+        aria-labelledby="search-input--label"
+        class="nhsuk-input"
+        id="search-input"
+        name="search"
+        placeholder="teipiwch rhywbeth yma"
+        type="text"
+        value=""
+      />
+    </div>
+    <a
+      aria-disabled="false"
+      class="nhsuk-button"
+      data-prevent-double-click="true"
+      draggable="false"
+      id="submit"
+      role="button"
+    >
+      Cyflwyno
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Search rendered component should match snapshot (en) 1`] = `
 <div>
   <div
     class="relative w-full"
@@ -55,6 +129,52 @@ exports[`Search renders correctly and matches snapshot 1`] = `
       role="button"
     >
       Submit
+    </a>
+  </div>
+</div>
+`;
+
+exports[`Search rendered component should match snapshot (gd) 1`] = `
+<div>
+  <div
+    class="relative w-full"
+  >
+    <div
+      class="nhsuk-form-group"
+    >
+      <label
+        class="nhsuk-label"
+        for="search-input"
+        id="search-input--label"
+      >
+        Cuir fiosrachadh a bhaineas ri slàinte
+      </label>
+      <div
+        class="nhsuk-hint"
+        id="search-input--hint"
+      >
+        e.g. Dè tha PPC HRT?
+      </div>
+      <input
+        aria-describedby="search-input--hint"
+        aria-labelledby="search-input--label"
+        class="nhsuk-input"
+        id="search-input"
+        name="search"
+        placeholder="cuir rudeigin an seo"
+        type="text"
+        value=""
+      />
+    </div>
+    <a
+      aria-disabled="false"
+      class="nhsuk-button"
+      data-prevent-double-click="true"
+      draggable="false"
+      id="submit"
+      role="button"
+    >
+      Cuir ris
     </a>
   </div>
 </div>

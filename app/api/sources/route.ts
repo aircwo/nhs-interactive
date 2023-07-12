@@ -1,7 +1,7 @@
 import { Source, SourceData } from "@/types";
 import { Readability } from "@mozilla/readability";
 import { JSDOM } from "jsdom";
-import { cleanSourceText } from "@/app/lib/utils/functions";
+import { cleanSourceText } from "@/app/utils/functions";
 import { load } from "cheerio";
 import { NextResponse } from "next/server";
 
@@ -56,9 +56,7 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
         const parsed = new Readability(doc).parse();
 
         if (parsed) {
-          let sourceText = cleanSourceText(parsed.textContent);
-          console.log("link: " + link);
-          
+          let sourceText = cleanSourceText(parsed.textContent);          
           return { url: link, text: sourceText };
         }
       })

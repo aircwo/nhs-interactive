@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import { useApiLog } from '../../app/lib/utils/hooks';
+import { useApiLog } from '../../app/utils/hooks';
 import { LogData } from '@/types';
 
 describe('useApiLog', () => {

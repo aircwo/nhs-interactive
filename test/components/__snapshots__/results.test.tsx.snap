@@ -1,6 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Results rendered component should match snapshot 1`] = `
+exports[`Results rendered component should match snapshot (cy) 1`] = `
+<div>
+  <p
+    class="text-md text-nhs-blue"
+  >
+    Cwestiwn
+  </p>
+  <p
+    class="italic"
+  >
+    test query
+     (?)
+  </p>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <p
+    class="text-nhs-blue mb-2"
+  >
+    Ateb
+  </p>
+  <p
+    class="overflow-auto"
+  >
+    test answer
+  </p>
+</div>
+`;
+
+exports[`Results rendered component should match snapshot (en) 1`] = `
 <div>
   <p
     class="text-md text-nhs-blue"
@@ -20,6 +49,263 @@ exports[`Results rendered component should match snapshot 1`] = `
     class="text-nhs-blue mb-2"
   >
     Answer
+  </p>
+  <p
+    class="overflow-auto"
+  >
+    test answer
+  </p>
+</div>
+`;
+
+exports[`Results rendered component should match snapshot (gd) 1`] = `
+<div>
+  <p
+    class="text-md text-nhs-blue"
+  >
+    Ceist
+  </p>
+  <p
+    class="italic"
+  >
+    test query
+     (?)
+  </p>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <p
+    class="text-nhs-blue mb-2"
+  >
+    Freagairt
+  </p>
+  <p
+    class="overflow-auto"
+  >
+    test answer
+  </p>
+</div>
+`;
+
+exports[`Results renders correctly with unrelated answer (cy) 1`] = `
+<div>
+  <p
+    class="text-md text-nhs-blue"
+  >
+    Cwestiwn
+  </p>
+  <p
+    class="italic"
+  >
+    test query
+     (?)
+  </p>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <p>
+    mae'n ymddangos nad yw eich ymholiad yn atebadwy.
+  </p>
+  <div
+    class="nhsuk-details__text mb-6"
+  >
+    <p>
+      Gallai hyn fod am nifer o resymau:
+    </p>
+    <ul>
+      <li>
+        nid yw eich ymholiad yn ymwneud â iechyd
+      </li>
+      <li>
+        roedd eich ymholiad yn cynnwys iaith anaddas
+      </li>
+      <li>
+        nid oedd digon o fanylion yn eich ymholiad
+      </li>
+    </ul>
+  </div>
+  <button
+    aria-disabled="false"
+    class="nhsuk-button"
+    type="submit"
+  >
+    Gofyn cwestiwn newydd
+  </button>
+</div>
+`;
+
+exports[`Results renders correctly with unrelated answer (en) 1`] = `
+<div>
+  <p
+    class="text-md text-nhs-blue"
+  >
+    Question
+  </p>
+  <p
+    class="italic"
+  >
+    test query
+     (?)
+  </p>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <p>
+    it looks like your query may not be answerable.
+  </p>
+  <div
+    class="nhsuk-details__text mb-6"
+  >
+    <p>
+      This could be for several reasons:
+    </p>
+    <ul>
+      <li>
+        your query is not health related
+      </li>
+      <li>
+        your query contained inappropriate language
+      </li>
+      <li>
+        your query did not give enough detail
+      </li>
+    </ul>
+  </div>
+  <button
+    aria-disabled="false"
+    class="nhsuk-button"
+    type="submit"
+  >
+    Ask new question
+  </button>
+</div>
+`;
+
+exports[`Results renders correctly with unrelated answer (gd) 1`] = `
+<div>
+  <p
+    class="text-md text-nhs-blue"
+  >
+    Ceist
+  </p>
+  <p
+    class="italic"
+  >
+    test query
+     (?)
+  </p>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <p>
+    tha coltas gum b'urrainn nach biodh freagairt agad air do chuirimh.
+  </p>
+  <div
+    class="nhsuk-details__text mb-6"
+  >
+    <p>
+      Dh'fhaodadh seo a bhith airson grunn fiosrachaidhean:
+    </p>
+    <ul>
+      <li>
+        chan eil do chuirimh a' buntainn ri slàinte
+      </li>
+      <li>
+        tha cànan sgrìobhte nach bu chòir ann do chuirimh
+      </li>
+      <li>
+        cha tugadh tu digriannan gu leòr le do chuirimh
+      </li>
+    </ul>
+  </div>
+  <button
+    aria-disabled="false"
+    class="nhsuk-button"
+    type="submit"
+  >
+    Cur ceist ùr
+  </button>
+</div>
+`;
+
+exports[`Results renders correctly with valid answer (cy) 1`] = `
+<div>
+  <p
+    class="text-md text-nhs-blue"
+  >
+    Cwestiwn
+  </p>
+  <p
+    class="italic"
+  >
+    test query
+     (?)
+  </p>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <p
+    class="text-nhs-blue mb-2"
+  >
+    Ateb
+  </p>
+  <p
+    class="overflow-auto"
+  >
+    test answer
+  </p>
+</div>
+`;
+
+exports[`Results renders correctly with valid answer (en) 1`] = `
+<div>
+  <p
+    class="text-md text-nhs-blue"
+  >
+    Question
+  </p>
+  <p
+    class="italic"
+  >
+    test query
+     (?)
+  </p>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <p
+    class="text-nhs-blue mb-2"
+  >
+    Answer
+  </p>
+  <p
+    class="overflow-auto"
+  >
+    test answer
+  </p>
+</div>
+`;
+
+exports[`Results renders correctly with valid answer (gd) 1`] = `
+<div>
+  <p
+    class="text-md text-nhs-blue"
+  >
+    Ceist
+  </p>
+  <p
+    class="italic"
+  >
+    test query
+     (?)
+  </p>
+  <hr
+    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
+  />
+  <p
+    class="text-nhs-blue mb-2"
+  >
+    Freagairt
   </p>
   <p
     class="overflow-auto"

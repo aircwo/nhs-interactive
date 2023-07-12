@@ -1,4 +1,4 @@
-import { SERVICE_URL } from '@/app/lib/utils/constants';
+import { SERVICE_URL } from '@/app/utils/constants';
 import { test, expect } from '@playwright/test';
 
 test.describe('Landing page end-to-end tests', () => {

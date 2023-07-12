@@ -1,4 +1,4 @@
-import { LOCAL_DB_URL } from "@/app/lib/utils/constants";
+import { LOCAL_DB_URL } from "@/app/utils/constants";
 import PocketBase from "pocketbase";
 
 /**

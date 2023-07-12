@@ -134,22 +134,21 @@ export const fetchSources = async (query: string) => {
  * `onAnswerUpdate` callback function. Finally, it sets the `done` state to `true` using the `onDone` callback function and
  * sets the `loading` state to `false` using the `setLoading` callback function. If an error occurs, it updates the answer
  * with the `UNRELATED_ANSWER` constant.
- * 
  * @async
  * @function
  * @name handleStream
  * @kind variable
  * @param {string} query
  * @param {Source[]} sources
- * @param {string} apiKey
  * @param {(answer: string) => void} onAnswerUpdate
  * @param {(searchQuery: SearchQuery) => void} onSearch
  * @param {(done: boolean) => void} onDone
  * @param {(loading: boolean) => void} setLoading
+ * @param {string} lang
  * @returns {Promise<void>}
  * @exports
  */
-export const handleStream = async (query: string, sources: Source[], onAnswerUpdate: (answer: string) => void, onSearch: (searchQuery: SearchQuery) => void, onDone: (done: boolean) => void, setLoading: (loading: boolean) => void) => {
+export const handleStream = async (query: string, sources: Source[], onAnswerUpdate: (answer: string) => void, onSearch: (searchQuery: SearchQuery) => void, onDone: (done: boolean) => void, setLoading: (loading: boolean) => void, lang: string): Promise<void> => {
   if (sources.length <= 0) {
     setLoading(false);
     onAnswerUpdate(UNRELATED_ANSWER);
@@ -157,7 +156,7 @@ export const handleStream = async (query: string, sources: Source[], onAnswerUpd
     return;
   }
   try {
-    const prompt = endent`Provide a 1 to 3 sentence answer (with the last sentence ending with a full stop) to the query based on the following sources. Be original, concise, accurate, and helpful. Cite sources as [1] or [2] or [3] after each sentence (not just the very end) to back up your answer (Ex: Correct: [1], Correct: [2][3], Incorrect: [1, 2]).
+    const prompt = endent`In ${lang}, provide a short answer to the query based on the following sources. The answer must end on a full stop and be concise, accurate, and helpful. Cite sources as [1] or [2] or [3] after each sentence (not just the very end) to back up your answer (Ex: Correct: [1], Correct: [2][3], Incorrect: [1, 2]).
     ${sources
       .map((source, idx) => `Source [${idx + 1}]:\n${source.text}`)
       .join("\n\n")}

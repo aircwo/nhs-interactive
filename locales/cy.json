@@ -1,0 +1,44 @@
+{
+  "landing": {
+    "nhs": "GIG",
+    "title": "Rhyngweithiol",
+    "warning": {
+      "title": "Rhybudd",
+      "content": "Mae hwn yn wasanaeth ffug a wnaed i edrych fel gwefan GIG at ddibenion addysgol yn unig. Gall y wybodaeth a roddir hefyd wahaniaethu oddi wrth y gwir. Peidiwch â defnyddio hyn ar gyfer cyngor meddygol go iawn neu fel ffynhonnell o wirionedd."
+    }
+  },
+  "search": {
+    "lang": "welsh",
+    "query": "Rhowch gwestiwn sy'n ymwneud â iechyd",
+    "hint": "e.e. Beth yw HRT PPC?",
+    "error": "rhaid darparu term chwilio",
+    "loading": "Ystyried...",
+    "placeholder": "teipiwch rhywbeth yma",
+    "button": {
+      "submit": "Cyflwyno"
+    }
+  },
+  "header": {
+    "title": "Rhyngweithiol",
+    "button": {
+      "language": "Iaith"
+    }
+  },
+  "results": {
+    "error": {
+      "paragraphOne": "mae'n ymddangos nad yw eich ymholiad yn atebadwy.",
+      "paragraphTwo": "Gallai hyn fod am nifer o resymau:",
+      "list": {
+        "one": "nid yw eich ymholiad yn ymwneud â iechyd",
+        "two": "roedd eich ymholiad yn cynnwys iaith anaddas",
+        "three": "nid oedd digon o fanylion yn eich ymholiad"
+      }
+    },
+    "question": "Cwestiwn",
+    "answer": "Ateb",
+    "sources": "Ffynonellau Hyderus",
+    "button": {
+      "newQuery": "Gofyn cwestiwn newydd"
+    }
+  }
+}
