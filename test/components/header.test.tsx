@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { Header } from '../../app/[locale]/components/nhs/Header';
 import { load } from 'cheerio';
 import { NextIntlProvider } from 'next-intl';
-import { LOCALES } from '../constants';
+import { LOCALES } from '../../app/utils/constants';
 
 jest.mock('next-intl/link', () => 'Link'); // mock Link is needed here
 

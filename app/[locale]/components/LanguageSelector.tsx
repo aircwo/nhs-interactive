@@ -2,14 +2,13 @@ import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { IconWorld } from '@tabler/icons-react';
 import Link from "next-intl/link";
+import { LOCALES } from '../../utils/constants';
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function LanguageSelector({translate, locale}: {translate: any, locale: string}) {
-  const langs = ['en', 'cy', 'gd'];
-
   return (
     <Menu as='div' className='relative max-lg:absolute max-lg:right-4 float-right inline-block text-left'>
       <div>
@@ -34,7 +33,7 @@ export default function LanguageSelector({translate, locale}: {translate: any, l
       >
         <Menu.Items className='absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
           <div className='langs'>
-            {langs.map(lang => {
+            {LOCALES.map(lang => {
               if (lang !== locale) {
                 return (
                   <Menu.Item key={lang} data-testid="language-item">

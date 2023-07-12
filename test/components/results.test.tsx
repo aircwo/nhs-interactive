@@ -4,8 +4,7 @@ import { Results } from '../../app/[locale]/components/Results';
 import { ResultProps } from '@/app/utils/interfaces';
 import { load } from 'cheerio';
 import { NextIntlProvider } from 'next-intl';
-import { LOCALES } from '../constants';
-import { UNRELATED_ANSWER } from '../../app/utils/constants';
+import { UNRELATED_ANSWER, LOCALES } from '../../app/utils/constants';
 
 describe('Results', () => {
   let props: ResultProps;

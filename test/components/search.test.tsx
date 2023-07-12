@@ -2,7 +2,7 @@ import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Search } from '../../app/[locale]/components/Search';
 import { NextIntlProvider } from 'next-intl';
-import { LOCALES } from '../constants';
+import { LOCALES } from '../../app/utils/constants';
 
 describe('Search', () => {
   function toRender(messages: any, locale: string) { 
