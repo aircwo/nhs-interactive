@@ -1,77 +1,61 @@
 import { render, fireEvent, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Search } from '../../app/[locale]/components/Search';
-import { useTranslations } from 'next-intl';
-
-jest.mock('next-intl', () => ({
-  useTranslations: jest.fn().mockReturnValue(() => ({
-    search: {
-      lang: 'english',
-      query: 'Enter a health related query',
-      hint: 'e.g What is an HRT PPC?',
-      error: 'must provide a search term',
-      loading: 'Thinking...',
-      placeholder: 'type something here',
-      button: {
-        submit: 'Submit',
-      },
-    },
-  })),
-}));
+import { NextIntlProvider } from 'next-intl';
+import { LOCALES } from '../constants';
 
 describe('Search', () => {
-  test('renders correctly and matches snapshot', () => {
-    const { container } = render(
+  function toRender(messages: any, locale: string) { 
+    return (<NextIntlProvider messages={messages} locale={locale}>
       <Search
         onSearch={jest.fn()}
         onResultUpdate={jest.fn()}
         onDone={jest.fn()}
       />
-    );
-    expect(container).toMatchSnapshot();
-  });
+    </NextIntlProvider>)
+  };
 
-  test('displays error message when submit with empty query', async () => {
-    render(
-      <Search
-        onSearch={jest.fn()}
-        onResultUpdate={jest.fn()}
-        onDone={jest.fn()}
-      />
-    );
-    const submitButton = screen.getByRole('button', { name: /submit/i });
-    fireEvent.click(submitButton);
-    const errorMessage = await screen.findByText(/must provide a search term/i);
-    expect(errorMessage).toBeInTheDocument();
-  });
+  test.each(LOCALES)(
+    'rendered component should match snapshot (%s)',
+    (locale) => {
+      const messages = require(`../../locales/${locale}.json`);
+      const { container } = render(toRender(messages, locale));
+      expect(container).toMatchSnapshot();
+    }
+  );
 
-  test('displays loading spinner when searching', async () => {
-    const { container } = render(
-      <Search
-        onSearch={jest.fn()}
-        onResultUpdate={jest.fn()}
-        onDone={jest.fn()}
-      />
-    );
-    const submitButton = screen.getByRole('button', { name: /submit/i });
-    fireEvent.change(screen.getByRole('textbox'), {
-      target: { value: 'test query' },
-    });
-    fireEvent.click(submitButton);
-    const loadingSpinner = await screen.findByTestId('animated-progress');
-    expect(loadingSpinner).toBeInTheDocument();
-    expect(container.firstChild).toMatchSnapshot();
-  });
+  test.each(LOCALES)(
+    "displays error message when submit with empty query (%s)",
+    async (locale) => {
+      const messages = require(`../../locales/${locale}.json`);
+      render(toRender(messages, locale));
+      const submitButton = screen.getByRole("button", { name: messages.search.button.submit });
+      fireEvent.click(submitButton);
+      const errorMessage = await screen.findByText(messages.search.error);
+      expect(errorMessage).toBeInTheDocument();
+    }
+  );
 
-  test('displays input label text', () => {
-    render(
-      <Search
-        onSearch={jest.fn()}
-        onResultUpdate={jest.fn()}
-        onDone={jest.fn()}
-      />
-    );
-    const inputLabel = screen.getByLabelText(/enter a health related query/i);
+  test.each(LOCALES)(
+    "displays loading spinner when searching",
+    async (locale) => {
+      const messages = require(`../../locales/${locale}.json`);
+      const { container } = render(toRender(messages, locale));
+      const submitButton = screen.getByRole("button", { name: messages.search.button.submit });
+      fireEvent.change(screen.getByRole("textbox"), {
+        target: { value: "test query" },
+      });
+      fireEvent.click(submitButton);
+      const loadingSpinner = await screen.findByTestId("animated-progress");
+      expect(loadingSpinner).toBeInTheDocument();
+      expect(container.firstChild).toMatchSnapshot();
+    }
+  );
+
+  test.each(LOCALES)('displays input label text', (locale) => {
+    const messages = require(`../../locales/${locale}.json`);
+    render(toRender(messages, locale));
+    const inputLabel = screen.getByLabelText(messages.search.query);
     expect(inputLabel).toBeInTheDocument();
   });
 });

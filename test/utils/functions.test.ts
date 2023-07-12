@@ -1,9 +1,9 @@
-import { Source } from '@/types';
-import { cleanSourceText, handleStream, openAIStream } from '../../app/utils/functions';
-
+import { cleanSourceText, fetchSources, handleStream, openAIStream } from '../../app/utils/functions';
 import fetchMock from 'jest-fetch-mock';
 import { TextEncoder, TextDecoder } from 'util';
 import { UNRELATED_ANSWER } from '../../app/utils/constants';
+import { Source } from '@/types';
+import endent from "endent";
 
 describe('openAIStream', () => {
   // todo: more api call tests
@@ -14,7 +14,7 @@ describe('openAIStream', () => {
   });
 
   it('throws an error if the API returns a non-200 status', async () => {
-    fetchMock.mockResponseOnce(JSON.stringify({}), { status: 400 });
+    fetchMock.mockResponseOnce(JSON.stringify({}), { status: 401 });
   
     const model = 'test-model';
     const prompt = 'test-prompt';
@@ -22,6 +22,43 @@ describe('openAIStream', () => {
   
     await expect(openAIStream(model, prompt, apiKey)).rejects.toThrow('OpenAI API returned an error');
   });
+
+  // test('throws an error if the API returns a non-200 status', async () => {
+  //   global.TextEncoder = TextEncoder;
+  //   global.TextDecoder = TextDecoder;
+  //   global.fetch = jest.fn().mockResolvedValue({
+  //     ok: true,
+  //     status: 200,
+  //     body: async () => ({
+  //       stream: 'test-stream',
+  //     }),
+  //   });
+  
+  //   const model = OpenAIModel.DAVINCI_TURBO;
+  //   const prompt = 'test-prompt';
+  //   const apiKey = process.env.OPENAI_API_KEY;
+  
+  //   const result = await openAIStream(model, prompt, apiKey);
+  //   expect(result).toBeInstanceOf(ReadableStream);
+  //   expect(result).toHaveBeenCalledWith('https://api.openai.com/v1/chat/completions', {
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Authorization: `Bearer ${apiKey}`,
+  //     },
+  //     method: 'POST',
+  //     body: JSON.stringify({
+  //       model: model,
+  //       messages: [
+  //         { role: 'system', content: "You are a medical professional that accurately answers the user's queries based on the given text and you only get your information and facts from NHS websites." },
+  //         { role: 'user', content: prompt },
+  //       ],
+  //       max_tokens: 120,
+  //       temperature: 0.1,
+  //       stream: true,
+  //       stop: '\n',
+  //     }),
+  //   });
+  // });
 });
 
 describe('cleanSourceText', () => {
@@ -51,34 +88,158 @@ describe('cleanSourceText', () => {
 });
 
 describe("fetchSources", () => {
-  test.todo("Needs tests written for all functionality");
+  afterEach(() => {
+    expect(global.fetch).toHaveBeenCalledWith("/api/sources", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ query: "query" }),
+    });
+  });
+
+  test("returns a list of empty sources", async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        sources: [],
+      }),
+    });
+    const sources = await fetchSources("query");
+    expect(sources).toEqual([]);
+  });
+
+  test("throws an error if ok not truthy and should supply statusText", async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: false,
+      statusText: "error",
+    });
+    await expect(fetchSources('query')).rejects.toThrow('error');
+  });
+
+  test("should return a list of sources", async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        sources: ['www.google.com', 'www.nhs.nhs.uk', 'www.nhsbsa.nhs.uk'],
+      }),
+    });
+    const sources = await fetchSources("query");
+    expect(sources).toHaveLength(3);
+    expect(sources).toEqual([
+      "www.google.com",
+      "www.nhs.nhs.uk",
+      "www.nhsbsa.nhs.uk",
+    ]);
+  });
 });
 
 describe("handleStream", () => {
-  beforeEach(() => {
-    fetchMock.resetMocks();
-  });
-  it("returns an unrelated answer if an error is thrown", async () => {
-    const onAnswerUpdate = jest.fn();
-    const setLoading = jest.fn();
-    const onSearch = jest.fn();
-    const onDone = jest.fn();
+  const onAnswerUpdate = jest.fn();
+  const setLoading = jest.fn();
+  const onSearch = jest.fn();
+  const onDone = jest.fn();
+  const lang = "en";
+
+  test("returns an unrelated answer if empty source list is given", async () => {
     const sources: Source[] = [];
 
-    fetchMock.mockRejectedValue(new Error("Failed to fetch"));
-
-    await handleStream(
+    await expect(handleStream(
       "query",
       sources,
       onAnswerUpdate,
       onSearch,
       onDone,
-      setLoading
-    );
+      setLoading,
+      lang
+    ));
 
     expect(onAnswerUpdate).toHaveBeenCalledWith(UNRELATED_ANSWER);
     expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [] });
     expect(setLoading).toHaveBeenNthCalledWith(1, false);
+    expect(global.fetch).not.toHaveBeenCalledWith("/api/answer");
   });
-  test.todo("Needs tests written for success");
+
+  test("should throw error upon api call failure", async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: false,
+      statusText: "error",
+    });
+    const sources: Source[] = [{ url: "www.google.com", text: "text" }, { url: "www.nhs.nhs.uk", text: "text" }];
+
+    await expect(handleStream(
+      "query",
+      sources,
+      onAnswerUpdate,
+      onSearch,
+      onDone,
+      setLoading,
+      lang
+    ));
+
+    expect(onAnswerUpdate).toHaveBeenCalledWith(UNRELATED_ANSWER);
+    expect(onSearch).toHaveBeenCalledWith({ query: "error", sourceLinks: [] });
+    expect(setLoading).toHaveBeenNthCalledWith(1, false);
+    expect(global.fetch).not.toHaveBeenCalledWith("/api/answer");
+  });
+
+  test("returns an unrelated answer if error is given", async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      statusText: "error",
+    });
+    const sources: Source[] = [{ url: "www.google.com", text: "text" }, { url: "www.nhs.nhs.uk", text: "text" }];
+
+    await expect(handleStream(
+      "query",
+      sources,
+      onAnswerUpdate,
+      onSearch,
+      onDone,
+      setLoading,
+      lang
+    ));
+
+    expect(onAnswerUpdate).toHaveBeenCalledWith(UNRELATED_ANSWER);
+    expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [] });
+    expect(setLoading).toHaveBeenNthCalledWith(1, false);
+    expect(global.fetch).not.toHaveBeenCalledWith("/api/answer");
+  });
+
+  test("returns a valid answer", async () => {
+    global.fetch = jest.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        sources: ['www.google.com', 'www.nhs.nhs.uk', 'www.nhsbsa.nhs.uk'],
+      }),
+    });
+    const sources: Source[] = [{ url: "www.google.com", text: "text" }, { url: "www.nhs.nhs.uk", text: "text" }];
+
+    await expect(handleStream(
+      "query",
+      sources,
+      onAnswerUpdate,
+      onSearch,
+      onDone,
+      setLoading,
+      lang
+    ));
+
+    expect(onAnswerUpdate).toHaveBeenCalledWith(UNRELATED_ANSWER);
+    expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [] });
+    expect(setLoading).toHaveBeenNthCalledWith(1, false);
+    expect(onDone).toHaveBeenNthCalledWith(1, true);
+    const prompt = endent`In ${lang}, provide a short answer to the query based on the following sources. The answer must end on a full stop and be concise, accurate, and helpful. Cite sources as [1] or [2] or [3] after each sentence (not just the very end) to back up your answer (Ex: Correct: [1], Correct: [2][3], Incorrect: [1, 2]).
+    ${sources
+      .map((source, idx) => `Source [${idx + 1}]:\n${source.text}`)
+      .join("\n\n")}
+    `;
+    expect(global.fetch).toHaveBeenCalledWith("/api/answer", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ prompt: prompt }),
+    });
+  });
 });
