@@ -8,6 +8,7 @@
     }
   },
   "search": {
+    "lang": "welsh",
     "query": "Rhowch gwestiwn sy'n ymwneud â iechyd",
     "hint": "e.e. Beth yw HRT PPC?",
     "error": "rhaid darparu term chwilio",

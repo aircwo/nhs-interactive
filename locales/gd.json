@@ -8,6 +8,7 @@
     }
   },
   "search": {
+    "lang": "gaelic",
     "query": "Cuir fiosrachadh a bhaineas ri slàinte",
     "hint": "e.g. Dè tha PPC HRT?",
     "error": "feumaidh tu freagairt a thoirt airson fiosrachadh",

@@ -8,6 +8,7 @@
     }
   },
   "search": {
+    "lang": "english",
     "query": "Enter a health related query",
     "hint": "e.g What is an HRT PPC?",
     "error": "must provide a search term",
