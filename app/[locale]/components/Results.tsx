@@ -34,7 +34,7 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
         </>
       }
       
-      {done && (
+      {(done && answer !== UNRELATED_ANSWER) && (
         <>
           <hr className='nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible' />
           <p className='text-nhs-blue'>{translate('sources')}</p>
