@@ -94,32 +94,53 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
  * @kind function
  * @param {string} query
  * @returns {Promise<Source[]>}
- */
+*/
 async function fetchNhsSearchResults(query: string) {
   const nhsSearchUrl = `https://www.nhs.uk/search/results?q=${query}`;
   const response = await fetch(nhsSearchUrl);
   const html = await response.text();
   const dom = new JSDOM(html);
   const doc = dom.window.document;
-  const results = doc.querySelectorAll('ul.nhsuk-list li');
+  const results = Array.from(doc.querySelectorAll('ul.nhsuk-list li'));
 
   // 3 is the default number of li elements on the page without results.
-  if (results.length <= 3) return [];
-
   const sources: Source[] = [];
-  const firstResult = results[0];
-  const link = firstResult.querySelector('a');
-  const linkHref = link?.getAttribute('href');
-  // couild find based on matching words in query as a possibility
-  if (linkHref) {
-    const firstResultUrl = `https://www.nhs.uk/${linkHref}`;
-    const response = await fetch(firstResultUrl);
-    const linkedHtml = await response.text();
-    const linkedDom = new JSDOM(linkedHtml);
-    const linkedDoc = linkedDom.window.document;
-    const linkedText = linkedDoc.body.textContent?.trim() || '';
-    sources.push({ url: firstResultUrl, text: linkedText });
+  if (results.length <= 3) return sources;
+  
+  let matchingWordsCount = 0;
+  const fetchPromises: Promise<void>[] = [];
+
+  for (const result of results) {
+    const link = result.querySelector('a');
+    const linkHref = link?.getAttribute('href');
+    // couild find based on matching words in query as a possibility
+    if (link && linkHref) {
+      const linkTitle = link.textContent?.trim() || '';
+      const searchWords = query.split(' ');
+      const matchingWords = searchWords.filter(word => linkTitle.includes(word));
+
+      if (matchingWords.length > 0) {
+        const resultUrl = `https://www.nhs.uk/${linkHref}`;
+        const fetchPromise = fetch(resultUrl)
+          .then(response => response.text())
+          .then(linkedHtml => {
+            const linkedDom = new JSDOM(linkedHtml);
+            const linkedDoc = linkedDom.window.document;
+            const linkedText = linkedDoc.body.textContent?.trim() || '';
+
+            if (matchingWords.length > matchingWordsCount) {
+              matchingWordsCount = matchingWords.length;
+              sources.splice(0, sources.length, { url: resultUrl, text: linkedText });
+            } else if (matchingWords.length === matchingWordsCount) {
+              sources.push({ url: resultUrl, text: linkedText });
+            }
+          });
+        
+        fetchPromises.push(fetchPromise);
+      }
+    }
   }
 
+  await Promise.all(fetchPromises);
   return sources;
 }
