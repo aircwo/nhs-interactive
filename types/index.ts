@@ -1,6 +1,6 @@
 export type Source = {
   url: string;
-  text: string;
+  text?: string;
 };
 
 export type SearchQuery = {
