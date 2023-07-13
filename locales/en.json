@@ -26,7 +26,7 @@
   },
   "results": {
     "error": {
-      "paragraphOne": "it looks like your query may not be answerable.",
+      "paragraphOne": "It looks like your query may not be answerable.",
       "paragraphTwo": "This could be for several reasons:",
       "list": {
         "one": "your query is not health related",
