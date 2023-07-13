@@ -65,7 +65,9 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
     const filteredSources = sources.filter((source) => source !== undefined);
 
     for (const source of filteredSources) {
-      source.text = source.text.slice(0, 1000);
+      if (source.text) {
+        source.text = source.text.slice(0, 1000);
+      }
     }
 
     if (filteredSources.length <= 0) {
