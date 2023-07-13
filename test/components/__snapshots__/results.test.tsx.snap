@@ -151,7 +151,7 @@ exports[`Results renders correctly with unrelated answer (en) 1`] = `
     class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
   />
   <p>
-    it looks like your query may not be answerable.
+    It looks like your query may not be answerable.
   </p>
   <div
     class="nhsuk-details__text mb-6"

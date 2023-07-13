@@ -228,7 +228,7 @@ exports[`LanguageSelector component should render the component with the correct
           >
             <span
               aria-hidden="true"
-              class="mr-4 h-5 w-5 rounded-md fi fis fi-gb"
+              class="mr-4 h-5 w-5 rounded-md fi fis fi-gb-eng"
             />
             English
           </p>
@@ -440,7 +440,7 @@ exports[`LanguageSelector component should render the component with the correct
           >
             <span
               aria-hidden="true"
-              class="mr-4 h-5 w-5 rounded-md fi fis fi-gb"
+              class="mr-4 h-5 w-5 rounded-md fi fis fi-gb-eng"
             />
             English
           </p>
