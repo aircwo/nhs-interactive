@@ -165,7 +165,7 @@ export const handleStream = async (query: string, sources: Source[], onAnswerUpd
   `;
 
   const sourceLinks = sources.map((source) => source.url);
-  const sourceHeadings = sources.map((source) => source.heading);
+  const sourceHeadings = sources.map((source) => source.heading ?? '');
   if (sourceLinks[0] === USE_AI_RESPONSE_KEY) {
     sourceLinks[0] = `https://www.nhs.uk/search/results?q=${query}`;
     prompt = endent`In ${lang}, provide a short medical answer to the query that must end on a full stop and be concise, accurate, and informative. If you can't answer the query, respond with: '${UNRELATED_ANSWER}'. Query: ${query}`;
