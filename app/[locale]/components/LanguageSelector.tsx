@@ -48,7 +48,7 @@ export default function LanguageSelector({translate, locale}: {translate: any, l
                       >
                         <p className='mb-0 py-2'>
                           <span
-                            className={`mr-4 h-5 w-5 rounded-md fi fis fi-${lang === 'en' ? 'gb' : lang === 'cy' ? 'gb-wls' : 'gb-sct'}`}
+                            className={`mr-4 h-5 w-5 rounded-md fi fis fi-${lang === 'en' ? 'gb-eng' : lang === 'cy' ? 'gb-wls' : 'gb-sct'}`}
                             aria-hidden='true'
                           />
                           {lang === 'en' ? 'English' : lang === 'cy' ? 'Cymraeg' : 'Gaelic'}
