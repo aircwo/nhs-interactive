@@ -1,6 +1,6 @@
 import { SearchQuery, Source } from "@/types";
 import { createParser, ParsedEvent, ReconnectInterval } from "eventsource-parser";
-import { UNRELATED_ANSWER } from "./constants";
+import { UNRELATED_ANSWER, USE_AI_RESPONSE_KEY } from "./constants";
 import endent from "endent";
 
 /**
@@ -124,7 +124,10 @@ export const fetchSources = async (query: string) => {
     throw new Error(response.statusText);
   }
 
-  const { sources }: { sources: Source[] } = await response.json();
+  let { sources }: { sources: Source[] } = await response.json();
+  if (!sources || sources.length <= 0) {
+    sources = [{ url: USE_AI_RESPONSE_KEY }];
+  }
   return sources;
 };
 
@@ -155,13 +158,19 @@ export const handleStream = async (query: string, sources: Source[], onAnswerUpd
     onSearch({ query, sourceLinks: [] });
     return;
   }
-  try {
-    const prompt = endent`In ${lang}, provide a short answer to the query based on the following sources. The answer must end on a full stop and be concise, accurate, and helpful. Cite sources as [1] or [2] or [3] after each sentence (not just the very end) to back up your answer (Ex: Correct: [1], Correct: [2][3], Incorrect: [1, 2]).
-    ${sources
-      .map((source, idx) => `Source [${idx + 1}]:\n${source.text}`)
-      .join("\n\n")}
-    `;
+  let prompt = endent`In ${lang}, provide a short answer to the query based on the following sources. The answer must end on a full stop and be concise, accurate, and helpful. Cite sources as [1] or [2] or [3] after each sentence (not just the very end) to back up your answer (Ex: Correct: [1], Correct: [2][3], Incorrect: [1, 2]).
+  ${sources
+    .map((source, idx) => `Source [${idx + 1}]:\n${source.text}`)
+    .join("\n\n")}
+  `;
 
+  const sourceLinks = sources.map((source) => source.url);
+  if (sourceLinks[0] === USE_AI_RESPONSE_KEY) {
+    sourceLinks[0] = `https://www.nhs.uk/search/results?q=${query}`;
+    prompt = endent`In ${lang}, provide a short medical answer to the query that must end on a full stop and be concise, accurate, and informative. If you can't answer the query, respond with: '${UNRELATED_ANSWER}'. Query: ${query}`;
+  }
+
+  try {
     const response = await fetch("/api/answer", {
       method: "POST",
       headers: {
@@ -175,7 +184,7 @@ export const handleStream = async (query: string, sources: Source[], onAnswerUpd
     }
 
     // call this here to ensure query is shown before answer
-    onSearch({ query, sourceLinks: sources.map((source) => source.url) });
+    onSearch({ query, sourceLinks: sourceLinks });
 
     const reader = response.body?.getReader();
     const decoder = new TextDecoder();
