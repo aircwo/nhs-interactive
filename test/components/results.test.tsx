@@ -106,4 +106,68 @@ describe('Results', () => {
       );
     }
   );
+  global.fetch = jest.fn().mockResolvedValue({
+    ok: true,
+    json: async () => ({
+      answer: UNRELATED_ANSWER,
+      done: true,
+    }),
+  });
+  test.each(LOCALES)(
+    'renders correctly with unrelated answer when source is also present (%s)',
+    async (locale) => {
+      props.searchQuery.sourceLinks = ['https://www.link1'];
+      props.answer = UNRELATED_ANSWER;
+      const messages = require(`../../locales/${locale}.json`);
+      const { container } = render(toRender(messages, locale));
+      expect(container).toMatchSnapshot();
+
+      const html = container.innerHTML;
+      const $ = load(html);
+
+      const unAnswerableDetails = $('.nhsuk-details__text');
+      expect(unAnswerableDetails.length).toBe(1);
+      expect(unAnswerableDetails.text()).toStrictEqual(
+        messages.results.error.paragraphTwo + 
+        messages.results.error.list.one + 
+        messages.results.error.list.two + 
+        messages.results.error.list.three
+      );
+    }
+  );
+  global.fetch = jest.fn().mockResolvedValue({
+    ok: true,
+    json: async () => ({
+      answer: "test answer",
+      done: true,
+    }),
+  });
+  test.each(LOCALES)(
+    'renders correctly with unrelated answer when source is also present (%s)',
+    async (locale) => {
+      props.searchQuery.sourceLinks = ['https://www.link1'];
+      const messages = require(`../../locales/${locale}.json`);
+      const { container } = render(toRender(messages, locale));
+      expect(container).toMatchSnapshot();
+
+      const html = container.innerHTML;
+      const $ = load(html);
+
+      const unAnswerableDetails = $('.nhsuk-details__text');
+      expect(unAnswerableDetails.length).toBe(0);
+      expect(unAnswerableDetails.text()).not.toStrictEqual(
+        messages.results.error.paragraphTwo + 
+        messages.results.error.list.one + 
+        messages.results.error.list.two + 
+        messages.results.error.list.three
+      );
+      const paragraphs = $('p');
+      expect(paragraphs.length).toBe(4);
+      expect(paragraphs.text()).toStrictEqual(
+        messages.results.question + 
+        props.searchQuery.query + ' (?)' +
+        messages.results.answer + props.answer
+      );
+    }
+  );
 });
