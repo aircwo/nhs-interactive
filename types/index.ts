@@ -1,11 +1,13 @@
 export type Source = {
   url: string;
-  text?: string;
+  text: string;
+  heading?: string;
 };
 
 export type SearchQuery = {
   query: string;
   sourceLinks: string[];
+  sourceHeadings: string[];
 };
 
 export type SourceData = {

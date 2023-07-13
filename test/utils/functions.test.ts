@@ -106,7 +106,7 @@ describe("fetchSources", () => {
       }),
     });
     const sources = await fetchSources("query");
-    expect(sources).toEqual([{ "url": USE_AI_RESPONSE_KEY }]);
+    expect(sources).toEqual([{ "url": USE_AI_RESPONSE_KEY, "text": '' }]);
   });
 
   test("throws an error if ok not truthy and should supply statusText", async () => {
@@ -155,7 +155,7 @@ describe("handleStream", () => {
     ));
 
     expect(onAnswerUpdate).toHaveBeenCalledWith(UNRELATED_ANSWER);
-    expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [] });
+    expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [], sourceHeadings: [] });
     expect(setLoading).toHaveBeenNthCalledWith(1, false);
     expect(global.fetch).not.toHaveBeenCalledWith("/api/answer");
   });
@@ -178,7 +178,7 @@ describe("handleStream", () => {
     ));
 
     expect(onAnswerUpdate).toHaveBeenCalledWith(UNRELATED_ANSWER);
-    expect(onSearch).toHaveBeenCalledWith({ query: "error", sourceLinks: [] });
+    expect(onSearch).toHaveBeenCalledWith({ query: "error", sourceLinks: [], sourceHeadings: [] });
     expect(setLoading).toHaveBeenNthCalledWith(1, false);
     expect(global.fetch).not.toHaveBeenCalledWith("/api/answer");
   });
@@ -201,7 +201,7 @@ describe("handleStream", () => {
     ));
 
     expect(onAnswerUpdate).toHaveBeenCalledWith(UNRELATED_ANSWER);
-    expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [] });
+    expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [], sourceHeadings: [] });
     expect(setLoading).toHaveBeenNthCalledWith(1, false);
     expect(global.fetch).not.toHaveBeenCalledWith("/api/answer");
   });
@@ -213,7 +213,7 @@ describe("handleStream", () => {
         sources: ['www.google.com', 'www.nhs.nhs.uk', 'www.nhsbsa.nhs.uk'],
       }),
     });
-    const sources: Source[] = [{ url: "www.google.com", text: "text" }, { url: "www.nhs.nhs.uk", text: "text" }];
+    const sources: Source[] = [{ url: "www.google.com", text: "text", heading: "text" }, { url: "www.nhs.nhs.uk", text: "text", heading: "text" }];
 
     await expect(handleStream(
       "query",
@@ -226,7 +226,7 @@ describe("handleStream", () => {
     ));
 
     expect(onAnswerUpdate).toHaveBeenCalledWith(UNRELATED_ANSWER);
-    expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [] });
+    expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [], sourceHeadings: [] });
     expect(setLoading).toHaveBeenNthCalledWith(1, false);
     expect(onDone).toHaveBeenNthCalledWith(1, true);
     const prompt = endent`In ${lang}, provide a short answer to the query based on the following sources. The answer must end on a full stop and be concise, accurate, and helpful. Cite sources as [1] or [2] or [3] after each sentence (not just the very end) to back up your answer (Ex: Correct: [1], Correct: [2][3], Incorrect: [1, 2]).

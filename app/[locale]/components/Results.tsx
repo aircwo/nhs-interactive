@@ -1,4 +1,4 @@
-import { Button } from "nhsuk-react-components";
+import { Button, Card } from "nhsuk-react-components";
 import { FC } from "react";
 import { makeSourcesLinks } from "./defaults";
 import { UNRELATED_ANSWER } from "../../utils/constants";
@@ -13,7 +13,7 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
   useApiLog(logData, done);
   return (
     <>
-      <p className='text-md text-nhs-blue'>{translate('question')}</p>
+      <p className='text-md text-nhs-blue mb-2'>{translate('question')}</p>
       <p className='italic'>{searchQuery.query} (?)</p>
       <hr className='nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible' />
       { answer === UNRELATED_ANSWER ? <>
@@ -37,9 +37,9 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
       {(done && answer !== UNRELATED_ANSWER) && (
         <>
           <hr className='nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible' />
-          <p className='text-nhs-blue'>{translate('sources')}</p>
+          <p className='text-nhs-blue mb-2'>{translate('sources')}</p>
           {searchQuery.sourceLinks.map((source, index) => (
-            <div key={index} className='mt-1 overflow-auto'>
+            <div key={index} className='my-2 overflow-auto max-sm:flex'>
               {`[${index + 1}] `}
               <a
                 className='hover:cursor-pointer hover:underline'
@@ -47,7 +47,12 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
                 rel='noopener noreferrer'
                 href={source}
               >
-                {source.split("//")[1].split("/")[0].replace("www.", "")}
+                <span className="max-sm:flex-1 ml-2">
+                  <span className="mr-2">{searchQuery.sourceHeadings[index] ?? 'NHS Search'}</span>
+                  <span className="ml-2 max-sm:float-none sm:float-right inline-flex items-center rounded-md bg-sky-50 max-sm:px-1.5 px-2 py-1 max-sm:text-xs text-xs max-sm:font-semibold font-bold text-sky-600 ring-1 ring-inset ring-sky-600/90 hover:bg-sky-100">
+                    Verified source: {source.split("//")[1].split("/")[0].replace("www.", "")}
+                  </span>
+                </span>
               </a>
             </div>
           ))}

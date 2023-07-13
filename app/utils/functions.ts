@@ -126,7 +126,7 @@ export const fetchSources = async (query: string) => {
 
   let { sources }: { sources: Source[] } = await response.json();
   if (!sources || sources.length <= 0) {
-    sources = [{ url: USE_AI_RESPONSE_KEY }];
+    sources = [{ url: USE_AI_RESPONSE_KEY, text: '' }];
   }
   return sources;
 };
@@ -155,7 +155,7 @@ export const handleStream = async (query: string, sources: Source[], onAnswerUpd
   if (sources.length <= 0) {
     setLoading(false);
     onAnswerUpdate(UNRELATED_ANSWER);
-    onSearch({ query, sourceLinks: [] });
+    onSearch({ query, sourceLinks: [], sourceHeadings: [] });
     return;
   }
   let prompt = endent`In ${lang}, provide a short answer to the query based on the following sources. The answer must end on a full stop and be concise, accurate, and helpful. Cite sources as [1] or [2] or [3] after each sentence (not just the very end) to back up your answer (Ex: Correct: [1], Correct: [2][3], Incorrect: [1, 2]).
@@ -165,6 +165,7 @@ export const handleStream = async (query: string, sources: Source[], onAnswerUpd
   `;
 
   const sourceLinks = sources.map((source) => source.url);
+  const sourceHeadings = sources.map((source) => source.heading);
   if (sourceLinks[0] === USE_AI_RESPONSE_KEY) {
     sourceLinks[0] = `https://www.nhs.uk/search/results?q=${query}`;
     prompt = endent`In ${lang}, provide a short medical answer to the query that must end on a full stop and be concise, accurate, and informative. If you can't answer the query, respond with: '${UNRELATED_ANSWER}'. Query: ${query}`;
@@ -184,7 +185,7 @@ export const handleStream = async (query: string, sources: Source[], onAnswerUpd
     }
 
     // call this here to ensure query is shown before answer
-    onSearch({ query, sourceLinks: sourceLinks });
+    onSearch({ query, sourceLinks: sourceLinks, sourceHeadings: sourceHeadings });
 
     const reader = response.body?.getReader();
     const decoder = new TextDecoder();
@@ -201,7 +202,7 @@ export const handleStream = async (query: string, sources: Source[], onAnswerUpd
     onDone(true);
   } catch (error: any) {
     onAnswerUpdate(UNRELATED_ANSWER);
-    onSearch({ query: error.message ?? 'Error', sourceLinks: [] });
+    onSearch({ query: error.message ?? 'Error', sourceLinks: [], sourceHeadings: [] });
   } finally {
     setLoading(false);
   }

@@ -20,6 +20,7 @@ export async function POST(req: Request): Promise<Response> {
     searchQuery: {
       query: string;
       sourceLinks: string[];
+      sourceHeadings?: string[]; // todo: add headings to db
     };
     answer: string;
   };

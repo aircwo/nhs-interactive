@@ -13,6 +13,7 @@ export default function Page() {
   const [searchQuery, setSearchQuery] = useState<SearchQuery>({
     query: "",
     sourceLinks: [],
+    sourceHeadings: [],
   });
   const [results, setResults] = useState<string>("");
   const [done, setDone] = useState<boolean>(false);
@@ -37,7 +38,7 @@ export default function Page() {
             done={done}
             onReset={() => {
               setResults("");
-              setSearchQuery({ query: "", sourceLinks: [] });
+              setSearchQuery({ query: "", sourceLinks: [], sourceHeadings: [] });
               setDone(false);
             }}
           />
