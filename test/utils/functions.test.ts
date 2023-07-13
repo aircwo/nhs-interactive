@@ -1,7 +1,7 @@
 import { cleanSourceText, fetchSources, handleStream, openAIStream } from '../../app/utils/functions';
 import fetchMock from 'jest-fetch-mock';
 import { TextEncoder, TextDecoder } from 'util';
-import { UNRELATED_ANSWER } from '../../app/utils/constants';
+import { UNRELATED_ANSWER, USE_AI_RESPONSE_KEY } from '../../app/utils/constants';
 import { Source } from '@/types';
 import endent from "endent";
 
@@ -106,7 +106,7 @@ describe("fetchSources", () => {
       }),
     });
     const sources = await fetchSources("query");
-    expect(sources).toEqual([]);
+    expect(sources).toEqual([{ "url": USE_AI_RESPONSE_KEY }]);
   });
 
   test("throws an error if ok not truthy and should supply statusText", async () => {
