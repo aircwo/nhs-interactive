@@ -3,7 +3,7 @@
 exports[`Results rendered component should match snapshot (cy) 1`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Cwestiwn
   </p>
@@ -32,7 +32,7 @@ exports[`Results rendered component should match snapshot (cy) 1`] = `
 exports[`Results rendered component should match snapshot (en) 1`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Question
   </p>
@@ -61,7 +61,7 @@ exports[`Results rendered component should match snapshot (en) 1`] = `
 exports[`Results rendered component should match snapshot (gd) 1`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Ceist
   </p>
@@ -90,7 +90,7 @@ exports[`Results rendered component should match snapshot (gd) 1`] = `
 exports[`Results renders correctly with unrelated answer (cy) 1`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Cwestiwn
   </p>
@@ -137,7 +137,7 @@ exports[`Results renders correctly with unrelated answer (cy) 1`] = `
 exports[`Results renders correctly with unrelated answer (en) 1`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Question
   </p>
@@ -184,7 +184,7 @@ exports[`Results renders correctly with unrelated answer (en) 1`] = `
 exports[`Results renders correctly with unrelated answer (gd) 1`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Ceist
   </p>
@@ -231,7 +231,7 @@ exports[`Results renders correctly with unrelated answer (gd) 1`] = `
 exports[`Results renders correctly with unrelated answer when source is also present (cy) 1`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Cwestiwn
   </p>
@@ -278,7 +278,7 @@ exports[`Results renders correctly with unrelated answer when source is also pre
 exports[`Results renders correctly with unrelated answer when source is also present (cy) 2`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Cwestiwn
   </p>
@@ -307,7 +307,7 @@ exports[`Results renders correctly with unrelated answer when source is also pre
 exports[`Results renders correctly with unrelated answer when source is also present (en) 1`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Question
   </p>
@@ -354,7 +354,7 @@ exports[`Results renders correctly with unrelated answer when source is also pre
 exports[`Results renders correctly with unrelated answer when source is also present (en) 2`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Question
   </p>
@@ -383,7 +383,7 @@ exports[`Results renders correctly with unrelated answer when source is also pre
 exports[`Results renders correctly with unrelated answer when source is also present (gd) 1`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Ceist
   </p>
@@ -430,7 +430,7 @@ exports[`Results renders correctly with unrelated answer when source is also pre
 exports[`Results renders correctly with unrelated answer when source is also present (gd) 2`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Ceist
   </p>
@@ -459,7 +459,7 @@ exports[`Results renders correctly with unrelated answer when source is also pre
 exports[`Results renders correctly with valid answer (cy) 1`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Cwestiwn
   </p>
@@ -488,7 +488,7 @@ exports[`Results renders correctly with valid answer (cy) 1`] = `
 exports[`Results renders correctly with valid answer (en) 1`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Question
   </p>
@@ -517,7 +517,7 @@ exports[`Results renders correctly with valid answer (en) 1`] = `
 exports[`Results renders correctly with valid answer (gd) 1`] = `
 <div>
   <p
-    class="text-md text-nhs-blue"
+    class="text-md text-nhs-blue mb-2"
   >
     Ceist
   </p>

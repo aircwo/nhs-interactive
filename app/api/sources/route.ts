@@ -57,7 +57,7 @@ export async function POST(req: Request): Promise<NextResponse<SourceData>> {
 
         if (parsed) {
           let sourceText = cleanSourceText(parsed.textContent);          
-          return { url: link, text: sourceText };
+          return { url: link, text: sourceText, heading: parsed.title };
         }
       })
     )) as Source[];
@@ -105,23 +105,23 @@ async function fetchNhsSearchResults(query: string) {
   const doc = dom.window.document;
   const results = Array.from(doc.querySelectorAll('ul.nhsuk-list li'));
 
-  // 3 is the default number of li elements on the page without results.
   const sources: Source[] = [];
-  if (results.length <= 3) return sources;
   
-  let matchingWordsCount = 0;
+  const searchWords = (query).toLowerCase().split(' ');
+  const totalWordsCount = searchWords.length;
   const fetchPromises: Promise<void>[] = [];
 
   for (const result of results) {
     const link = result.querySelector('a');
     const linkHref = link?.getAttribute('href');
-    // couild find based on matching words in query as a possibility
     if (link && linkHref) {
       const linkTitle = link.textContent?.trim() || '';
-      const searchWords = query.split(' ');
-      const matchingWords = searchWords.filter(word => linkTitle.includes(word));
+      const cleanLinkTitle = linkTitle.toLowerCase();
+      const matchingWords = searchWords.filter(word => cleanLinkTitle.includes(word));
+      const matchingWordsCount = matchingWords.length;
+      const matchingWordsPercentage = matchingWordsCount / totalWordsCount;
 
-      if (matchingWords.length > 0) {
+      if (matchingWordsPercentage >= 0.60) {
         const resultUrl = `https://www.nhs.uk/${linkHref}`;
         const fetchPromise = fetch(resultUrl)
           .then(response => response.text())
@@ -130,12 +130,7 @@ async function fetchNhsSearchResults(query: string) {
             const linkedDoc = linkedDom.window.document;
             const linkedText = linkedDoc.body.textContent?.trim() || '';
 
-            if (matchingWords.length > matchingWordsCount) {
-              matchingWordsCount = matchingWords.length;
-              sources.splice(0, sources.length, { url: resultUrl, text: linkedText });
-            } else if (matchingWords.length === matchingWordsCount) {
-              sources.push({ url: resultUrl, text: linkedText });
-            }
+            sources.push({ url: resultUrl, text: linkedText, heading: linkTitle });
           });
         
         fetchPromises.push(fetchPromise);
@@ -144,5 +139,25 @@ async function fetchNhsSearchResults(query: string) {
   }
 
   await Promise.all(fetchPromises);
+
+  sources.sort((a, b) => {
+    const matchingWordsA = searchWords.filter(word => a.text.includes(word));
+    const matchingWordsB = searchWords.filter(word => b.text.includes(word));
+    const matchingWordsCountA = matchingWordsA.length;
+    const matchingWordsCountB = matchingWordsB.length;
+    const matchingWordsPercentageA = matchingWordsCountA / totalWordsCount;
+    const matchingWordsPercentageB = matchingWordsCountB / totalWordsCount;
+
+    if (matchingWordsPercentageA === 1) return -1; // Exact match A comes first
+    if (matchingWordsPercentageB === 1) return 1; // Exact match B comes first
+
+    if (matchingWordsA.join(' ') === matchingWordsB.join(' ')) {
+      // If matching words are identical, compare based on matching words count
+      return matchingWordsCountB - matchingWordsCountA;
+    }
+    return matchingWordsPercentageB - matchingWordsPercentageA;
+  });
+
   return sources;
 }
+
