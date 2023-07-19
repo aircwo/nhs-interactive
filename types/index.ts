@@ -18,3 +18,8 @@ export type LogData = {
   searchQuery: SearchQuery;
   answer: string;
 };
+
+export type HealthAPIResponse = {
+  answer: string;
+  source: string;
+}

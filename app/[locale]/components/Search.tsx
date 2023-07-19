@@ -3,7 +3,7 @@
 import { ChangeEvent, FC, KeyboardEvent, useRef, useState } from "react";
 import { Button, Input } from "nhsuk-react-components";
 import { SearchProps } from "../../utils/interfaces";
-import { fetchSources, handleStream } from "../../utils/functions";
+import { fetchAnswer } from "../../utils/functions";
 import { useTranslations } from "next-intl";
 
 export const Search: FC<SearchProps> = ({
@@ -32,12 +32,11 @@ export const Search: FC<SearchProps> = ({
 
     setLoading(true);
     try {
-      const sources = await fetchSources(query);
-      await handleStream(query, sources, onAnswerUpdate, onSearch, onDone, setLoading, translate('lang'));
+      await fetchAnswer(query, onAnswerUpdate, onSearch, onDone, translate('lang'));
     } catch (error) {
-      setLoading(false);
       setError('Service currently unavailable. Please try again later.');
     }
+    setLoading(false);
   };
 
   return (

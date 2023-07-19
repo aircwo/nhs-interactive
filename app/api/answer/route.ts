@@ -1,5 +1,5 @@
-import { OpenAIModel } from "@/app/utils/constants";
-import { openAIStream } from "@/app/utils/functions";
+import { HealthAPIResponse } from "@/types";
+import { NextResponse } from "next/server";
 
 export const runtime = 'edge';
 
@@ -15,21 +15,42 @@ export const runtime = 'edge';
  * @returns {Promise<Response>}
  * @exports
  */
-export async function POST(req: Request): Promise<Response> {
+export async function POST(req: Request): Promise<NextResponse> {
   try {
-    const { prompt } = (await req.json()) as {
-      prompt: string;
+    const { query, lang } = (await req.json()) as {
+      query: string;
+      lang: string;
     };
 
-    const key = process.env.OPENAI_API_KEY;
-    const model = process.env.OPENAI_MODEL ?? OpenAIModel.DAVINCI_TURBO;
+    const key = process.env.HEALTH_AI_API_KEY;
     if (!key) {
       throw new Error('Api key not set');
     }
-    const stream = await openAIStream(model, prompt, key);
-    return new Response(stream);
+
+    const url = process.env.HEALTH_AI_API_URL;
+
+    const res = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${key}`
+      },
+      method: "POST",
+      body: JSON.stringify({
+        query: query,
+        lang: lang,
+      }),
+    });
+
+    if (res.status !== 200) {
+      console.log('Status: ' + res.status);
+      throw new Error("API returned an error");
+    }
+    const data: HealthAPIResponse = await res.json();
+    console.log(JSON.stringify(data));
+    
+    return NextResponse.json({ answer: data.answer, source: data.source }, { status: 200 });
   } catch (error: any) {
     console.error(error);
-    return new Response(error.statusText, { status: 500, statusText: error.message ?? error.statusText });
+    return NextResponse.json({}, { status: 500, statusText: error.message ?? error.statusText });
   }
 };

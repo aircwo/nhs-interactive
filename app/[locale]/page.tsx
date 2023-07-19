@@ -6,7 +6,6 @@ import { Search } from "./components/Search";
 import { Results } from "./components/Results";
 import { useState } from "react";
 import { SearchQuery } from "@/types";
-import { ModelInfo } from "./components/defaults";
 
 export default function Page() {
   const translate = useTranslations('landing');
@@ -42,7 +41,6 @@ export default function Page() {
               setDone(false);
             }}
           />
-          <ModelInfo />
         </>
       ) : (
         <Search
