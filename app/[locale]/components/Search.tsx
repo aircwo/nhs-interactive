@@ -29,6 +29,7 @@ export const Search: FC<SearchProps> = ({
       setError(translate('error'));
       return;
     }
+    // further validation?
 
     setLoading(true);
     try {
