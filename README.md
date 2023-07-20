@@ -1,6 +1,6 @@
 # nhs-interactive
 
-![landing](opengraph-image.png)
+![landing](./app/opengraph-image.png)
 
 A ChatGPT POC built within the NHS Front-end toolkit and React components.
 

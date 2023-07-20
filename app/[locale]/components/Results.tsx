@@ -1,6 +1,5 @@
-import { Button, Card } from "nhsuk-react-components";
+import { Button } from "nhsuk-react-components";
 import { FC } from "react";
-import { makeSourcesLinks } from "./defaults";
 import { UNRELATED_ANSWER } from "../../utils/constants";
 import { ResultProps } from "../../utils/interfaces";
 import { useApiLog } from "../../utils/hooks";
@@ -29,7 +28,7 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
         </> : <>
           <p className='text-nhs-blue mb-2'>{translate('answer')}</p>
           <p className='overflow-auto'>
-            {makeSourcesLinks(answer, searchQuery.sourceLinks)}
+            {answer}
           </p>
         </>
       }

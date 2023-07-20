@@ -2,11 +2,11 @@ declare global {
   namespace NodeJS {
     interface ProcessEnv {
       NODE_ENV: 'development' | 'production';
-      OPENAI_API_KEY: string;
-      OPENAI_MODEL: string;
       DB_STORE: boolean;
       DB_URL: string;
       DB_ACCESS_KEY: string;
+      HEALTH_AI_API_URL: string;
+      HEALTH_AI_API_KEY: string;
     }
   }
 }
