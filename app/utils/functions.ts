@@ -36,7 +36,10 @@ export const fetchAnswer = async (query: string, onAnswerUpdate: (answer: string
     }
 
     let { answer, source }: {answer: string, source: string} = await response.json();
-    // validate
+    // todo: validate the response more
+    if (answer.length <= 15) {
+      answer = UNRELATED_ANSWER;
+    }
     // call this here to ensure query is shown before answer
     onSearch({ query, sourceLinks: [source], sourceHeadings: [] });
     onAnswerUpdate(answer);
