@@ -7,6 +7,8 @@ declare global {
       DB_ACCESS_KEY: string;
       HEALTH_AI_API_URL: string;
       HEALTH_AI_API_KEY: string;
+      HEALTH_AI_API_HEALTH_CHECK_URL: string;
+      API_VERSION: string|number;
     }
   }
 }

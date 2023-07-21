@@ -1,5 +1,6 @@
 import { HealthAPIResponse, SearchQuery } from "@/types";
 import { UNRELATED_ANSWER } from "./constants";
+import { notFound } from "next/navigation";
 
 /**
  * The `fetchAnswer` function is an asynchronous function that sends a POST request to the `/api/answer` endpoint with the
@@ -49,5 +50,29 @@ export const fetchAnswer = async (query: string, onAnswerUpdate: (answer: string
   } catch (error: any) {
     onAnswerUpdate(UNRELATED_ANSWER);
     onSearch({ query: error.message ?? 'Error', sourceLinks: [], sourceHeadings: [] });
+  }
+};
+
+export const checkHealthAPIStatus = async (url: string) => {
+  let maintenanceMode = false;
+  try {
+    // monitor this to see if this will slow down api or app at all
+    const res = await fetch(url, { next: { revalidate: false } });
+    const data = await res.json();
+    if (data.api_version !== process.env.API_VERSION || res.status !== 200){
+      maintenanceMode = true;
+      console.log(JSON.stringify(data))
+    }
+  } catch {
+    maintenanceMode = true;
+  }
+  return maintenanceMode;
+};
+
+export const getInternationalisation = async (locale: string) => {
+  try {
+    return (await import(`../../locales/${locale}.json`)).default;
+  } catch (error) {
+    return notFound();
   }
 };

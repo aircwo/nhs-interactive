@@ -1,12 +1,12 @@
 import './styles/tailwind.scss';
 
 import { NextIntlClientProvider } from 'next-intl';
-import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { Header } from './components/nhs/Header';
 import { Footer } from './components/nhs/Footer';
 import { wrapper } from './components/nhs/wrapper';
 import { SERVICE_DESC, SERVICE_NAME, SERVICE_URL } from '../utils/constants';
+import { checkHealthAPIStatus, getInternationalisation } from '../utils/functions';
 
 export const metadata: Metadata = {
   title: SERVICE_NAME,
@@ -32,19 +32,15 @@ export default async function RootLayout({
   params: { locale: string };
 }) {
   // this is needed for translation in client components
-  let internationalisation;
-  try {
-    internationalisation = (await import(`../../locales/${locale}.json`)).default;
-  } catch (error) {
-    notFound();
-  }
-
+  const internationalisation = await getInternationalisation(locale);
+  // const maintenanceMode: boolean = await checkHealthAPIStatus(process.env.HEALTH_AI_API_HEALTH_CHECK_URL);
+  const maintenanceMode = false;
   return (
     <html lang={locale}>
       <body>
       <NextIntlClientProvider locale={locale} messages={internationalisation}>
         <Header locale={locale} />
-          { wrapper(children)}
+          { wrapper(children, maintenanceMode)}
         <Footer />
       </NextIntlClientProvider>
       </body>
