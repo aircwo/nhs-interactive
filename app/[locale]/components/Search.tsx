@@ -30,6 +30,17 @@ export const Search: FC<SearchProps> = ({
       return;
     }
     // further validation?
+    if (query.length < 4 || query.length > 100) {
+      setError(translate('error')); // size error
+      return;
+    }
+
+    const allowedCharactersRegex = /^[a-zA-Z\u00A0-\u00FF0-9£?,. ]+$/;
+
+    if (!allowedCharactersRegex.test(query)) {
+      setError(translate('error')); // todo: specific error messages
+      return;
+    }
 
     setLoading(true);
     try {
@@ -42,6 +53,7 @@ export const Search: FC<SearchProps> = ({
 
   return (
     <>
+      {/* todo: skeleton loading here? */}
       {loading ? (
         <>
           <span className='inline-flex'>

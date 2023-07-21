@@ -1,4 +1,4 @@
-import { SearchQuery } from "@/types";
+import { HealthAPIResponse, SearchQuery } from "@/types";
 import { UNRELATED_ANSWER } from "./constants";
 
 /**
@@ -21,7 +21,6 @@ import { UNRELATED_ANSWER } from "./constants";
  * @exports
  */
 export const fetchAnswer = async (query: string, onAnswerUpdate: (answer: string) => void, onSearch: (searchQuery: SearchQuery) => void, onDone: (done: boolean) => void, lang: string) => {
-  // todo
   try {
     const response = await fetch("/api/answer", {
       method: "POST",
@@ -35,13 +34,16 @@ export const fetchAnswer = async (query: string, onAnswerUpdate: (answer: string
       throw new Error(response.statusText);
     }
 
-    let { answer, source }: {answer: string, source: string} = await response.json();
+    let { data }: {data: HealthAPIResponse} = await response.json();
     // todo: validate the response more
-    if (answer.length <= 15) {
+    // loose matching:
+    let answer = data.answer;
+    const aiErrorPhrases = ["i'm sorry", "i cannot provide", "i don't know"];
+    if (answer.length <= 15 || aiErrorPhrases.some(phrase => answer.toLocaleLowerCase().includes(phrase))) {
       answer = UNRELATED_ANSWER;
     }
     // call this here to ensure query is shown before answer
-    onSearch({ query, sourceLinks: [source], sourceHeadings: [] });
+    onSearch({ query, sourceLinks: data.sources, sourceHeadings: data.headings });
     onAnswerUpdate(answer);
     onDone(true);
   } catch (error: any) {

@@ -46,9 +46,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       throw new Error("API returned an error");
     }
     const data: HealthAPIResponse = await res.json();
-    console.log(JSON.stringify(data));
-    
-    return NextResponse.json({ answer: data.answer, source: data.source }, { status: 200 });
+    return NextResponse.json({ data }, { status: 200 });
   } catch (error: any) {
     console.error(error);
     return NextResponse.json({}, { status: 500, statusText: error.message ?? error.statusText });

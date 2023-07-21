@@ -1,17 +1,7 @@
-export type Source = {
-  url: string;
-  text: string;
-  heading?: string;
-};
-
 export type SearchQuery = {
   query: string;
   sourceLinks: string[];
   sourceHeadings: string[];
-};
-
-export type SourceData = {
-  sources: Source[];
 };
 
 export type LogData = {
@@ -21,5 +11,6 @@ export type LogData = {
 
 export type HealthAPIResponse = {
   answer: string;
-  source: string;
+  sources: string[];
+  headings: string[];
 }
