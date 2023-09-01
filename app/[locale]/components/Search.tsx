@@ -5,13 +5,16 @@ import { Button, Input } from "nhsuk-react-components";
 import { SearchProps } from "../../utils/interfaces";
 import { fetchAnswer } from "../../utils/functions";
 import { useTranslations } from "next-intl";
+import { z } from "zod";
+import { ALLOWED_SEARCH_CHARS_REGEX } from "../../utils/constants";
+
+const querySchema = z.string().nonempty().min(4).max(100).regex(ALLOWED_SEARCH_CHARS_REGEX);
 
 export const Search: FC<SearchProps> = ({
   onSearch,
   onResultUpdate: onAnswerUpdate,
   onDone,
 }) => {
-  
   const translate = useTranslations('search');
   const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState<string>("");
@@ -25,20 +28,10 @@ export const Search: FC<SearchProps> = ({
   };
 
   const handleSearch = async () => {
-    if (!query) {
-      setError(translate('error'));
-      return;
-    }
-    // further validation?
-    if (query.length < 4 || query.length > 100) {
-      setError(translate('error')); // size error
-      return;
-    }
-
-    const allowedCharactersRegex = /^[a-zA-Z\u00A0-\u00FF0-9£?,. ]+$/;
-
-    if (!allowedCharactersRegex.test(query)) {
-      setError(translate('error')); // todo: specific error messages
+    const result = querySchema.safeParse(query);
+    if (!result.success) {
+      // dont care for multiple errors here so using the first in array is fine.
+      setError(translate(`errors.${result.error.issues[0].code}`));
       return;
     }
 

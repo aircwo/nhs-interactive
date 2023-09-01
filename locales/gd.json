@@ -11,7 +11,11 @@
     "lang": "scottish (Gaelic)",
     "query": "Cuir fiosrachadh a bhaineas ri slàinte",
     "hint": "e.g. Dè tha PPC HRT?",
-    "error": "feumaidh tu freagairt a thoirt airson fiosrachadh",
+    "errors": {
+      "invalid_string": "feumaidh iad teirm sgrùdaidh dligheach a thoirt seachad",
+      "too_small": "feumaidh barrachd air 4 litrichean a bhith anns a' cheist rannsachaidh",
+      "too_big": "feumaidh an ceist rannsachaidh a bhith nas lugha na 100 litir"
+    },
     "loading": "A' smaoineachadh...",
     "placeholder": "cuir rudeigin an seo",
     "button": {

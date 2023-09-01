@@ -11,7 +11,11 @@
     "lang": "welsh",
     "query": "Rhowch gwestiwn sy'n ymwneud â iechyd",
     "hint": "e.e. Beth yw HRT PPC?",
-    "error": "rhaid darparu term chwilio",
+    "errors": {
+      "invalid_string": "rhaid darparu term chwilio",
+      "too_small": "Rhaid i'r ymholiad chwilio fod yn fwy na 4 llythyren",
+      "too_big": "Rhaid i'r ymholiad chwilio fod yn llai na 100 llythyren"
+    },
     "loading": "Ystyried...",
     "placeholder": "teipiwch rhywbeth yma",
     "button": {
