@@ -6,7 +6,7 @@ import { SearchProps } from "../../utils/interfaces";
 import { fetchAnswer } from "../../utils/functions";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
-import { ALLOWED_SEARCH_CHARS_REGEX } from "@/app/utils/constants";
+import { ALLOWED_SEARCH_CHARS_REGEX } from "../../utils/constants";
 
 const querySchema = z.string().nonempty().min(4).max(100).regex(ALLOWED_SEARCH_CHARS_REGEX);
 

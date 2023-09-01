@@ -31,7 +31,7 @@ describe('Search', () => {
       render(toRender(messages, locale));
       const submitButton = screen.getByRole("button", { name: messages.search.button.submit });
       fireEvent.click(submitButton);
-      const errorMessage = await screen.findByText(messages.search.error);
+      const errorMessage = await screen.findByText(messages.search.errors.too_small);
       expect(errorMessage).toBeInTheDocument();
     }
   );
