@@ -11,7 +11,11 @@
     "lang": "english",
     "query": "Enter a health related query",
     "hint": "e.g What is an HRT PPC?",
-    "error": "must provide a search term",
+    "errors": {
+      "invalid_string": "must provide a valid search term",
+      "too_small": "the search query must be more than 4 letters",
+      "too_big": "the search query must be less than 100 letters"
+    },
     "loading": "Thinking...",
     "placeholder": "type something here",
     "button": {

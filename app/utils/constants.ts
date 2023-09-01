@@ -4,3 +4,4 @@ export const SERVICE_NAME = "NHS Interactive";
 export const SERVICE_DESC = "AI powered search.";
 export const SERVICE_URL = "https://nhs-interactive.vercel.app";
 export const LOCALES = ['en', 'cy', 'gd'];
+export const ALLOWED_SEARCH_CHARS_REGEX = /^[a-zA-Z\u00A0-\u00FF0-9£?,.' ]+$/;
