@@ -1,7 +1,6 @@
 "use client";
 
 import { ChangeEvent, FC, KeyboardEvent, useRef, useState } from "react";
-import { Button, Input } from "nhsuk-react-components";
 import { SearchProps } from "../../utils/interfaces";
 import { fetchAnswer } from "../../utils/functions";
 import { useTranslations } from "next-intl";
@@ -57,28 +56,40 @@ export const Search: FC<SearchProps> = ({
       ) : (
         <>
         <div className='relative w-full'>
-          <Input
-            id="search-input"
-            label={translate('query')}
-            name="search"
-            hint={translate('hint')}
-            placeholder={translate('placeholder')}
-            ref={inputRef}
-            value={query}
-            type="text"
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
-            onKeyDown={handleKeyDown}
-            error={error}
-          />
-          <Button
+          <div className={ error ? "nhsuk-form-group nhsuk-form-group--error" : "nhsuk-form-group"}>
+            <label className="nhsuk-label" htmlFor="search-input">
+              {translate('query')}
+            </label>
+            <span className="nhsuk-error-message" id="example-error">
+              <span className="nhsuk-u-visually-hidden">Error:</span>{error}
+            </span>
+            <div className="nhsuk-hint" id="example-with-hint-text-hint">
+              {translate('hint')}
+            </div>
+            <input className={ error ? "nhsuk-input nhsuk-input--error" : "nhsuk-input"}
+                id="search-input"
+                name="search"
+                placeholder={translate('placeholder')}
+                ref={inputRef}
+                value={query}
+                type="text"
+                onChange={(e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
+                onKeyDown={handleKeyDown}
+                aria-describedby={error}
+              />
+          </div>
+          <button 
+            className="nhsuk-button" 
+            data-module="nhsuk-button" 
+            type="submit"
             id='submit'
-            as='a'
+            // as='a'
             data-prevent-double-click
             onClick={handleSearch}
             disabled={!!error && query === ''}
           >
             {translate('button.submit')}
-          </Button>
+          </button>
         </div>
         </>
       )}

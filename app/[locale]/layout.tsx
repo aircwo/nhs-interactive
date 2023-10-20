@@ -38,7 +38,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body>
-      <NextIntlClientProvider locale={locale} messages={internationalisation}>
+      <NextIntlClientProvider timeZone='Europe/London' locale={locale} messages={internationalisation}>
         <Header locale={locale} />
           { wrapper(children, maintenanceMode)}
         <Footer />

@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import { WarningCallout } from "nhsuk-react-components";
 import { Search } from "./components/Search";
 import { Results } from "./components/Results";
 import { useState } from "react";
@@ -25,10 +24,15 @@ export default function Page() {
           {translate('title')}
         </span>
       </h1>
-      <WarningCallout>
-        <WarningCallout.Label>{translate('warning.title')}</WarningCallout.Label>
+      <div className="nhsuk-warning-callout">
+        <h3 className="nhsuk-warning-callout__label">
+          <span role="text">
+            <span className="nhsuk-u-visually-hidden">Important: </span>
+            {translate('warning.title')}
+          </span>
+        </h3>
         <p>{translate('warning.content')}</p>
-      </WarningCallout>
+      </div>
       {results ? (
         <>
           <Results

@@ -1,4 +1,3 @@
-import { Button } from "nhsuk-react-components";
 import { FC } from "react";
 import { UNRELATED_ANSWER } from "../../utils/constants";
 import { ResultProps } from "../../utils/interfaces";
@@ -58,7 +57,7 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
         </>
       )}
       { (done || answer === UNRELATED_ANSWER) && (
-        <Button onClick={onReset}>{translate('button.newQuery')}</Button>
+        <button className="nhsuk-button" onClick={onReset}>{translate('button.newQuery')}</button>
       )}
     </>
   );
