@@ -6,7 +6,7 @@ import { Header } from './components/nhs/Header';
 import { Footer } from './components/nhs/Footer';
 import { wrapper } from './components/nhs/wrapper';
 import { SERVICE_DESC, SERVICE_NAME, SERVICE_URL } from '../utils/constants';
-import { checkHealthAPIStatus, getInternationalisation } from '../utils/functions';
+import { getInternationalisation } from '../utils/functions';
 
 export const metadata: Metadata = {
   title: SERVICE_NAME,

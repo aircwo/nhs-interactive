@@ -4,7 +4,7 @@ export function wrapper(content: any, maintenanceMode: boolean) {
     <div className="nhsuk-width-container">
       <main className="nhsuk-main-wrapper" id="maincontent" role="main">
         <div className="nhsuk-grid-row">
-          <div className="nhsuk-grid-column-two-thirds">
+          <div className="nhsuk-grid-column-three-quarters mt-5 mb-10">
             { maintenanceMode ? <>API unavailable</> : content }
           </div>
         </div>

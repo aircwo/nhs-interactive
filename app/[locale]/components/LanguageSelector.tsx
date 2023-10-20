@@ -1,8 +1,8 @@
 import { Fragment } from 'react'
 import { Menu, Transition } from '@headlessui/react'
 import { IconWorld } from '@tabler/icons-react';
-import Link from "next-intl/link";
 import { LOCALES } from '../../utils/constants';
+import Link from 'next/link';
 
 function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ')
@@ -10,7 +10,8 @@ function classNames(...classes: any[]) {
 
 export default function LanguageSelector({translate, locale}: {translate: any, locale: string}) {
   return (
-    <Menu as='div' className='relative max-lg:absolute max-lg:right-4 float-right inline-block text-left'>
+    <Menu as='div' className='absolute right-5 top-5 max-xl:right-5 sm:right-8 text-left'>
+      {/* Move to within the nhsuk container for large screens */}
       <div>
         {/* Hover style made need changed to match NHS */}
         <Menu.Button id='language-button' className='inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'>
