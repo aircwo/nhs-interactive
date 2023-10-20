@@ -11,6 +11,7 @@
     "test": "NODE_ENV=test jest"
   },
   "dependencies": {
+    "@babel/eslint-parser": "^7.22.15",
     "@babel/preset-typescript": "^7.23.2",
     "@headlessui/react": "^1.7.17",
     "@mozilla/readability": "^0.4.4",
@@ -47,6 +48,8 @@
     "@testing-library/jest-dom": "^6.1.4",
     "@testing-library/react": "^14.0.0",
     "@types/jsdom": "^21.1.4",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
     "autoprefixer": "^10.4.16",
     "babel-jest": "^29.7.0",
     "cheerio": "^1.0.0-rc.12",

@@ -1,3 +1,7 @@
 {
-  "extends": "next"
+  "parser": "@babel/eslint-parser",
+  "extends": "next",
+  "rules": {
+    "react/no-unescaped-entities": 2
+  }
 }
