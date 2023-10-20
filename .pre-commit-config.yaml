@@ -1,0 +1,9 @@
+repos:
+-   repo: local
+    hooks:
+    - id: gitleaks
+      name: Check for hardcoded secrets
+      description: Check for hardcoded secrets using Gitleaks
+      entry: gitleaks protect --verbose --redact --staged
+      language: system
+      pass_filenames: false
