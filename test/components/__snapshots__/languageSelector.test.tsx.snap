@@ -3,7 +3,7 @@
 exports[`LanguageSelector component rendered component should match snapshot (cy) 1`] = `
 <div>
   <div
-    class="relative max-lg:absolute max-lg:right-4 float-right inline-block text-left"
+    class="absolute right-5 top-5 max-xl:right-5 sm:right-8 text-left"
     data-headlessui-state=""
   >
     <div>
@@ -54,7 +54,7 @@ exports[`LanguageSelector component rendered component should match snapshot (cy
 exports[`LanguageSelector component rendered component should match snapshot (en) 1`] = `
 <div>
   <div
-    class="relative max-lg:absolute max-lg:right-4 float-right inline-block text-left"
+    class="absolute right-5 top-5 max-xl:right-5 sm:right-8 text-left"
     data-headlessui-state=""
   >
     <div>
@@ -105,7 +105,7 @@ exports[`LanguageSelector component rendered component should match snapshot (en
 exports[`LanguageSelector component rendered component should match snapshot (gd) 1`] = `
 <div>
   <div
-    class="relative max-lg:absolute max-lg:right-4 float-right inline-block text-left"
+    class="absolute right-5 top-5 max-xl:right-5 sm:right-8 text-left"
     data-headlessui-state=""
   >
     <div>
@@ -156,7 +156,7 @@ exports[`LanguageSelector component rendered component should match snapshot (gd
 exports[`LanguageSelector component should render the component with the correct links & elements (cy) 1`] = `
 <div>
   <div
-    class="relative max-lg:absolute max-lg:right-4 float-right inline-block text-left"
+    class="absolute right-5 top-5 max-xl:right-5 sm:right-8 text-left"
     data-headlessui-state="open"
   >
     <div>
@@ -213,13 +213,12 @@ exports[`LanguageSelector component should render the component with the correct
         class="langs"
         role="none"
       >
-        <link
+        <a
           class="text-gray-700 block px-4 py-2 text-sm rounded-md"
           data-headlessui-state=""
           data-testid="language-item"
-          href="/"
+          href="/en"
           id="headlessui-menu-item-:rc:"
-          locale="en"
           role="menuitem"
           tabindex="-1"
         >
@@ -232,14 +231,13 @@ exports[`LanguageSelector component should render the component with the correct
             />
             English
           </p>
-        </link>
-        <link
+        </a>
+        <a
           class="text-gray-700 block px-4 py-2 text-sm rounded-md"
           data-headlessui-state=""
           data-testid="language-item"
-          href="/"
+          href="/gd"
           id="headlessui-menu-item-:rd:"
-          locale="gd"
           role="menuitem"
           tabindex="-1"
         >
@@ -252,7 +250,7 @@ exports[`LanguageSelector component should render the component with the correct
             />
             Gaelic
           </p>
-        </link>
+        </a>
       </div>
     </div>
   </div>
@@ -262,7 +260,7 @@ exports[`LanguageSelector component should render the component with the correct
 exports[`LanguageSelector component should render the component with the correct links & elements (en) 1`] = `
 <div>
   <div
-    class="relative max-lg:absolute max-lg:right-4 float-right inline-block text-left"
+    class="absolute right-5 top-5 max-xl:right-5 sm:right-8 text-left"
     data-headlessui-state="open"
   >
     <div>
@@ -319,13 +317,12 @@ exports[`LanguageSelector component should render the component with the correct
         class="langs"
         role="none"
       >
-        <link
+        <a
           class="text-gray-700 block px-4 py-2 text-sm rounded-md"
           data-headlessui-state=""
           data-testid="language-item"
-          href="/"
+          href="/cy"
           id="headlessui-menu-item-:r8:"
-          locale="cy"
           role="menuitem"
           tabindex="-1"
         >
@@ -338,14 +335,13 @@ exports[`LanguageSelector component should render the component with the correct
             />
             Cymraeg
           </p>
-        </link>
-        <link
+        </a>
+        <a
           class="text-gray-700 block px-4 py-2 text-sm rounded-md"
           data-headlessui-state=""
           data-testid="language-item"
-          href="/"
+          href="/gd"
           id="headlessui-menu-item-:r9:"
-          locale="gd"
           role="menuitem"
           tabindex="-1"
         >
@@ -358,7 +354,7 @@ exports[`LanguageSelector component should render the component with the correct
             />
             Gaelic
           </p>
-        </link>
+        </a>
       </div>
     </div>
   </div>
@@ -368,7 +364,7 @@ exports[`LanguageSelector component should render the component with the correct
 exports[`LanguageSelector component should render the component with the correct links & elements (gd) 1`] = `
 <div>
   <div
-    class="relative max-lg:absolute max-lg:right-4 float-right inline-block text-left"
+    class="absolute right-5 top-5 max-xl:right-5 sm:right-8 text-left"
     data-headlessui-state="open"
   >
     <div>
@@ -425,13 +421,12 @@ exports[`LanguageSelector component should render the component with the correct
         class="langs"
         role="none"
       >
-        <link
+        <a
           class="text-gray-700 block px-4 py-2 text-sm rounded-md"
           data-headlessui-state=""
           data-testid="language-item"
-          href="/"
+          href="/en"
           id="headlessui-menu-item-:rg:"
-          locale="en"
           role="menuitem"
           tabindex="-1"
         >
@@ -444,14 +439,13 @@ exports[`LanguageSelector component should render the component with the correct
             />
             English
           </p>
-        </link>
-        <link
+        </a>
+        <a
           class="text-gray-700 block px-4 py-2 text-sm rounded-md"
           data-headlessui-state=""
           data-testid="language-item"
-          href="/"
+          href="/cy"
           id="headlessui-menu-item-:rh:"
-          locale="cy"
           role="menuitem"
           tabindex="-1"
         >
@@ -464,7 +458,7 @@ exports[`LanguageSelector component should render the component with the correct
             />
             Cymraeg
           </p>
-        </link>
+        </a>
       </div>
     </div>
   </div>

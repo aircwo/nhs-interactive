@@ -1,16 +1,16 @@
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { wrapper } from '../../app/[locale]/components/nhs/wrapper';
 import { load } from 'cheerio';
 
 describe('wrapper', () => {
   test('rendered component should match snapshot', () => {
-    const { container } = render(<>{ wrapper('content') }</>);
+    const { container } = render(<>{ wrapper('content', false) }</>);
     expect(container).toMatchSnapshot();
   });
 
   test('should render the component with the correct links & elements', () => {
-    const { container } = render(<>{ wrapper('content') }</>);
+    const { container } = render(<>{ wrapper('content', false) }</>);
     const html = container.innerHTML;
     const $ = load(html);
     const nhsContainer = $('.nhsuk-width-container');

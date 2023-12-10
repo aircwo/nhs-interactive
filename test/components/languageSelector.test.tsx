@@ -1,11 +1,10 @@
 import { render, fireEvent, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import LanguageSelector from '../../app/[locale]/components/LanguageSelector';
 import { load } from 'cheerio';
-import { NextIntlProvider } from 'next-intl';
 import { LOCALES } from '../../app/utils/constants';
-
-jest.mock('next-intl/link', () => 'Link'); // mock Link is needed here
+import { NextIntlClientProvider } from 'next-intl';
+import { act } from 'react-dom/test-utils';
 
 describe('LanguageSelector component', () => {
   let translation: { 'button.language': string };
@@ -20,9 +19,9 @@ describe('LanguageSelector component', () => {
 
   function toRender(messages: any, locale: string) {
     translation = { 'button.language': messages.header.button.language };
-    return (<NextIntlProvider messages={messages} locale={locale}>
+    return (<NextIntlClientProvider messages={messages} locale={locale}>
       <LanguageSelector locale={locale} translate={mockTranslate} />
-    </NextIntlProvider>)
+    </NextIntlClientProvider>)
   };
 
   test.each(LOCALES)(
@@ -55,10 +54,11 @@ describe('LanguageSelector component', () => {
       const messages = require(`../../locales/${locale}.json`);
       const { container } = render(toRender(messages, locale));
       const html = container.innerHTML;
-      const $ = load(html);
       
       const submitButton = screen.getByRole("button", { name: messages.header.button.language });
-      fireEvent.click(submitButton);
+      act(() => {
+        fireEvent.click(submitButton);
+      });
       expect(container).toMatchSnapshot();
 
       const languageItems = screen.getAllByTestId('language-item');

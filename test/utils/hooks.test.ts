@@ -5,7 +5,7 @@ import { LogData } from '@/types';
 describe('useApiLog', () => {
   test('sends POST request when logData and done change', async () => {
     const logData: LogData = {
-      searchQuery: { query: 'test query', sourceLinks: [] },
+      searchQuery: { query: 'test query', sourceLinks: [], sourceHeadings: [] },
       answer: 'test answer',
     };
     const fetchMock = jest.fn().mockResolvedValueOnce({ ok: true });
@@ -31,7 +31,7 @@ describe('useApiLog', () => {
 
   test('does not send POST request when done is false', async () => {
     const logData: LogData = {
-      searchQuery: { query: 'test query', sourceLinks: [] },
+      searchQuery: { query: 'test query', sourceLinks: [], sourceHeadings: [] },
       answer: 'test answer',
     };
 

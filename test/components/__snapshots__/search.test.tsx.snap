@@ -5,25 +5,23 @@ exports[`Search displays loading spinner when searching 1`] = `
   class="relative w-full"
 >
   <div
-    class="nhsuk-form-group"
+    class="nhsuk-form-group "
   >
     <label
       class="nhsuk-label"
       for="search-input"
-      id="search-input--label"
     >
       Enter a health related query
     </label>
-    <div
+    <span
       class="nhsuk-hint"
-      id="search-input--hint"
     >
-      e.g What is an HRT PPC?
-    </div>
+      e.g What is an HRT prescription?
+    </span>
     <input
-      aria-describedby="search-input--hint"
-      aria-labelledby="search-input--label"
-      class="nhsuk-input"
+      aria-describedby="search-input-hint"
+      aria-invalid="false"
+      class="nhsuk-input "
       id="search-input"
       name="search"
       placeholder="type something here"
@@ -32,12 +30,8 @@ exports[`Search displays loading spinner when searching 1`] = `
     />
   </div>
   <a
-    aria-disabled="false"
-    class="nhsuk-button"
-    data-prevent-double-click="true"
-    draggable="false"
+    class="nhsuk-button   "
     id="submit"
-    role="button"
   >
     Submit
   </a>
@@ -49,25 +43,23 @@ exports[`Search displays loading spinner when searching 2`] = `
   class="relative w-full"
 >
   <div
-    class="nhsuk-form-group"
+    class="nhsuk-form-group "
   >
     <label
       class="nhsuk-label"
       for="search-input"
-      id="search-input--label"
     >
       Rhowch gwestiwn sy'n ymwneud â iechyd
     </label>
-    <div
+    <span
       class="nhsuk-hint"
-      id="search-input--hint"
     >
       e.e. Beth yw HRT PPC?
-    </div>
+    </span>
     <input
-      aria-describedby="search-input--hint"
-      aria-labelledby="search-input--label"
-      class="nhsuk-input"
+      aria-describedby="search-input-hint"
+      aria-invalid="false"
+      class="nhsuk-input "
       id="search-input"
       name="search"
       placeholder="teipiwch rhywbeth yma"
@@ -76,12 +68,8 @@ exports[`Search displays loading spinner when searching 2`] = `
     />
   </div>
   <a
-    aria-disabled="false"
-    class="nhsuk-button"
-    data-prevent-double-click="true"
-    draggable="false"
+    class="nhsuk-button   "
     id="submit"
-    role="button"
   >
     Cyflwyno
   </a>
@@ -93,25 +81,23 @@ exports[`Search displays loading spinner when searching 3`] = `
   class="relative w-full"
 >
   <div
-    class="nhsuk-form-group"
+    class="nhsuk-form-group "
   >
     <label
       class="nhsuk-label"
       for="search-input"
-      id="search-input--label"
     >
       Cuir fiosrachadh a bhaineas ri slàinte
     </label>
-    <div
+    <span
       class="nhsuk-hint"
-      id="search-input--hint"
     >
       e.g. Dè tha PPC HRT?
-    </div>
+    </span>
     <input
-      aria-describedby="search-input--hint"
-      aria-labelledby="search-input--label"
-      class="nhsuk-input"
+      aria-describedby="search-input-hint"
+      aria-invalid="false"
+      class="nhsuk-input "
       id="search-input"
       name="search"
       placeholder="cuir rudeigin an seo"
@@ -120,12 +106,8 @@ exports[`Search displays loading spinner when searching 3`] = `
     />
   </div>
   <a
-    aria-disabled="false"
-    class="nhsuk-button"
-    data-prevent-double-click="true"
-    draggable="false"
+    class="nhsuk-button   "
     id="submit"
-    role="button"
   >
     Cuir ris
   </a>
@@ -138,25 +120,23 @@ exports[`Search rendered component should match snapshot (cy) 1`] = `
     class="relative w-full"
   >
     <div
-      class="nhsuk-form-group"
+      class="nhsuk-form-group "
     >
       <label
         class="nhsuk-label"
         for="search-input"
-        id="search-input--label"
       >
         Rhowch gwestiwn sy'n ymwneud â iechyd
       </label>
-      <div
+      <span
         class="nhsuk-hint"
-        id="search-input--hint"
       >
         e.e. Beth yw HRT PPC?
-      </div>
+      </span>
       <input
-        aria-describedby="search-input--hint"
-        aria-labelledby="search-input--label"
-        class="nhsuk-input"
+        aria-describedby="search-input-hint"
+        aria-invalid="false"
+        class="nhsuk-input "
         id="search-input"
         name="search"
         placeholder="teipiwch rhywbeth yma"
@@ -165,12 +145,8 @@ exports[`Search rendered component should match snapshot (cy) 1`] = `
       />
     </div>
     <a
-      aria-disabled="false"
-      class="nhsuk-button"
-      data-prevent-double-click="true"
-      draggable="false"
+      class="nhsuk-button   "
       id="submit"
-      role="button"
     >
       Cyflwyno
     </a>
@@ -184,25 +160,23 @@ exports[`Search rendered component should match snapshot (en) 1`] = `
     class="relative w-full"
   >
     <div
-      class="nhsuk-form-group"
+      class="nhsuk-form-group "
     >
       <label
         class="nhsuk-label"
         for="search-input"
-        id="search-input--label"
       >
         Enter a health related query
       </label>
-      <div
+      <span
         class="nhsuk-hint"
-        id="search-input--hint"
       >
-        e.g What is an HRT PPC?
-      </div>
+        e.g What is an HRT prescription?
+      </span>
       <input
-        aria-describedby="search-input--hint"
-        aria-labelledby="search-input--label"
-        class="nhsuk-input"
+        aria-describedby="search-input-hint"
+        aria-invalid="false"
+        class="nhsuk-input "
         id="search-input"
         name="search"
         placeholder="type something here"
@@ -211,12 +185,8 @@ exports[`Search rendered component should match snapshot (en) 1`] = `
       />
     </div>
     <a
-      aria-disabled="false"
-      class="nhsuk-button"
-      data-prevent-double-click="true"
-      draggable="false"
+      class="nhsuk-button   "
       id="submit"
-      role="button"
     >
       Submit
     </a>
@@ -230,25 +200,23 @@ exports[`Search rendered component should match snapshot (gd) 1`] = `
     class="relative w-full"
   >
     <div
-      class="nhsuk-form-group"
+      class="nhsuk-form-group "
     >
       <label
         class="nhsuk-label"
         for="search-input"
-        id="search-input--label"
       >
         Cuir fiosrachadh a bhaineas ri slàinte
       </label>
-      <div
+      <span
         class="nhsuk-hint"
-        id="search-input--hint"
       >
         e.g. Dè tha PPC HRT?
-      </div>
+      </span>
       <input
-        aria-describedby="search-input--hint"
-        aria-labelledby="search-input--label"
-        class="nhsuk-input"
+        aria-describedby="search-input-hint"
+        aria-invalid="false"
+        class="nhsuk-input "
         id="search-input"
         name="search"
         placeholder="cuir rudeigin an seo"
@@ -257,12 +225,8 @@ exports[`Search rendered component should match snapshot (gd) 1`] = `
       />
     </div>
     <a
-      aria-disabled="false"
-      class="nhsuk-button"
-      data-prevent-double-click="true"
-      draggable="false"
+      class="nhsuk-button   "
       id="submit"
-      role="button"
     >
       Cuir ris
     </a>

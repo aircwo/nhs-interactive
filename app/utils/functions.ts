@@ -61,7 +61,7 @@ export const checkHealthAPIStatus = async (url: string) => {
     const data = await res.json();
     if (data.api_version !== process.env.API_VERSION || res.status !== 200){
       maintenanceMode = true;
-      console.log(JSON.stringify(data))
+      console.warn(JSON.stringify(data));
     }
   } catch {
     maintenanceMode = true;

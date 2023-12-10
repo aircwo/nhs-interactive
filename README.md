@@ -4,6 +4,9 @@
 
 A ChatGPT POC built within the NHS Front-end toolkit and React components.
 
+> **Note**
+> This app is for educational purposes only.
+
 ## Run the app
 
 Clone the repo.
@@ -25,6 +28,9 @@ Run tests:
 npm run test
 ```
 
+> This app was split into a front and backend API. This was to make the consumption of health data easier.
+> You will need the API running in order to perform search requests.
+
 Optional DB integration
 
 You can run the pocketbase executable from the root dir.
@@ -40,7 +46,9 @@ File: `.env.{environment}`
 Options:
 
 ```bash
-OPENAI_API_KEY: string;
 DB_STORE: boolean;
 DB_URL: string;
+HEALTH_AI_API_KEY: string;
+HEALTH_AI_API_URL: string;
+HEALTH_AI_API_HEALTH_CHECK_URL: string;
 ```

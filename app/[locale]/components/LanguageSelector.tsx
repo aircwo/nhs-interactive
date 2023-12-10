@@ -40,7 +40,7 @@ export default function LanguageSelector({translate, locale}: {translate: any, l
                   <Menu.Item key={lang} data-testid="language-item">
                     {({ active }) => (
                       <Link
-                        href='/'
+                        href={`/${lang}`}
                         locale={lang}
                         className={classNames(
                           active ? "bg-gray-100 text-gray-900" : "text-gray-700",

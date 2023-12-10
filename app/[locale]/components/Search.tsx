@@ -1,14 +1,12 @@
 "use client";
 
-import { ChangeEvent, FC, KeyboardEvent, useRef, useState } from "react";
-import { Button, Input } from "nhsuk-react-components";
-import { SearchProps } from "../../utils/interfaces";
-import { fetchAnswer } from "../../utils/functions";
+import { ChangeEvent, FC, KeyboardEvent, useState } from "react";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
-import { ALLOWED_SEARCH_CHARS_REGEX } from "../../utils/constants";
+import { Button, Input } from "./nhs";
+import { ALLOWED_SEARCH_CHARS_REGEX, SearchProps, fetchAnswer } from "../../utils";
 
-const querySchema = z.string().nonempty().min(4).max(100).regex(ALLOWED_SEARCH_CHARS_REGEX);
+const querySchema = z.string().min(3).max(100).regex(ALLOWED_SEARCH_CHARS_REGEX);
 
 export const Search: FC<SearchProps> = ({
   onSearch,
@@ -16,7 +14,6 @@ export const Search: FC<SearchProps> = ({
   onDone,
 }) => {
   const translate = useTranslations('search');
-  const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
@@ -63,7 +60,6 @@ export const Search: FC<SearchProps> = ({
             name="search"
             hint={translate('hint')}
             placeholder={translate('placeholder')}
-            ref={inputRef}
             value={query}
             type="text"
             onChange={(e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
