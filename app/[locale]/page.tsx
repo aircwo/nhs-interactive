@@ -1,11 +1,11 @@
 "use client";
 
 import { useTranslations } from 'next-intl';
-import { WarningCallout } from "nhsuk-react-components";
 import { Search } from "./components/Search";
 import { Results } from "./components/Results";
 import { useState } from "react";
 import { SearchQuery } from "@/types";
+import { WarningCallout, WarningCalloutLabel, WarningCalloutText } from './components/nhs';
 
 export default function Page() {
   const translate = useTranslations('landing');
@@ -26,8 +26,10 @@ export default function Page() {
         </span>
       </h1>
       <WarningCallout>
-        <WarningCallout.Label>{translate('warning.title')}</WarningCallout.Label>
-        <p>{translate('warning.content')}</p>
+        <WarningCalloutLabel>{translate('warning.title')}</WarningCalloutLabel>
+        <WarningCalloutText>
+          {translate('warning.content')}
+        </WarningCalloutText>
       </WarningCallout>
       {results ? (
         <>

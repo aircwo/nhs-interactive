@@ -1,10 +1,10 @@
-import { Button } from "nhsuk-react-components";
 import { FC } from "react";
 import { UNRELATED_ANSWER } from "../../utils/constants";
 import { ResultProps } from "../../utils/interfaces";
 import { useApiLog } from "../../utils/hooks";
 import { LogData } from "@/types";
 import { useTranslations } from "next-intl";
+import { Button } from "./nhs";
 
 export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset }) => {
   const translate = useTranslations('results');
@@ -32,8 +32,8 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
           </p>
         </>
       }
-      
-      {(done && answer !== UNRELATED_ANSWER) && (
+
+      {(done && answer !== UNRELATED_ANSWER && searchQuery.sourceLinks.length > 0) && (
         <>
           <hr className='nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible' />
           <p className='text-nhs-blue mb-2'>{translate('sources')}</p>
@@ -45,7 +45,7 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
                 rel='noopener noreferrer'
                 href={source}
               >
-                <span className="max-sm:flex-1  ">
+                <span className="max-sm:flex-1">
                   {searchQuery.sourceHeadings[index] ?? 'NHS Search'}
                   <span className="ml-4 max-sm:float-none sm:float-right inline-flex items-center rounded-md bg-sky-50 max-sm:px-1.5 px-2 py-1 max-sm:text-xs text-xs max-sm:font-semibold font-bold text-sky-600 ring-1 ring-inset ring-sky-600/90 hover:bg-sky-100">
                     Verified source: {source.split("//")[1].split("/")[0].replace("www.", "")}
