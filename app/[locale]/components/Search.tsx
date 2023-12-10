@@ -1,14 +1,12 @@
 "use client";
 
 import { ChangeEvent, FC, KeyboardEvent, useState } from "react";
-import { SearchProps } from "../../utils/interfaces";
-import { fetchAnswer } from "../../utils/functions";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
-import { ALLOWED_SEARCH_CHARS_REGEX } from "../../utils/constants";
 import { Button, Input } from "./nhs";
+import { ALLOWED_SEARCH_CHARS_REGEX, SearchProps, fetchAnswer } from "../../utils";
 
-const querySchema = z.string().nonempty().min(4).max(100).regex(ALLOWED_SEARCH_CHARS_REGEX);
+const querySchema = z.string().min(3).max(100).regex(ALLOWED_SEARCH_CHARS_REGEX);
 
 export const Search: FC<SearchProps> = ({
   onSearch,

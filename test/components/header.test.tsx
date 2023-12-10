@@ -1,17 +1,16 @@
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
 import { Header } from '../../app/[locale]/components/nhs/Header';
 import { load } from 'cheerio';
-import { NextIntlProvider } from 'next-intl';
 import { LOCALES } from '../../app/utils/constants';
-
-jest.mock('next-intl/link', () => 'Link'); // mock Link is needed here
+import { NextIntlClientProvider } from 'next-intl';
 
 describe('NHSHeader component', () => {
   function toRender(messages: any, locale: string) { 
-    return (<NextIntlProvider messages={messages} locale={locale}>
-      <Header locale={locale} />
-    </NextIntlProvider>)
+    return (
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <Header locale={locale} />
+      </NextIntlClientProvider>
+    );
   };
 
   test.each(LOCALES)(

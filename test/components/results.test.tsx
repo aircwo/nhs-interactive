@@ -1,17 +1,18 @@
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { Results } from '../../app/[locale]/components/Results';
 import { ResultProps } from '@/app/utils/interfaces';
 import { load } from 'cheerio';
-import { NextIntlProvider } from 'next-intl';
+import { NextIntlClientProvider } from 'next-intl';
 import { UNRELATED_ANSWER, LOCALES } from '../../app/utils/constants';
+import { SearchQuery } from '@/types';
 
 describe('Results', () => {
   let props: ResultProps;
   function toRender(messages: any, locale: string) { 
-    return (<NextIntlProvider messages={messages} locale={locale}>
+    return (<NextIntlClientProvider messages={messages} locale={locale}>
       <Results {...props} />
-    </NextIntlProvider>)
+    </NextIntlClientProvider>)
   };
 
   beforeEach(() => {
@@ -19,7 +20,7 @@ describe('Results', () => {
       searchQuery: {
         query: 'test query',
         sourceLinks: ['https://www.link1', 'https://www.link2']
-      },
+      } as SearchQuery,
       answer: 'test answer',
       done: false,
       onReset: jest.fn()

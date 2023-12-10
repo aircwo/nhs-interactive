@@ -1,10 +1,9 @@
 import { FC } from "react";
-import { UNRELATED_ANSWER } from "../../utils/constants";
-import { ResultProps } from "../../utils/interfaces";
-import { useApiLog } from "../../utils/hooks";
 import { LogData } from "@/types";
 import { useTranslations } from "next-intl";
 import { Button } from "./nhs";
+import { ResultProps, UNRELATED_ANSWER } from "../../utils";
+import { useApiLog } from "../../utils/hooks";
 
 export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset }) => {
   const translate = useTranslations('results');

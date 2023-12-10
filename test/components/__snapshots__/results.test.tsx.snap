@@ -125,9 +125,10 @@ exports[`Results renders correctly with unrelated answer (cy) 1`] = `
     </ul>
   </div>
   <button
-    aria-disabled="false"
-    class="nhsuk-button"
-    type="submit"
+    class="nhsuk-button   "
+    data-module="nhsuk-button"
+    data-prevent-double-click="false"
+    type="button"
   >
     Gofyn cwestiwn newydd
   </button>
@@ -172,9 +173,10 @@ exports[`Results renders correctly with unrelated answer (en) 1`] = `
     </ul>
   </div>
   <button
-    aria-disabled="false"
-    class="nhsuk-button"
-    type="submit"
+    class="nhsuk-button   "
+    data-module="nhsuk-button"
+    data-prevent-double-click="false"
+    type="button"
   >
     Ask new question
   </button>
@@ -219,9 +221,10 @@ exports[`Results renders correctly with unrelated answer (gd) 1`] = `
     </ul>
   </div>
   <button
-    aria-disabled="false"
-    class="nhsuk-button"
-    type="submit"
+    class="nhsuk-button   "
+    data-module="nhsuk-button"
+    data-prevent-double-click="false"
+    type="button"
   >
     Cur ceist ùr
   </button>
@@ -266,9 +269,10 @@ exports[`Results renders correctly with unrelated answer when source is also pre
     </ul>
   </div>
   <button
-    aria-disabled="false"
-    class="nhsuk-button"
-    type="submit"
+    class="nhsuk-button   "
+    data-module="nhsuk-button"
+    data-prevent-double-click="false"
+    type="button"
   >
     Gofyn cwestiwn newydd
   </button>
@@ -342,9 +346,10 @@ exports[`Results renders correctly with unrelated answer when source is also pre
     </ul>
   </div>
   <button
-    aria-disabled="false"
-    class="nhsuk-button"
-    type="submit"
+    class="nhsuk-button   "
+    data-module="nhsuk-button"
+    data-prevent-double-click="false"
+    type="button"
   >
     Ask new question
   </button>
@@ -418,9 +423,10 @@ exports[`Results renders correctly with unrelated answer when source is also pre
     </ul>
   </div>
   <button
-    aria-disabled="false"
-    class="nhsuk-button"
-    type="submit"
+    class="nhsuk-button   "
+    data-module="nhsuk-button"
+    data-prevent-double-click="false"
+    type="button"
   >
     Cur ceist ùr
   </button>

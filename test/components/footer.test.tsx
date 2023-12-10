@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { Footer } from '../../app/[locale]/components/nhs/Footer';
 import { load } from 'cheerio';
 
@@ -15,7 +15,7 @@ describe('NHSFooter component', () => {
     const $ = load(html);
     const nhsFooter = $('.nhsuk-footer');
   
-    expect(nhsFooter.text()).toContain('Support linksGithub');
+    expect(nhsFooter.text()).toContain('Github');
     expect(nhsFooter.find('a').length).toBe(1);
   });
 });

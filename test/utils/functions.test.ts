@@ -1,5 +1,4 @@
 import { fetchAnswer } from '../../app/utils/functions';
-import fetchMock from 'jest-fetch-mock';
 import { UNRELATED_ANSWER } from '../../app/utils/constants';
 
 describe("fetchAnswer", () => {

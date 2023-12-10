@@ -2,9 +2,8 @@ import './styles/tailwind.scss';
 
 import { NextIntlClientProvider } from 'next-intl';
 import { Metadata } from 'next';
-import { SERVICE_DESC, SERVICE_NAME, SERVICE_URL } from '../utils/constants';
-import { checkHealthAPIStatus, getInternationalisation } from '../utils/functions';
 import { Header, Footer, Wrapper } from './components/nhs';
+import { SERVICE_DESC, SERVICE_NAME, SERVICE_URL, checkHealthAPIStatus, getInternationalisation } from '../utils';
 
 export const metadata: Metadata = {
   title: SERVICE_NAME,

@@ -1,18 +1,19 @@
 import { render, fireEvent, screen } from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect';
+import '@testing-library/jest-dom';
 import { Search } from '../../app/[locale]/components/Search';
-import { NextIntlProvider } from 'next-intl';
+import { NextIntlClientProvider } from 'next-intl';
 import { LOCALES } from '../../app/utils/constants';
+import { act } from 'react-dom/test-utils';
 
 describe('Search', () => {
   function toRender(messages: any, locale: string) { 
-    return (<NextIntlProvider messages={messages} locale={locale}>
+    return (<NextIntlClientProvider messages={messages} locale={locale}>
       <Search
         onSearch={jest.fn()}
         onResultUpdate={jest.fn()}
         onDone={jest.fn()}
       />
-    </NextIntlProvider>)
+    </NextIntlClientProvider>)
   };
 
   test.each(LOCALES)(
@@ -29,8 +30,10 @@ describe('Search', () => {
     async (locale) => {
       const messages = require(`../../locales/${locale}.json`);
       render(toRender(messages, locale));
-      const submitButton = screen.getByRole("button", { name: messages.search.button.submit });
+      const submitButton = await screen.findByText(messages.search.button.submit);
+      act(() => {
       fireEvent.click(submitButton);
+      });
       const errorMessage = await screen.findByText(messages.search.errors.too_small);
       expect(errorMessage).toBeInTheDocument();
     }
@@ -41,11 +44,16 @@ describe('Search', () => {
     async (locale) => {
       const messages = require(`../../locales/${locale}.json`);
       const { container } = render(toRender(messages, locale));
-      const submitButton = screen.getByRole("button", { name: messages.search.button.submit });
-      fireEvent.change(screen.getByRole("textbox"), {
-        target: { value: "what is an HRT PPC" },
+      const submitButton = await screen.findByText(messages.search.button.submit);
+      
+      act(() => {
+        fireEvent.change(screen.getByRole("textbox"), {
+          target: { value: "what is an HRT PPC" },
+        });
       });
+      act(() => {
       fireEvent.click(submitButton);
+      });
       const loadingSpinner = await screen.findByTestId("animated-progress");
       // expect(loadingSpinner).toBeInTheDocument(); fix test
       expect(container.firstChild).toMatchSnapshot();
