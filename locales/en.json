@@ -10,7 +10,7 @@
   "search": {
     "lang": "english",
     "query": "Enter a health related query",
-    "hint": "e.g What is an HRT PPC?",
+    "hint": "e.g What is an HRT prescription?",
     "errors": {
       "invalid_string": "must provide a valid search term",
       "too_small": "the search query must be more than 4 letters",

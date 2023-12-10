@@ -16,7 +16,7 @@ exports[`Search displays loading spinner when searching 1`] = `
     <span
       class="nhsuk-hint"
     >
-      e.g What is an HRT PPC?
+      e.g What is an HRT prescription?
     </span>
     <input
       aria-describedby="search-input-hint"
@@ -171,7 +171,7 @@ exports[`Search rendered component should match snapshot (en) 1`] = `
       <span
         class="nhsuk-hint"
       >
-        e.g What is an HRT PPC?
+        e.g What is an HRT prescription?
       </span>
       <input
         aria-describedby="search-input-hint"
