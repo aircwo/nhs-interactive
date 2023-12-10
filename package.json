@@ -1,6 +1,9 @@
 {
   "name": "NHS Interactive",
-  "version": "1.1.2",
+  "version": "1.1.3",
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "private": true,
   "scripts": {
     "preinstall": "node -e \"process.platform === 'darwin' && require('child_process').spawn('sh', ['./scripts/install_pre_commit.sh'], { stdio: 'inherit'})\"",
