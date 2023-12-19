@@ -76,3 +76,7 @@ export const getInternationalisation = async (locale: string) => {
     return notFound();
   }
 };
+
+export function classNames(...classes: any[]) {
+  return classes.filter(Boolean).join(' ')
+}
