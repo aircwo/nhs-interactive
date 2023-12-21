@@ -37,12 +37,12 @@ interface WarningCalloutLabelProps {
  * @returns {ReactNode} The rendered label component.
  */
 export const WarningCalloutLabel: React.FC<WarningCalloutLabelProps> = ({ children }) => (
-  <h3 className="nhsuk-warning-callout__label">
+  <h2 className="nhsuk-warning-callout__label">
     <span role="text">
       <span className="nhsuk-u-visually-hidden">Important: </span>
       {children}
     </span>
-  </h3>
+  </h2>
 );
 
 interface WarningCalloutTextProps {

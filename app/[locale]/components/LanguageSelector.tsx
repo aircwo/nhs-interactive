@@ -3,10 +3,7 @@ import { Menu, Transition } from '@headlessui/react'
 import { IconWorld } from '@tabler/icons-react';
 import { LOCALES } from '../../utils/constants';
 import Link from 'next/link';
-
-function classNames(...classes: any[]) {
-  return classes.filter(Boolean).join(' ')
-}
+import { classNames } from '../../utils';
 
 export default function LanguageSelector({translate, locale}: {translate: any, locale: string}) {
   return (
