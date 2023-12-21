@@ -1,12 +1,13 @@
 "use client";
 
-import { ChangeEvent, FC, KeyboardEvent, useState } from "react";
+import { FC, KeyboardEvent, useState } from "react";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
 import { Button, Input } from "./nhs";
 import { ALLOWED_SEARCH_CHARS_REGEX, SearchProps, fetchAnswer } from "../../utils";
+import { parseAsString, useQueryState } from 'next-usequerystate';
 
-const querySchema = z.string().min(3).max(100).regex(ALLOWED_SEARCH_CHARS_REGEX);
+const querySchema = z.string().min(4).max(100).regex(ALLOWED_SEARCH_CHARS_REGEX);
 
 export const Search: FC<SearchProps> = ({
   onSearch,
@@ -14,11 +15,11 @@ export const Search: FC<SearchProps> = ({
   onDone,
 }) => {
   const translate = useTranslations('search');
-  const [query, setQuery] = useState<string>("");
+  const [query] = useQueryState('q', parseAsString.withDefault(""));
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter") {
       handleSearch();
     }
@@ -61,8 +62,6 @@ export const Search: FC<SearchProps> = ({
             hint={translate('hint')}
             placeholder={translate('placeholder')}
             value={query}
-            type="text"
-            onChange={(e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
             onKeyDown={handleKeyDown}
             error={error}
           />

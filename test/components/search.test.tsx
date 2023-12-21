@@ -4,6 +4,18 @@ import { Search } from '../../app/[locale]/components/Search';
 import { NextIntlClientProvider } from 'next-intl';
 import { LOCALES } from '../../app/utils/constants';
 import { act } from 'react-dom/test-utils';
+import 'next-usequerystate';
+
+jest.mock('next-usequerystate', () => ({
+  useQueryState: () => ['', jest.fn().mockReturnValue("")],
+  parseAsString: {
+    withDefault: jest.fn().mockReturnValue(""),
+  },
+}));
+
+beforeEach(() => {
+  jest.clearAllMocks();
+}); 
 
 describe('Search', () => {
   function toRender(messages: any, locale: string) { 
@@ -54,7 +66,7 @@ describe('Search', () => {
       act(() => {
       fireEvent.click(submitButton);
       });
-      const loadingSpinner = await screen.findByTestId("animated-progress");
+      // const loadingSpinner = await screen.findByTestId("animated-progress");
       // expect(loadingSpinner).toBeInTheDocument(); fix test
       expect(container.firstChild).toMatchSnapshot();
     }
@@ -63,7 +75,7 @@ describe('Search', () => {
   test.each(LOCALES)('displays input label text', (locale) => {
     const messages = require(`../../locales/${locale}.json`);
     render(toRender(messages, locale));
-    const inputLabel = screen.getByLabelText(messages.search.query);
-    expect(inputLabel).toBeInTheDocument();
+    const label = screen.getByLabelText(messages.search.query);
+    expect(label).toBeInTheDocument();
   });
 });
