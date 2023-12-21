@@ -7,7 +7,7 @@ import { Button, Input } from "./nhs";
 import { ALLOWED_SEARCH_CHARS_REGEX, SearchProps, fetchAnswer } from "../../utils";
 import { parseAsString, useQueryState } from 'next-usequerystate';
 
-const querySchema = z.string().min(3).max(100).regex(ALLOWED_SEARCH_CHARS_REGEX);
+const querySchema = z.string().min(4).max(100).regex(ALLOWED_SEARCH_CHARS_REGEX);
 
 export const Search: FC<SearchProps> = ({
   onSearch,
