@@ -66,8 +66,7 @@ export const checkHealthAPIStatus = async (url: string) => {
   } catch {
     maintenanceMode = true;
   }
-  return false;
-  // return maintenanceMode;
+  return maintenanceMode;
 };
 
 export const getInternationalisation = async (locale: string) => {
