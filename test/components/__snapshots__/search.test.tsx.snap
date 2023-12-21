@@ -5,7 +5,7 @@ exports[`Search displays loading spinner when searching 1`] = `
   class="relative w-full"
 >
   <div
-    class="nhsuk-form-group "
+    class="nhsuk-character-count nhsuk-form-group nhsuk-form-group--error"
   >
     <label
       class="nhsuk-label"
@@ -18,19 +18,23 @@ exports[`Search displays loading spinner when searching 1`] = `
     >
       e.g What is an HRT prescription?
     </span>
-    <input
-      aria-describedby="search-input-hint"
-      aria-invalid="false"
-      class="nhsuk-input "
+    <span
+      class="nhsuk-error-message"
+    >
+      the search query must be more than 4 letters
+    </span>
+    <textarea
+      class="nhsuk-textarea nhsuk-js-character-count nhsuk-textarea--error"
       id="search-input"
+      maxlength="100"
       name="search"
       placeholder="type something here"
-      type="text"
-      value="what is an HRT PPC"
+      rows="1"
     />
   </div>
   <a
     class="nhsuk-button   "
+    disabled=""
     id="submit"
   >
     Submit
@@ -43,7 +47,7 @@ exports[`Search displays loading spinner when searching 2`] = `
   class="relative w-full"
 >
   <div
-    class="nhsuk-form-group "
+    class="nhsuk-character-count nhsuk-form-group nhsuk-form-group--error"
   >
     <label
       class="nhsuk-label"
@@ -56,19 +60,23 @@ exports[`Search displays loading spinner when searching 2`] = `
     >
       e.e. Beth yw HRT PPC?
     </span>
-    <input
-      aria-describedby="search-input-hint"
-      aria-invalid="false"
-      class="nhsuk-input "
+    <span
+      class="nhsuk-error-message"
+    >
+      Rhaid i'r ymholiad chwilio fod yn fwy na 4 llythyren
+    </span>
+    <textarea
+      class="nhsuk-textarea nhsuk-js-character-count nhsuk-textarea--error"
       id="search-input"
+      maxlength="100"
       name="search"
       placeholder="teipiwch rhywbeth yma"
-      type="text"
-      value="what is an HRT PPC"
+      rows="1"
     />
   </div>
   <a
     class="nhsuk-button   "
+    disabled=""
     id="submit"
   >
     Cyflwyno
@@ -81,7 +89,7 @@ exports[`Search displays loading spinner when searching 3`] = `
   class="relative w-full"
 >
   <div
-    class="nhsuk-form-group "
+    class="nhsuk-character-count nhsuk-form-group nhsuk-form-group--error"
   >
     <label
       class="nhsuk-label"
@@ -94,19 +102,23 @@ exports[`Search displays loading spinner when searching 3`] = `
     >
       e.g. Dè tha PPC HRT?
     </span>
-    <input
-      aria-describedby="search-input-hint"
-      aria-invalid="false"
-      class="nhsuk-input "
+    <span
+      class="nhsuk-error-message"
+    >
+      feumaidh barrachd air 4 litrichean a bhith anns a' cheist rannsachaidh
+    </span>
+    <textarea
+      class="nhsuk-textarea nhsuk-js-character-count nhsuk-textarea--error"
       id="search-input"
+      maxlength="100"
       name="search"
       placeholder="cuir rudeigin an seo"
-      type="text"
-      value="what is an HRT PPC"
+      rows="1"
     />
   </div>
   <a
     class="nhsuk-button   "
+    disabled=""
     id="submit"
   >
     Cuir ris
@@ -120,7 +132,7 @@ exports[`Search rendered component should match snapshot (cy) 1`] = `
     class="relative w-full"
   >
     <div
-      class="nhsuk-form-group "
+      class="nhsuk-character-count nhsuk-form-group "
     >
       <label
         class="nhsuk-label"
@@ -133,15 +145,13 @@ exports[`Search rendered component should match snapshot (cy) 1`] = `
       >
         e.e. Beth yw HRT PPC?
       </span>
-      <input
-        aria-describedby="search-input-hint"
-        aria-invalid="false"
-        class="nhsuk-input "
+      <textarea
+        class="nhsuk-textarea nhsuk-js-character-count "
         id="search-input"
+        maxlength="100"
         name="search"
         placeholder="teipiwch rhywbeth yma"
-        type="text"
-        value=""
+        rows="1"
       />
     </div>
     <a
@@ -160,7 +170,7 @@ exports[`Search rendered component should match snapshot (en) 1`] = `
     class="relative w-full"
   >
     <div
-      class="nhsuk-form-group "
+      class="nhsuk-character-count nhsuk-form-group "
     >
       <label
         class="nhsuk-label"
@@ -173,15 +183,13 @@ exports[`Search rendered component should match snapshot (en) 1`] = `
       >
         e.g What is an HRT prescription?
       </span>
-      <input
-        aria-describedby="search-input-hint"
-        aria-invalid="false"
-        class="nhsuk-input "
+      <textarea
+        class="nhsuk-textarea nhsuk-js-character-count "
         id="search-input"
+        maxlength="100"
         name="search"
         placeholder="type something here"
-        type="text"
-        value=""
+        rows="1"
       />
     </div>
     <a
@@ -200,7 +208,7 @@ exports[`Search rendered component should match snapshot (gd) 1`] = `
     class="relative w-full"
   >
     <div
-      class="nhsuk-form-group "
+      class="nhsuk-character-count nhsuk-form-group "
     >
       <label
         class="nhsuk-label"
@@ -213,15 +221,13 @@ exports[`Search rendered component should match snapshot (gd) 1`] = `
       >
         e.g. Dè tha PPC HRT?
       </span>
-      <input
-        aria-describedby="search-input-hint"
-        aria-invalid="false"
-        class="nhsuk-input "
+      <textarea
+        class="nhsuk-textarea nhsuk-js-character-count "
         id="search-input"
+        maxlength="100"
         name="search"
         placeholder="cuir rudeigin an seo"
-        type="text"
-        value=""
+        rows="1"
       />
     </div>
     <a

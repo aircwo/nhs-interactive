@@ -1,6 +1,8 @@
-import React, { ChangeEvent, InputHTMLAttributes, ReactNode } from 'react';
+import { classNames } from '../../../utils';
+import { parseAsString, useQueryState } from 'next-usequerystate';
+import React from 'react';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   id?: string;
   label?: string;
   hint?: string;
@@ -8,7 +10,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 /**
- * Represents a customizable input component.
+ * Represents a customisable input component.
  *
  * @component
  * @param {object} props - The properties of the component.
@@ -26,36 +28,45 @@ const Input: React.FC<InputProps> = ({
   error,
   ...restProps
 }) => {
-  const inputContainerClasses = `nhsuk-form-group ${error ? 'nhsuk-form-group--error' : ''}`;
-  const inputClasses = `nhsuk-input ${error ? 'nhsuk-input--error' : ''}`;
+  const [rows, setRows] = React.useState(1);
+  const [query, setQuery] = useQueryState('q', parseAsString.withDefault(""));
+  const [showText, setShowText] = React.useState(false);
+  const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+    if (event.target.value.length >= 50 && query.length >= 50) {
+      setShowText(true);
+      setRows(3);
+    } else {
+      setShowText(false);
+      // dont set rows here
+    }
+    
+    setQuery(event.target.value);
+  };
+
+  const inputContainerClasses = `nhsuk-character-count nhsuk-form-group ${error ? 'nhsuk-form-group--error' : ''}`;
+  const textBoxClasses = `nhsuk-textarea nhsuk-js-character-count ${error ? 'nhsuk-textarea--error' : ''}`;
   
   return (
     <div className={inputContainerClasses}>
       {label && <label className="nhsuk-label" htmlFor={id}>{label}</label>}
       {hint && <span className="nhsuk-hint">{hint}</span>}
       {error && <span className="nhsuk-error-message">{error}</span>}
-      <input
+      <textarea 
         id={id}
-        className={inputClasses}
-        aria-describedby={hint && id ? `${id}-hint` : undefined}
-        aria-invalid={!!error}
-        {...restProps}
-      />
+        value={query}
+        className={textBoxClasses} 
+        rows={rows}
+        maxLength={100}
+        onChange={handleChange} 
+        {...restProps}></textarea>
+    
+      { showText &&
+        <div className={classNames((query.length > 95) ? "nhsuk-error-message" : "nhsuk-hint")} id="exceeding-info">
+          You have {100 - query.length} characters remaining
+        </div>
+      }
     </div>
   );
 };
-
-// Example usage:
-// <Input
-//   id="search-input"
-//   label={translate('query')}
-//   hint={translate('hint')}
-//   placeholder={translate('placeholder')}
-//   value={query}
-//   type="text"
-//   onChange={(e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value)}
-//   onKeyDown={handleKeyDown}
-//   error={error}
-// />
 
 export default Input;
