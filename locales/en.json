@@ -39,6 +39,7 @@
       }
     },
     "question": "Question",
+    "change": "Change",
     "answer": "Answer",
     "sources": "Trusted Sources",
     "button": {
