@@ -31,10 +31,11 @@ export async function POST(req: Request): Promise<Response> {
     await pb.collection("searches").create({
       query: searchQuery?.query,
       result: answer,
-      links: searchQuery?.sourceLinks,
+      links: JSON.stringify(searchQuery?.sourceLinks),
       db_access_key: process.env.DB_ACCESS_KEY,
     });
   } catch (error) {
+    console.log("Pocketbase threw error: ", error);
     return new Response("Failed to log", { status: 500 });
   }
 
