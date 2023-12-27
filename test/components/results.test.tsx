@@ -42,8 +42,9 @@ describe('Results', () => {
     const html = container.innerHTML;
     const $ = load(html);
   
-    expect($('a').length).toBe(0);
-    expect($('p').length).toBe(4);
+    expect($('dl').length).toBe(1);
+    expect($('a').length).toBe(1);
+    expect($('p').length).toBe(3);
   });
 
   global.fetch = jest.fn().mockResolvedValue({
@@ -69,12 +70,12 @@ describe('Results', () => {
         messages.results.answer
       );
       const paragraphs = $('p');
-      expect(paragraphs.length).toBe(4);
+      expect(paragraphs.length).toBe(3);
       expect(paragraphs.text()).toStrictEqual(
         messages.results.question + 
-        props.searchQuery.query + ' (?)' +
         messages.results.answer + props.answer
       );
+      assertQuestion($, props, messages);
     }
   );
 
@@ -105,6 +106,7 @@ describe('Results', () => {
         messages.results.error.list.two + 
         messages.results.error.list.three
       );
+      assertQuestion($, props, messages);
     }
   );
   global.fetch = jest.fn().mockResolvedValue({
@@ -134,6 +136,7 @@ describe('Results', () => {
         messages.results.error.list.two + 
         messages.results.error.list.three
       );
+      assertQuestion($, props, messages);
     }
   );
   global.fetch = jest.fn().mockResolvedValue({
@@ -163,12 +166,21 @@ describe('Results', () => {
         messages.results.error.list.three
       );
       const paragraphs = $('p');
-      expect(paragraphs.length).toBe(4);
+      expect(paragraphs.length).toBe(3);
       expect(paragraphs.text()).toStrictEqual(
         messages.results.question + 
-        props.searchQuery.query + ' (?)' +
         messages.results.answer + props.answer
       );
+      assertQuestion($, props, messages);
     }
   );
 });
+
+function assertQuestion($: any, props: ResultProps, messages: any) {
+  const summaryList = $('dl');
+  expect(summaryList.length).toBe(1);
+  expect(summaryList.text()).toStrictEqual(
+    props.searchQuery.query + ' (?)' +
+    messages.results.change + ` ${messages.results.question.toLowerCase()}`
+  );
+}

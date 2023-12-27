@@ -7,15 +7,35 @@ exports[`Results rendered component should match snapshot (cy) 1`] = `
   >
     Cwestiwn
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Newid
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            cwestiwn
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p
     class="text-nhs-blue mb-2"
   >
@@ -36,15 +56,35 @@ exports[`Results rendered component should match snapshot (en) 1`] = `
   >
     Question
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Change
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            question
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p
     class="text-nhs-blue mb-2"
   >
@@ -65,15 +105,35 @@ exports[`Results rendered component should match snapshot (gd) 1`] = `
   >
     Ceist
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Atharraich
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            ceist
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p
     class="text-nhs-blue mb-2"
   >
@@ -94,15 +154,35 @@ exports[`Results renders correctly with unrelated answer (cy) 1`] = `
   >
     Cwestiwn
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Newid
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            cwestiwn
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p>
     mae'n ymddangos nad yw eich ymholiad yn atebadwy.
   </p>
@@ -140,15 +220,35 @@ exports[`Results renders correctly with unrelated answer (en) 1`] = `
   >
     Question
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Change
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            question
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p>
     It looks like your query may not be answerable.
   </p>
@@ -186,15 +286,35 @@ exports[`Results renders correctly with unrelated answer (gd) 1`] = `
   >
     Ceist
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Atharraich
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            ceist
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p>
     tha coltas gum b'urrainn nach biodh freagairt agad air do chuirimh.
   </p>
@@ -232,15 +352,35 @@ exports[`Results renders correctly with unrelated answer when source is also pre
   >
     Cwestiwn
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Newid
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            cwestiwn
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p>
     mae'n ymddangos nad yw eich ymholiad yn atebadwy.
   </p>
@@ -278,15 +418,35 @@ exports[`Results renders correctly with unrelated answer when source is also pre
   >
     Cwestiwn
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Newid
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            cwestiwn
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p
     class="text-nhs-blue mb-2"
   >
@@ -307,15 +467,35 @@ exports[`Results renders correctly with unrelated answer when source is also pre
   >
     Question
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Change
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            question
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p>
     It looks like your query may not be answerable.
   </p>
@@ -353,15 +533,35 @@ exports[`Results renders correctly with unrelated answer when source is also pre
   >
     Question
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Change
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            question
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p
     class="text-nhs-blue mb-2"
   >
@@ -382,15 +582,35 @@ exports[`Results renders correctly with unrelated answer when source is also pre
   >
     Ceist
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Atharraich
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            ceist
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p>
     tha coltas gum b'urrainn nach biodh freagairt agad air do chuirimh.
   </p>
@@ -428,15 +648,35 @@ exports[`Results renders correctly with unrelated answer when source is also pre
   >
     Ceist
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Atharraich
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            ceist
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p
     class="text-nhs-blue mb-2"
   >
@@ -457,15 +697,35 @@ exports[`Results renders correctly with valid answer (cy) 1`] = `
   >
     Cwestiwn
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Newid
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            cwestiwn
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p
     class="text-nhs-blue mb-2"
   >
@@ -486,15 +746,35 @@ exports[`Results renders correctly with valid answer (en) 1`] = `
   >
     Question
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Change
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            question
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p
     class="text-nhs-blue mb-2"
   >
@@ -515,15 +795,35 @@ exports[`Results renders correctly with valid answer (gd) 1`] = `
   >
     Ceist
   </p>
-  <p
-    class="italic"
+  <dl
+    class="nhsuk-summary-list"
   >
-    test query
-     (?)
-  </p>
-  <hr
-    class="nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible"
-  />
+    <div
+      class="nhsuk-summary-list__row"
+    >
+      <dd
+        class="nhsuk-summary-list__value"
+      >
+        test query
+         (?)
+      </dd>
+      <dd
+        class="nhsuk-summary-list__actions"
+      >
+        <a
+          href="/?q=test+query#search-input"
+        >
+          Atharraich
+          <span
+            class="nhsuk-u-visually-hidden"
+          >
+             
+            ceist
+          </span>
+        </a>
+      </dd>
+    </div>
+  </dl>
   <p
     class="text-nhs-blue mb-2"
   >

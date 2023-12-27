@@ -12,8 +12,19 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
   return (
     <>
       <p className='text-md text-nhs-blue mb-2'>{translate('question')}</p>
-      <p className='italic'>{searchQuery.query} (?)</p>
-      <hr className='nhsuk-section-break nhsuk-section-break--m nhsuk-section-break--visible' />
+      <dl className="nhsuk-summary-list">
+        <div className="nhsuk-summary-list__row">
+          <dd className="nhsuk-summary-list__value">
+            {searchQuery.query} (?)
+          </dd>
+          <dd className="nhsuk-summary-list__actions">
+            <a onClick={onReset} href={`/?q=${searchQuery.query.replace(/\s+/g, '+')}#search-input`}>
+            {translate('change')}<span className="nhsuk-u-visually-hidden"> {translate('question').toLowerCase()}</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+
       { answer === UNRELATED_ANSWER ? <>
         <p>{translate('error.paragraphOne')}</p>
         <div className='nhsuk-details__text mb-6'>
