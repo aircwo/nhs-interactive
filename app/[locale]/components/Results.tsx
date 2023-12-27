@@ -57,7 +57,7 @@ export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset })
         </>
       )}
       { (done || answer === UNRELATED_ANSWER) && (
-        <Button onClick={onReset}>{translate('button.newQuery')}</Button>
+        <Button onClick={onReset} as="a" href="/">{translate('button.newQuery')}</Button>
       )}
     </>
   );

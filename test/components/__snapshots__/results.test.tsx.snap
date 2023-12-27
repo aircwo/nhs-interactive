@@ -124,14 +124,12 @@ exports[`Results renders correctly with unrelated answer (cy) 1`] = `
       </li>
     </ul>
   </div>
-  <button
+  <a
     class="nhsuk-button   "
-    data-module="nhsuk-button"
-    data-prevent-double-click="false"
-    type="button"
+    href="/"
   >
     Gofyn cwestiwn newydd
-  </button>
+  </a>
 </div>
 `;
 
@@ -172,14 +170,12 @@ exports[`Results renders correctly with unrelated answer (en) 1`] = `
       </li>
     </ul>
   </div>
-  <button
+  <a
     class="nhsuk-button   "
-    data-module="nhsuk-button"
-    data-prevent-double-click="false"
-    type="button"
+    href="/"
   >
     Ask new question
-  </button>
+  </a>
 </div>
 `;
 
@@ -220,14 +216,12 @@ exports[`Results renders correctly with unrelated answer (gd) 1`] = `
       </li>
     </ul>
   </div>
-  <button
+  <a
     class="nhsuk-button   "
-    data-module="nhsuk-button"
-    data-prevent-double-click="false"
-    type="button"
+    href="/"
   >
     Cur ceist ùr
-  </button>
+  </a>
 </div>
 `;
 
@@ -268,14 +262,12 @@ exports[`Results renders correctly with unrelated answer when source is also pre
       </li>
     </ul>
   </div>
-  <button
+  <a
     class="nhsuk-button   "
-    data-module="nhsuk-button"
-    data-prevent-double-click="false"
-    type="button"
+    href="/"
   >
     Gofyn cwestiwn newydd
-  </button>
+  </a>
 </div>
 `;
 
@@ -345,14 +337,12 @@ exports[`Results renders correctly with unrelated answer when source is also pre
       </li>
     </ul>
   </div>
-  <button
+  <a
     class="nhsuk-button   "
-    data-module="nhsuk-button"
-    data-prevent-double-click="false"
-    type="button"
+    href="/"
   >
     Ask new question
-  </button>
+  </a>
 </div>
 `;
 
@@ -422,14 +412,12 @@ exports[`Results renders correctly with unrelated answer when source is also pre
       </li>
     </ul>
   </div>
-  <button
+  <a
     class="nhsuk-button   "
-    data-module="nhsuk-button"
-    data-prevent-double-click="false"
-    type="button"
+    href="/"
   >
     Cur ceist ùr
-  </button>
+  </a>
 </div>
 `;
 
