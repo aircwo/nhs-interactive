@@ -9,13 +9,14 @@ test.describe('Landing page end-to-end tests', () => {
 
     await searchInput.click();
     await searchInput.press('CapsLock');
-    await searchInput.fill('NHS Strikes');
+    await searchInput.fill('What is an HRT prescription?');
     await searchInput.press('Enter');
     await expect(page.getByText('Answer')).toBeVisible();
     await expect(page.getByText('Trusted Sources')).toBeVisible();
-    await page.getByRole('button', { name: 'Ask New Question' }).click();
-    await expect(page.getByRole('button', { name: 'Submit' })).toBeVisible();
+    await page.getByRole('link', { name: 'Ask New Question' }).click();
+    await expect(page.getByText('Submit')).toBeVisible();
     await expect(page).toHaveTitle(/NHS Interactive/);
+    await expect(page.getByPlaceholder('type something here')).toBeVisible();
   });
 
   test('Github link', async ({ page }) => {
