@@ -87,9 +87,4 @@ const Button: React.FC<ButtonProps> = ({
   );
 };
 
-// Example usage:
-// <Button id="submit" as="a" href="/submit" onClick={handleSearch} disabled={!!error && query === ''}>
-//   {translate('button.submit')}
-// </Button>
-
 export default Button;

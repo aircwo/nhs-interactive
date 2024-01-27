@@ -27,9 +27,7 @@ export async function POST(req: Request): Promise<NextResponse> {
       throw new Error('Api key not set');
     }
 
-    const url = process.env.HEALTH_AI_API_URL;
-
-    const res = await fetch(url, {
+    const res = await fetch(process.env.HEALTH_AI_API_URL ?? "", {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${key}`

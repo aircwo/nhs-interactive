@@ -5,7 +5,7 @@ import { LOCALES } from '../../utils/constants';
 import Link from 'next/link';
 import { classNames } from '../../utils';
 
-export default function LanguageSelector({translate, locale}: {translate: any, locale: string}) {
+export default function LanguageSelector({translate, locale}: Readonly<{translate: any, locale: string}>) {
   return (
     <Menu as='div' className='absolute right-5 top-5 max-xl:right-5 sm:right-8 text-left'>
       {/* Move to within the nhsuk container for large screens */}
@@ -43,6 +43,7 @@ export default function LanguageSelector({translate, locale}: {translate: any, l
                           active ? "bg-gray-100 text-gray-900" : "text-gray-700",
                           "block px-4 py-2 text-sm rounded-md"
                         )}
+                        
                       >
                         <p className='mb-0 py-2'>
                           <span

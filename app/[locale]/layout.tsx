@@ -24,10 +24,10 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children, params: { locale }
-}: {
+}: Readonly<{
   children: React.ReactNode;
   params: { locale: string };
-}) {
+}>) {
   // this is needed for translation in client components
   const internationalisation = await getInternationalisation(locale);
   const maintenanceMode: boolean = await checkHealthAPIStatus(process.env.HEALTH_AI_API_HEALTH_CHECK_URL);

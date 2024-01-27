@@ -32,18 +32,16 @@ export default function Page() {
         </WarningCalloutText>
       </WarningCallout>
       {results ? (
-        <>
-          <Results
-            searchQuery={searchQuery}
-            answer={results}
-            done={done}
-            onReset={() => {
-              setResults("");
-              setSearchQuery({ query: "", sourceLinks: [], sourceHeadings: [] });
-              setDone(false);
-            }}
-          />
-        </>
+        <Results
+          searchQuery={searchQuery}
+          answer={results}
+          done={done}
+          onReset={() => {
+            setResults("");
+            setSearchQuery({ query: "", sourceLinks: [], sourceHeadings: [] });
+            setDone(false);
+          }}
+        />
       ) : (
         <Search
           onSearch={setSearchQuery}

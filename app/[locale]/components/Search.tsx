@@ -46,14 +46,11 @@ export const Search: FC<SearchProps> = ({
     <>
       {/* todo: skeleton loading here? */}
       {loading ? (
-        <>
-          <span className='inline-flex'>
-            <div data-testid='animated-progress' className='h-6 w-6 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] mr-2'></div>
-            <p>{translate('loading')}</p>
-          </span>
-        </>
+        <span className='inline-flex'>
+          <div data-testid='animated-progress' className='h-6 w-6 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] mr-2'></div>
+          <p>{translate('loading')}</p>
+        </span>
       ) : (
-        <>
         <div className='relative w-full'>
           <Input
             id="search-input"
@@ -75,7 +72,6 @@ export const Search: FC<SearchProps> = ({
             {translate('button.submit')}
           </Button>
         </div>
-        </>
       )}
     </>
   );
