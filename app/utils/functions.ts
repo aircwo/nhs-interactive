@@ -21,7 +21,7 @@ import { notFound } from "next/navigation";
  * @returns {Promise<void>}
  * @exports
  */
-export const fetchAnswer = async (query: string, onAnswerUpdate: (answer: string) => void, onSearch: (searchQuery: SearchQuery) => void, onDone: (done: boolean) => void, lang: string) => {
+export const fetchAnswer = async (query: string, onAnswerUpdate: (answer: string) => void, onSearch: (searchQuery: SearchQuery) => void, onDone: (done: boolean) => void, lang: string, setResultIdStore: (resultIdStore: string) => void) => {
   try {
     const response = await fetch("/api/answer", {
       method: "POST",
@@ -35,7 +35,7 @@ export const fetchAnswer = async (query: string, onAnswerUpdate: (answer: string
       throw new Error(response.statusText);
     }
 
-    let { data }: {data: HealthAPIResponse} = await response.json();
+    let { data, id }: {data: HealthAPIResponse, id: string} = await response.json();
     // todo: validate the response more
     // loose matching:
     let answer = data.answer;
@@ -46,10 +46,11 @@ export const fetchAnswer = async (query: string, onAnswerUpdate: (answer: string
     // call this here to ensure query is shown before answer
     onSearch({ query, sourceLinks: data.sources, sourceHeadings: data.headings });
     onAnswerUpdate(answer);
+    setResultIdStore(id);
     onDone(true);
   } catch (error: any) {
     onAnswerUpdate(UNRELATED_ANSWER);
-    onSearch({ query: error.message ?? 'Error', sourceLinks: [], sourceHeadings: [] });
+    onSearch({ query: query ?? 'Error', sourceLinks: [], sourceHeadings: [] });
   }
 };
 

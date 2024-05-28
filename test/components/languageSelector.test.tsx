@@ -4,7 +4,7 @@ import LanguageSelector from '../../app/[locale]/components/LanguageSelector';
 import { load } from 'cheerio';
 import { LOCALES } from '../../app/utils/constants';
 import { NextIntlClientProvider } from 'next-intl';
-import { act } from 'react-dom/test-utils';
+import { act } from 'react';
 
 describe('LanguageSelector component', () => {
   let translation: { 'button.language': string };
@@ -15,6 +15,14 @@ describe('LanguageSelector component', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
+    Object.defineProperty(window, 'ResizeObserver', {
+      writable: true,
+      value: jest.fn().mockImplementation(() => ({
+        observe: jest.fn(),
+        unobserve: jest.fn(),
+        disconnect: jest.fn(),
+      })),
+    });
   });
 
   function toRender(messages: any, locale: string) {

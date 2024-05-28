@@ -1,4 +1,4 @@
-import { HealthAPIResponse } from "@/types";
+import { HealthAPIResponse, LogData } from "@/types";
 import { NextResponse } from "next/server";
 
 export const runtime = 'edge';
@@ -44,7 +44,22 @@ export async function POST(req: Request): Promise<NextResponse> {
       throw new Error("API returned an error");
     }
     const data: HealthAPIResponse = await res.json();
-    return NextResponse.json({ data }, { status: 200 });
+    const logRes: NextResponse|Response = await fetch(process.env.NEXT_PUBLIC_SERVER_URL + '/api/log', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        searchQuery: { 
+          query: query,
+          sourceLinks: data.sources,
+          sourceHeadings: data.headings
+        },
+        answer: data.answer
+      } as LogData),
+    });
+    const datas: any = await logRes.json();
+    return NextResponse.json({ data, id: datas.id }, { status: 200 });
   } catch (error: any) {
     console.error(error);
     return NextResponse.json({}, { status: 500, statusText: error.message ?? error.statusText });

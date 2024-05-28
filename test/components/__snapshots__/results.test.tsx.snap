@@ -172,7 +172,6 @@ exports[`Results renders correctly with unrelated answer (cy) 1`] = `
         <a
           href="/?q=test+query#search-input"
         >
-          Newid
           <span
             class="nhsuk-u-visually-hidden"
           >
@@ -204,12 +203,17 @@ exports[`Results renders correctly with unrelated answer (cy) 1`] = `
       </li>
     </ul>
   </div>
-  <a
-    class="nhsuk-button   "
-    href="/"
+  <div
+    class="flex justify-between space-x-4 h-18"
   >
-    Gofyn cwestiwn newydd
-  </a>
+    <a
+      class="nhsuk-button    "
+      href="/"
+      tabindex="0"
+    >
+      Gofyn cwestiwn newydd
+    </a>
+  </div>
 </div>
 `;
 
@@ -238,7 +242,6 @@ exports[`Results renders correctly with unrelated answer (en) 1`] = `
         <a
           href="/?q=test+query#search-input"
         >
-          Change
           <span
             class="nhsuk-u-visually-hidden"
           >
@@ -270,12 +273,17 @@ exports[`Results renders correctly with unrelated answer (en) 1`] = `
       </li>
     </ul>
   </div>
-  <a
-    class="nhsuk-button   "
-    href="/"
+  <div
+    class="flex justify-between space-x-4 h-18"
   >
-    Ask new question
-  </a>
+    <a
+      class="nhsuk-button    "
+      href="/"
+      tabindex="0"
+    >
+      Ask new question
+    </a>
+  </div>
 </div>
 `;
 
@@ -304,7 +312,6 @@ exports[`Results renders correctly with unrelated answer (gd) 1`] = `
         <a
           href="/?q=test+query#search-input"
         >
-          Atharraich
           <span
             class="nhsuk-u-visually-hidden"
           >
@@ -336,12 +343,17 @@ exports[`Results renders correctly with unrelated answer (gd) 1`] = `
       </li>
     </ul>
   </div>
-  <a
-    class="nhsuk-button   "
-    href="/"
+  <div
+    class="flex justify-between space-x-4 h-18"
   >
-    Cur ceist ùr
-  </a>
+    <a
+      class="nhsuk-button    "
+      href="/"
+      tabindex="0"
+    >
+      Cur ceist ùr
+    </a>
+  </div>
 </div>
 `;
 
@@ -370,7 +382,6 @@ exports[`Results renders correctly with unrelated answer when source is also pre
         <a
           href="/?q=test+query#search-input"
         >
-          Newid
           <span
             class="nhsuk-u-visually-hidden"
           >
@@ -402,12 +413,17 @@ exports[`Results renders correctly with unrelated answer when source is also pre
       </li>
     </ul>
   </div>
-  <a
-    class="nhsuk-button   "
-    href="/"
+  <div
+    class="flex justify-between space-x-4 h-18"
   >
-    Gofyn cwestiwn newydd
-  </a>
+    <a
+      class="nhsuk-button    "
+      href="/"
+      tabindex="0"
+    >
+      Gofyn cwestiwn newydd
+    </a>
+  </div>
 </div>
 `;
 
@@ -485,7 +501,6 @@ exports[`Results renders correctly with unrelated answer when source is also pre
         <a
           href="/?q=test+query#search-input"
         >
-          Change
           <span
             class="nhsuk-u-visually-hidden"
           >
@@ -517,12 +532,17 @@ exports[`Results renders correctly with unrelated answer when source is also pre
       </li>
     </ul>
   </div>
-  <a
-    class="nhsuk-button   "
-    href="/"
+  <div
+    class="flex justify-between space-x-4 h-18"
   >
-    Ask new question
-  </a>
+    <a
+      class="nhsuk-button    "
+      href="/"
+      tabindex="0"
+    >
+      Ask new question
+    </a>
+  </div>
 </div>
 `;
 
@@ -600,7 +620,6 @@ exports[`Results renders correctly with unrelated answer when source is also pre
         <a
           href="/?q=test+query#search-input"
         >
-          Atharraich
           <span
             class="nhsuk-u-visually-hidden"
           >
@@ -632,12 +651,17 @@ exports[`Results renders correctly with unrelated answer when source is also pre
       </li>
     </ul>
   </div>
-  <a
-    class="nhsuk-button   "
-    href="/"
+  <div
+    class="flex justify-between space-x-4 h-18"
   >
-    Cur ceist ùr
-  </a>
+    <a
+      class="nhsuk-button    "
+      href="/"
+      tabindex="0"
+    >
+      Cur ceist ùr
+    </a>
+  </div>
 </div>
 `;
 

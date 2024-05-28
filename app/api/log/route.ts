@@ -1,4 +1,6 @@
 import { LOCAL_DB_URL } from "@/app/utils/constants";
+import { LogData } from "@/types";
+import { NextResponse } from "next/server";
 import PocketBase from "pocketbase";
 
 /**
@@ -13,27 +15,30 @@ import PocketBase from "pocketbase";
  * @returns {Promise<Response>}
  * @exports
  */
-export async function POST(req: Request): Promise<Response> {
+export async function POST(req: Request): Promise<Response|NextResponse> {
   if (!process.env.DB_STORE) return new Response("Logged response - no db");
 
-  const { searchQuery, answer } = (await req.json()) as {
-    searchQuery: {
-      query: string;
-      sourceLinks: string[];
-      sourceHeadings?: string[]; // todo: add headings to db
-    };
-    answer: string;
-  };
-
+  const { searchQuery, answer, feedback, id } = (await req.json()) as LogData;
+  
   try {
     const pb = new PocketBase(process.env.DB_URL ?? LOCAL_DB_URL);
-
-    await pb.collection("searches").create({
-      query: searchQuery?.query,
-      result: answer,
-      links: JSON.stringify(searchQuery?.sourceLinks),
-      db_access_key: process.env.DB_ACCESS_KEY,
-    });
+    if (!id) {
+      const res = await pb.collection("searches").create({
+        query: searchQuery?.query,
+        result: answer,
+        links: JSON.stringify(searchQuery?.sourceLinks),
+        db_access_key: process.env.DB_ACCESS_KEY,
+      });
+      return NextResponse.json({ id: res.id }, { status: 200 });
+    }
+    if (feedback && id) {
+      await pb.collection("feedback").create({
+        field: id,
+        helpful: feedback.helpful,
+        note: JSON.stringify(feedback.comment),
+        db_access_key: process.env.DB_ACCESS_KEY,
+      });
+    }
   } catch (error) {
     console.log("Pocketbase threw error: ", error);
     return new Response("Failed to log", { status: 500 });
