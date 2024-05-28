@@ -1,23 +1,23 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useTranslations } from "next-intl";
 import { Button } from "./nhs";
 import { ResultProps, UNRELATED_ANSWER } from "../../utils";
-import { useApiLog } from "../../utils/hooks";
+// import { useApiLog } from "../../utils/hooks";
 // import FeedbackDialog from "./Feedback";
 
 export const Results: FC<ResultProps> = ({ searchQuery, answer, done, onReset, answerIdStore }) => {
-  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
-  const [feedbackGiven, setFeedbackGiven] = useState(false);
-  const [logData, setLogData] = useState({ searchQuery, answer });
+  // const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
+  // const [feedbackGiven, setFeedbackGiven] = useState(false);
+  // const [logData, setLogData] = useState({ searchQuery, answer });
   const translate = useTranslations('results');
   // const logData: LogData = { searchQuery, answer };
-
-  const handleFeedbackSubmit = (feedback: any) => {
-    const updatedLogData = { ...logData, feedback };
-    setLogData(updatedLogData);
-    setFeedbackGiven(true);
-    useApiLog(logData, feedbackGiven, answerIdStore);
-  };
+  // disabled until feedback is enabled
+  // const handleFeedbackSubmit = (feedback: any) => {
+  //   const updatedLogData = { ...logData, feedback };
+  //   setLogData(updatedLogData);
+  //   setFeedbackGiven(true);
+  //   useApiLog(logData, feedbackGiven, answerIdStore);
+  // };
 
   return (
     <>
