@@ -2,6 +2,7 @@ import './styles/tailwind.scss';
 
 import { NextIntlClientProvider } from 'next-intl';
 import { Metadata } from 'next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { Header, Footer, Wrapper } from './components/nhs';
 import { SERVICE_DESC, SERVICE_NAME, SERVICE_URL, checkHealthAPIStatus, getInternationalisation } from '../utils';
 
@@ -39,6 +40,7 @@ export default async function RootLayout({
           { Wrapper(children, maintenanceMode)}
         <Footer />
       </NextIntlClientProvider>
+      <SpeedInsights />
       </body>
     </html>
   );
