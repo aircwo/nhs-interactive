@@ -23,7 +23,8 @@ describe('Results', () => {
       } as SearchQuery,
       answer: 'test answer',
       done: false,
-      onReset: jest.fn()
+      onReset: jest.fn(),
+      answerIdStore: "123456789"
     };
   });
   
@@ -106,7 +107,7 @@ describe('Results', () => {
         messages.results.error.list.two + 
         messages.results.error.list.three
       );
-      assertQuestion($, props, messages);
+      assertQuestion($, props, messages, true);
     }
   );
   global.fetch = jest.fn().mockResolvedValue({
@@ -136,7 +137,7 @@ describe('Results', () => {
         messages.results.error.list.two + 
         messages.results.error.list.three
       );
-      assertQuestion($, props, messages);
+      assertQuestion($, props, messages, true);
     }
   );
   global.fetch = jest.fn().mockResolvedValue({
@@ -176,11 +177,10 @@ describe('Results', () => {
   );
 });
 
-function assertQuestion($: any, props: ResultProps, messages: any) {
+function assertQuestion($: any, props: ResultProps, messages: any, hidden: boolean = false) {
   const summaryList = $('dl');
   expect(summaryList.length).toBe(1);
-  expect(summaryList.text()).toStrictEqual(
-    props.searchQuery.query + ' (?)' +
-    messages.results.change + ` ${messages.results.question.toLowerCase()}`
-  );
+  const changeText = hidden ? '' : messages.results.change;
+  const summaryText = props.searchQuery.query + ' (?)' + changeText + ` ${messages.results.question.toLowerCase()}`;
+  expect(summaryList.text()).toStrictEqual(summaryText);
 }

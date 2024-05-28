@@ -55,7 +55,7 @@ exports[`NHSHeader component rendered component should match snapshot (cy) 1`] =
           <button
             aria-expanded="false"
             aria-haspopup="menu"
-            class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            class="inline-flex focus:outline-black focus:outline-8 focus:ring-4 focus:ring-yellow-400 w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50"
             data-headlessui-state=""
             id="language-button"
             type="button"
@@ -63,7 +63,7 @@ exports[`NHSHeader component rendered component should match snapshot (cy) 1`] =
             Iaith
             <svg
               aria-hidden="true"
-              class="-mr-1 h-5 w-5 text-gray-400"
+              class="tabler-icon tabler-icon-world -mr-1 h-5 w-5 text-gray-400"
               fill="none"
               height="24"
               stroke="currentColor"
@@ -153,7 +153,7 @@ exports[`NHSHeader component rendered component should match snapshot (en) 1`] =
           <button
             aria-expanded="false"
             aria-haspopup="menu"
-            class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            class="inline-flex focus:outline-black focus:outline-8 focus:ring-4 focus:ring-yellow-400 w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50"
             data-headlessui-state=""
             id="language-button"
             type="button"
@@ -161,7 +161,7 @@ exports[`NHSHeader component rendered component should match snapshot (en) 1`] =
             Language
             <svg
               aria-hidden="true"
-              class="-mr-1 h-5 w-5 text-gray-400"
+              class="tabler-icon tabler-icon-world -mr-1 h-5 w-5 text-gray-400"
               fill="none"
               height="24"
               stroke="currentColor"
@@ -251,7 +251,7 @@ exports[`NHSHeader component rendered component should match snapshot (gd) 1`] =
           <button
             aria-expanded="false"
             aria-haspopup="menu"
-            class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+            class="inline-flex focus:outline-black focus:outline-8 focus:ring-4 focus:ring-yellow-400 w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50"
             data-headlessui-state=""
             id="language-button"
             type="button"
@@ -259,7 +259,7 @@ exports[`NHSHeader component rendered component should match snapshot (gd) 1`] =
             Cànan
             <svg
               aria-hidden="true"
-              class="-mr-1 h-5 w-5 text-gray-400"
+              class="tabler-icon tabler-icon-world -mr-1 h-5 w-5 text-gray-400"
               fill="none"
               height="24"
               stroke="currentColor"

@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
+import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 import { IconWorld } from '@tabler/icons-react';
 import { LOCALES } from '../../utils/constants';
 import Link from 'next/link';
@@ -10,14 +10,13 @@ export default function LanguageSelector({translate, locale}: Readonly<{translat
     <Menu as='div' className='absolute right-5 top-5 max-xl:right-5 sm:right-8 text-left'>
       {/* Move to within the nhsuk container for large screens */}
       <div>
-        {/* Hover style made need changed to match NHS */}
-        <Menu.Button id='language-button' className='inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50'>
+        <MenuButton id='language-button' className='inline-flex focus:outline-black focus:outline-8 focus:ring-4 focus:ring-yellow-400 w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50'>
           {translate('button.language')}
           <IconWorld
             className='-mr-1 h-5 w-5 text-gray-400'
             aria-hidden='true'
           />
-        </Menu.Button>
+        </MenuButton>
       </div>
 
       <Transition
@@ -29,18 +28,18 @@ export default function LanguageSelector({translate, locale}: Readonly<{translat
         leaveFrom='transform opacity-100 scale-100'
         leaveTo='transform opacity-0 scale-95'
       >
-        <Menu.Items className='absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
+        <MenuItems className='absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none'>
           <div className='langs'>
             {LOCALES.map(lang => {
               if (lang !== locale) {
                 return (
-                  <Menu.Item key={lang} data-testid="language-item">
-                    {({ active }) => (
+                  <MenuItem key={lang} data-testid="language-item">
+                    {({ focus }) => (
                       <Link
                         href={`/${lang}`}
                         locale={lang}
                         className={classNames(
-                          active ? "bg-gray-100 text-gray-900" : "text-gray-700",
+                          focus ? "bg-gray-100 text-gray-900" : "text-gray-700",
                           "block px-4 py-2 text-sm rounded-md"
                         )}
                         
@@ -54,13 +53,13 @@ export default function LanguageSelector({translate, locale}: Readonly<{translat
                         </p>
                       </Link>
                     )}
-                  </Menu.Item>
+                  </MenuItem>
                 );
               }
               return null;
             })}
           </div>
-        </Menu.Items>
+        </MenuItems>
       </Transition>
     </Menu>
   );

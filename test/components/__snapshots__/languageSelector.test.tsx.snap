@@ -10,7 +10,7 @@ exports[`LanguageSelector component rendered component should match snapshot (cy
       <button
         aria-expanded="false"
         aria-haspopup="menu"
-        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        class="inline-flex focus:outline-black focus:outline-8 focus:ring-4 focus:ring-yellow-400 w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50"
         data-headlessui-state=""
         id="language-button"
         type="button"
@@ -18,7 +18,7 @@ exports[`LanguageSelector component rendered component should match snapshot (cy
         Iaith
         <svg
           aria-hidden="true"
-          class="-mr-1 h-5 w-5 text-gray-400"
+          class="tabler-icon tabler-icon-world -mr-1 h-5 w-5 text-gray-400"
           fill="none"
           height="24"
           stroke="currentColor"
@@ -61,7 +61,7 @@ exports[`LanguageSelector component rendered component should match snapshot (en
       <button
         aria-expanded="false"
         aria-haspopup="menu"
-        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        class="inline-flex focus:outline-black focus:outline-8 focus:ring-4 focus:ring-yellow-400 w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50"
         data-headlessui-state=""
         id="language-button"
         type="button"
@@ -69,7 +69,7 @@ exports[`LanguageSelector component rendered component should match snapshot (en
         Language
         <svg
           aria-hidden="true"
-          class="-mr-1 h-5 w-5 text-gray-400"
+          class="tabler-icon tabler-icon-world -mr-1 h-5 w-5 text-gray-400"
           fill="none"
           height="24"
           stroke="currentColor"
@@ -112,7 +112,7 @@ exports[`LanguageSelector component rendered component should match snapshot (gd
       <button
         aria-expanded="false"
         aria-haspopup="menu"
-        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        class="inline-flex focus:outline-black focus:outline-8 focus:ring-4 focus:ring-yellow-400 w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50"
         data-headlessui-state=""
         id="language-button"
         type="button"
@@ -120,7 +120,7 @@ exports[`LanguageSelector component rendered component should match snapshot (gd
         Cànan
         <svg
           aria-hidden="true"
-          class="-mr-1 h-5 w-5 text-gray-400"
+          class="tabler-icon tabler-icon-world -mr-1 h-5 w-5 text-gray-400"
           fill="none"
           height="24"
           stroke="currentColor"
@@ -158,21 +158,24 @@ exports[`LanguageSelector component should render the component with the correct
   <div
     class="absolute right-5 top-5 max-xl:right-5 sm:right-8 text-left"
     data-headlessui-state="open"
+    data-open=""
   >
     <div>
       <button
-        aria-controls="headlessui-menu-items-:rb:"
+        aria-controls="headlessui-menu-items-:rj:"
         aria-expanded="true"
         aria-haspopup="menu"
-        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-        data-headlessui-state="open"
+        class="inline-flex focus:outline-black focus:outline-8 focus:ring-4 focus:ring-yellow-400 w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50"
+        data-active=""
+        data-headlessui-state="open active"
+        data-open=""
         id="language-button"
         type="button"
       >
         Iaith
         <svg
           aria-hidden="true"
-          class="-mr-1 h-5 w-5 text-gray-400"
+          class="tabler-icon tabler-icon-world -mr-1 h-5 w-5 text-gray-400"
           fill="none"
           height="24"
           stroke="currentColor"
@@ -205,8 +208,10 @@ exports[`LanguageSelector component should render the component with the correct
       aria-labelledby="language-button"
       class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition ease-out duration-100 transform opacity-0 scale-95"
       data-headlessui-state="open"
-      id="headlessui-menu-items-:rb:"
+      data-open=""
+      id="headlessui-menu-items-:rj:"
       role="menu"
+      style="--button-width: 0px;"
       tabindex="0"
     >
       <div
@@ -218,7 +223,7 @@ exports[`LanguageSelector component should render the component with the correct
           data-headlessui-state=""
           data-testid="language-item"
           href="/en"
-          id="headlessui-menu-item-:rc:"
+          id="headlessui-menu-item-:rk:"
           role="menuitem"
           tabindex="-1"
         >
@@ -237,7 +242,7 @@ exports[`LanguageSelector component should render the component with the correct
           data-headlessui-state=""
           data-testid="language-item"
           href="/gd"
-          id="headlessui-menu-item-:rd:"
+          id="headlessui-menu-item-:rl:"
           role="menuitem"
           tabindex="-1"
         >
@@ -262,21 +267,24 @@ exports[`LanguageSelector component should render the component with the correct
   <div
     class="absolute right-5 top-5 max-xl:right-5 sm:right-8 text-left"
     data-headlessui-state="open"
+    data-open=""
   >
     <div>
       <button
-        aria-controls="headlessui-menu-items-:r7:"
+        aria-controls="headlessui-menu-items-:re:"
         aria-expanded="true"
         aria-haspopup="menu"
-        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-        data-headlessui-state="open"
+        class="inline-flex focus:outline-black focus:outline-8 focus:ring-4 focus:ring-yellow-400 w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50"
+        data-active=""
+        data-headlessui-state="open active"
+        data-open=""
         id="language-button"
         type="button"
       >
         Language
         <svg
           aria-hidden="true"
-          class="-mr-1 h-5 w-5 text-gray-400"
+          class="tabler-icon tabler-icon-world -mr-1 h-5 w-5 text-gray-400"
           fill="none"
           height="24"
           stroke="currentColor"
@@ -309,8 +317,10 @@ exports[`LanguageSelector component should render the component with the correct
       aria-labelledby="language-button"
       class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition ease-out duration-100 transform opacity-0 scale-95"
       data-headlessui-state="open"
-      id="headlessui-menu-items-:r7:"
+      data-open=""
+      id="headlessui-menu-items-:re:"
       role="menu"
+      style="--button-width: 0px;"
       tabindex="0"
     >
       <div
@@ -322,7 +332,7 @@ exports[`LanguageSelector component should render the component with the correct
           data-headlessui-state=""
           data-testid="language-item"
           href="/cy"
-          id="headlessui-menu-item-:r8:"
+          id="headlessui-menu-item-:rf:"
           role="menuitem"
           tabindex="-1"
         >
@@ -341,7 +351,7 @@ exports[`LanguageSelector component should render the component with the correct
           data-headlessui-state=""
           data-testid="language-item"
           href="/gd"
-          id="headlessui-menu-item-:r9:"
+          id="headlessui-menu-item-:rg:"
           role="menuitem"
           tabindex="-1"
         >
@@ -366,21 +376,24 @@ exports[`LanguageSelector component should render the component with the correct
   <div
     class="absolute right-5 top-5 max-xl:right-5 sm:right-8 text-left"
     data-headlessui-state="open"
+    data-open=""
   >
     <div>
       <button
-        aria-controls="headlessui-menu-items-:rf:"
+        aria-controls="headlessui-menu-items-:ro:"
         aria-expanded="true"
         aria-haspopup="menu"
-        class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-        data-headlessui-state="open"
+        class="inline-flex focus:outline-black focus:outline-8 focus:ring-4 focus:ring-yellow-400 w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50"
+        data-active=""
+        data-headlessui-state="open active"
+        data-open=""
         id="language-button"
         type="button"
       >
         Cànan
         <svg
           aria-hidden="true"
-          class="-mr-1 h-5 w-5 text-gray-400"
+          class="tabler-icon tabler-icon-world -mr-1 h-5 w-5 text-gray-400"
           fill="none"
           height="24"
           stroke="currentColor"
@@ -413,8 +426,10 @@ exports[`LanguageSelector component should render the component with the correct
       aria-labelledby="language-button"
       class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none transition ease-out duration-100 transform opacity-0 scale-95"
       data-headlessui-state="open"
-      id="headlessui-menu-items-:rf:"
+      data-open=""
+      id="headlessui-menu-items-:ro:"
       role="menu"
+      style="--button-width: 0px;"
       tabindex="0"
     >
       <div
@@ -426,7 +441,7 @@ exports[`LanguageSelector component should render the component with the correct
           data-headlessui-state=""
           data-testid="language-item"
           href="/en"
-          id="headlessui-menu-item-:rg:"
+          id="headlessui-menu-item-:rp:"
           role="menuitem"
           tabindex="-1"
         >
@@ -445,7 +460,7 @@ exports[`LanguageSelector component should render the component with the correct
           data-headlessui-state=""
           data-testid="language-item"
           href="/cy"
-          id="headlessui-menu-item-:rh:"
+          id="headlessui-menu-item-:rq:"
           role="menuitem"
           tabindex="-1"
         >

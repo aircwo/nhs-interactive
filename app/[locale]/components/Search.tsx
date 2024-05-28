@@ -13,6 +13,7 @@ export const Search: FC<SearchProps> = ({
   onSearch,
   onResultUpdate: onAnswerUpdate,
   onDone,
+  setResultIdStore,
 }) => {
   const translate = useTranslations('search');
   const [query] = useQueryState('q', parseAsString.withDefault(""));
@@ -35,7 +36,7 @@ export const Search: FC<SearchProps> = ({
 
     setLoading(true);
     try {
-      await fetchAnswer(query, onAnswerUpdate, onSearch, onDone, translate('lang'));
+      await fetchAnswer(query, onAnswerUpdate, onSearch, onDone, translate('lang'), setResultIdStore);
     } catch (error) {
       setError('Service currently unavailable. Please try again later.');
     }

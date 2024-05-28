@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 import { Search } from '../../app/[locale]/components/Search';
 import { NextIntlClientProvider } from 'next-intl';
 import { LOCALES } from '../../app/utils/constants';
-import { act } from 'react-dom/test-utils';
+import { act } from 'react';
 import 'next-usequerystate';
 
 jest.mock('next-usequerystate', () => ({
@@ -24,6 +24,7 @@ describe('Search', () => {
         onSearch={jest.fn()}
         onResultUpdate={jest.fn()}
         onDone={jest.fn()}
+        setResultIdStore={jest.fn()}
       />
     </NextIntlClientProvider>)
   };
@@ -66,8 +67,6 @@ describe('Search', () => {
       act(() => {
       fireEvent.click(submitButton);
       });
-      // const loadingSpinner = await screen.findByTestId("animated-progress");
-      // expect(loadingSpinner).toBeInTheDocument(); fix test
       expect(container.firstChild).toMatchSnapshot();
     }
   );

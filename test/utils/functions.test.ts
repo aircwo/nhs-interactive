@@ -6,6 +6,7 @@ describe("fetchAnswer", () => {
   const onSearch = jest.fn();
   const onDone = jest.fn();
   const lang = "English";
+  const setResultIdStore = jest.fn();
 
   test("returns an unrelated answer if empty source list is given", async () => {
     await expect(fetchAnswer(
@@ -13,12 +14,14 @@ describe("fetchAnswer", () => {
       onAnswerUpdate,
       onSearch,
       onDone,
-      lang
+      lang,
+      setResultIdStore
     ));
 
     expect(onAnswerUpdate).toHaveBeenCalledWith(UNRELATED_ANSWER);
-    // expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [], sourceHeadings: [] });
-    // expect(global.fetch).not.toHaveBeenCalledWith("/api/answer");
+    expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [], sourceHeadings: [] });
+    expect(onDone).toHaveBeenCalledTimes(0);
+    expect(setResultIdStore).toHaveBeenCalledTimes(0);
   });
 
   test("should throw error upon api call failure", async () => {
@@ -32,11 +35,14 @@ describe("fetchAnswer", () => {
       onAnswerUpdate,
       onSearch,
       onDone,
-      lang
+      lang,
+      setResultIdStore
     ));
 
     expect(onAnswerUpdate).toHaveBeenCalledWith(UNRELATED_ANSWER);
-    expect(onSearch).toHaveBeenCalledWith({ query: "error", sourceLinks: [], sourceHeadings: [] });
+    expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [], sourceHeadings: [] });
+    expect(onDone).toHaveBeenCalledTimes(0);
+    expect(setResultIdStore).toHaveBeenCalledTimes(0);
     expect(global.fetch).not.toHaveBeenCalledWith("/api/answer");
   });
 
@@ -51,11 +57,14 @@ describe("fetchAnswer", () => {
       onAnswerUpdate,
       onSearch,
       onDone,
-      lang
+      lang,
+      setResultIdStore
     ));
 
     expect(onAnswerUpdate).toHaveBeenCalledWith(UNRELATED_ANSWER);
-    // expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [], sourceHeadings: [] });
+    expect(onSearch).toHaveBeenCalledWith({ query: "query", sourceLinks: [], sourceHeadings: [] });
+    expect(onDone).toHaveBeenCalledTimes(0);
+    expect(setResultIdStore).toHaveBeenCalledTimes(0);
     expect(global.fetch).not.toHaveBeenCalledWith("/api/answer");
   });
 });

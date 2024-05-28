@@ -16,6 +16,7 @@ export default function Page() {
   });
   const [results, setResults] = useState<string>("");
   const [done, setDone] = useState<boolean>(false);
+  const [resultIdStore, setResultIdStore] = useState<string>("");
 
   return (
     <>
@@ -41,12 +42,14 @@ export default function Page() {
             setSearchQuery({ query: "", sourceLinks: [], sourceHeadings: [] });
             setDone(false);
           }}
+          answerIdStore={resultIdStore}
         />
       ) : (
         <Search
           onSearch={setSearchQuery}
           onResultUpdate={(value: string) => setResults((prev) => prev + value)}
-          onDone={setDone} />
+          onDone={setDone}
+          setResultIdStore={setResultIdStore} />
       )}
     </>
   );

@@ -33,9 +33,10 @@ exports[`Search displays loading spinner when searching 1`] = `
     />
   </div>
   <a
-    class="nhsuk-button   "
-    disabled=""
+    aria-disabled="true"
+    class="nhsuk-button    disabled"
     id="submit"
+    tabindex="-1"
   >
     Submit
   </a>
@@ -75,9 +76,10 @@ exports[`Search displays loading spinner when searching 2`] = `
     />
   </div>
   <a
-    class="nhsuk-button   "
-    disabled=""
+    aria-disabled="true"
+    class="nhsuk-button    disabled"
     id="submit"
+    tabindex="-1"
   >
     Cyflwyno
   </a>
@@ -117,9 +119,10 @@ exports[`Search displays loading spinner when searching 3`] = `
     />
   </div>
   <a
-    class="nhsuk-button   "
-    disabled=""
+    aria-disabled="true"
+    class="nhsuk-button    disabled"
     id="submit"
+    tabindex="-1"
   >
     Cuir ris
   </a>
@@ -155,8 +158,10 @@ exports[`Search rendered component should match snapshot (cy) 1`] = `
       />
     </div>
     <a
-      class="nhsuk-button   "
+      aria-disabled="false"
+      class="nhsuk-button    "
       id="submit"
+      tabindex="0"
     >
       Cyflwyno
     </a>
@@ -193,8 +198,10 @@ exports[`Search rendered component should match snapshot (en) 1`] = `
       />
     </div>
     <a
-      class="nhsuk-button   "
+      aria-disabled="false"
+      class="nhsuk-button    "
       id="submit"
+      tabindex="0"
     >
       Submit
     </a>
@@ -231,8 +238,10 @@ exports[`Search rendered component should match snapshot (gd) 1`] = `
       />
     </div>
     <a
-      class="nhsuk-button   "
+      aria-disabled="false"
+      class="nhsuk-button    "
       id="submit"
+      tabindex="0"
     >
       Cuir ris
     </a>

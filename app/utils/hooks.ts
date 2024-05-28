@@ -16,22 +16,26 @@ import { UNRELATED_ANSWER } from './constants';
  * @returns {void}
  * @exports
  */
-export const useApiLog = (logData: LogData, done: boolean) => {
+export const useApiLog = (logData: LogData, done: boolean, id: string) => {
   const isEffectActive = useRef<boolean>(false);
   useEffect(() => {
     if (!isEffectActive.current && (done || logData.answer === UNRELATED_ANSWER)) {
+      const data = {
+        ...logData,
+        id
+      }
       const fetchApiLog = async () => {
         await fetch('/api/log', {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(logData),
+          body: JSON.stringify(data),
         });
         // do we really need error handling here..?
       };
 
-      fetchApiLog();
+      fetchApiLog()
       isEffectActive.current = true;
     }
   }, [logData, done]);
