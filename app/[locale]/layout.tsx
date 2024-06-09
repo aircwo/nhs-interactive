@@ -13,8 +13,9 @@ const META_URL = new URL(SERVICE_URL);
 export const metadata: Metadata = {
   metadataBase: META_URL,
   robots: {
-    index: false,
     follow: false,
+    noarchive: false,
+    nocache: false,
   },
   title: SERVICE_NAME + " - " + SERVICE_DESC,
   description: SERVICE_DESC_EXT + " - " + SERVICE_NAME,
