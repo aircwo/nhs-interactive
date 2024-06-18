@@ -1,6 +1,7 @@
 import { HealthAPIResponse, SearchQuery } from "@/types";
 import { UNRELATED_ANSWER } from "./constants";
 import { notFound } from "next/navigation";
+import { z } from 'zod';
 
 /**
  * The `fetchAnswer` function is an asynchronous function that sends a POST request to the `/api/answer` endpoint with the
@@ -23,12 +24,16 @@ import { notFound } from "next/navigation";
  */
 export const fetchAnswer = async (query: string, onAnswerUpdate: (answer: string) => void, onSearch: (searchQuery: SearchQuery) => void, onDone: (done: boolean) => void, lang: string, setResultIdStore: (resultIdStore: string) => void) => {
   try {
+    let redactedQuery = query;
+    if(containsPII(query)) {
+      redactedQuery = redactPII(query);
+    }
     const response = await fetch("/api/answer", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ query, lang }),
+      body: JSON.stringify({ query: redactedQuery, lang }),
     });
 
     if (!response.ok) {
@@ -81,3 +86,38 @@ export const getInternationalisation = async (locale: string) => {
 export function classNames(...classes: any[]) {
   return classes.filter(Boolean).join(' ')
 }
+
+const emailSchema = z.string().regex(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/, "Invalid email format");
+const nhsNumberSchema = z.string().regex(/^\d{10}$/, "Invalid NHS number format");
+const creditCardSchema = z.string().regex(/\b(?:\d[ -]*?){13,16}\b/, "Invalid credit/debit card format");
+const nameSchema = z.string().regex(/\b([A-Z][a-z]*)(\s[A-Z][a-z]*)*\b/, "Invalid name format");
+const urlSchema = z.string().regex(/\b(https?:\/\/[^\s/$.?#].[^\s]*)\b/, "Invalid URL format");
+
+// Define the input schema
+const inputSchema = z.string();
+
+const containsPII = (input: string): boolean => {
+  // Check for any PII patterns
+  return (
+    emailSchema.safeParse(input).success ||
+    nhsNumberSchema.safeParse(input).success ||
+    creditCardSchema.safeParse(input).success ||
+    nameSchema.safeParse(input).success ||
+    urlSchema.safeParse(input).success
+  );
+};
+
+const redactPII = (input: string): string => {
+  // Replace loose PII (emails, names, URLs, nhs numbers) with '*'
+  return input
+    .replace(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/g, (match) => '*'.repeat(match.length))
+    .replace(/\b([A-Z][a-z]*)(\s[A-Z][a-z]*)*\b/g, (match) => '*'.repeat(match.length))
+    .replace(/\b(https?:\/\/[^\s/$.?#].[^\s]*)\b/g, (match) => '*'.repeat(match.length))
+    .replace(/\b\d{10}\b/g, (match) => '*'.repeat(match.length));
+};
+
+export const validateInput = (input: unknown): string => {
+  // Validate the input using zod
+  const parsed = inputSchema.parse(input);
+  return parsed;
+};

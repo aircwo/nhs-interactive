@@ -4,7 +4,7 @@ import { FC, KeyboardEvent, useState } from "react";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
 import { Button, Input } from "./nhs";
-import { ALLOWED_SEARCH_CHARS_REGEX, SearchProps, fetchAnswer } from "../../utils";
+import { ALLOWED_SEARCH_CHARS_REGEX, SearchProps, fetchAnswer, validateInput } from "../../utils";
 import { parseAsString, useQueryState } from 'next-usequerystate';
 
 const querySchema = z.string().min(4).max(100).regex(ALLOWED_SEARCH_CHARS_REGEX);
@@ -27,7 +27,8 @@ export const Search: FC<SearchProps> = ({
   };
 
   const handleSearch = async () => {
-    const result = querySchema.safeParse(query);
+    const sanitisedQuery = validateInput(query);
+    const result = querySchema.safeParse(sanitisedQuery);
     if (!result.success) {
       // dont care for multiple errors here so using the first in array is fine.
       setError(translate(`errors.${result.error.issues[0].code}`));
@@ -45,13 +46,8 @@ export const Search: FC<SearchProps> = ({
 
   return (
     <>
-      {/* todo: skeleton loading here? */}
       {loading ? (
         <>
-        {/* <span className='inline-flex'>
-          <div data-testid='animated-progress' className='h-6 w-6 animate-spin rounded-full border-2 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite] mr-2'></div>
-          <p>{translate('loading')}</p>
-        </span> */}
         <div className="animate-pulse space-y-6">
           <div className="h-6 w-[88px] bg-gray-200 rounded"></div>
           <div className="flex justify-between space-x-4">
@@ -92,6 +88,7 @@ export const Search: FC<SearchProps> = ({
           >
             {translate('button.submit')}
           </Button>
+          <span className="nhsuk-body-s">Queries and results are stored for further analysis. We wont pass personally identifiable information to OpenAI or our internal systems.</span>
         </div>
       )}
     </>

@@ -40,6 +40,11 @@ exports[`Search displays loading spinner when searching 1`] = `
   >
     Submit
   </a>
+  <span
+    class="nhsuk-body-s"
+  >
+    Queries and results are stored for further analysis. We wont pass personally identifiable information to OpenAI or our internal systems.
+  </span>
 </div>
 `;
 
@@ -83,6 +88,11 @@ exports[`Search displays loading spinner when searching 2`] = `
   >
     Cyflwyno
   </a>
+  <span
+    class="nhsuk-body-s"
+  >
+    Queries and results are stored for further analysis. We wont pass personally identifiable information to OpenAI or our internal systems.
+  </span>
 </div>
 `;
 
@@ -126,6 +136,11 @@ exports[`Search displays loading spinner when searching 3`] = `
   >
     Cuir ris
   </a>
+  <span
+    class="nhsuk-body-s"
+  >
+    Queries and results are stored for further analysis. We wont pass personally identifiable information to OpenAI or our internal systems.
+  </span>
 </div>
 `;
 
@@ -165,6 +180,11 @@ exports[`Search rendered component should match snapshot (cy) 1`] = `
     >
       Cyflwyno
     </a>
+    <span
+      class="nhsuk-body-s"
+    >
+      Queries and results are stored for further analysis. We wont pass personally identifiable information to OpenAI or our internal systems.
+    </span>
   </div>
 </div>
 `;
@@ -205,6 +225,11 @@ exports[`Search rendered component should match snapshot (en) 1`] = `
     >
       Submit
     </a>
+    <span
+      class="nhsuk-body-s"
+    >
+      Queries and results are stored for further analysis. We wont pass personally identifiable information to OpenAI or our internal systems.
+    </span>
   </div>
 </div>
 `;
@@ -245,6 +270,11 @@ exports[`Search rendered component should match snapshot (gd) 1`] = `
     >
       Cuir ris
     </a>
+    <span
+      class="nhsuk-body-s"
+    >
+      Queries and results are stored for further analysis. We wont pass personally identifiable information to OpenAI or our internal systems.
+    </span>
   </div>
 </div>
 `;
