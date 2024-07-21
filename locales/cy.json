@@ -20,6 +20,9 @@
     "placeholder": "teipiwch rhywbeth yma",
     "button": {
       "submit": "Cyflwyno"
+    },
+    "warning": {
+      "content": "Cedwir ymholiadau a chanlyniadau ar gyfer dadansoddiad pellach. Ni fyddwn yn trosglwyddo gwybodaeth bersonol adnabyddadwy i OpenAI neu ein systemau mewnol."
     }
   },
   "header": {

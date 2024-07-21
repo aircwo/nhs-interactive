@@ -20,6 +20,9 @@
     "placeholder": "type something here",
     "button": {
       "submit": "Submit"
+    },
+    "warning": {
+      "content": "Queries and results are stored for further analysis. We wont pass personally identifiable information to OpenAI or our internal systems."
     }
   },
   "header": {

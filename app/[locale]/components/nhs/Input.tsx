@@ -45,20 +45,23 @@ const Input: React.FC<InputProps> = ({
 
   const inputContainerClasses = `nhsuk-character-count nhsuk-form-group ${error ? 'nhsuk-form-group--error' : ''}`;
   const textBoxClasses = `nhsuk-textarea nhsuk-js-character-count ${error ? 'nhsuk-textarea--error' : ''}`;
-  
+
   return (
     <div className={inputContainerClasses}>
       {label && <label className="nhsuk-label" htmlFor={id}>{label}</label>}
       {hint && <span className="nhsuk-hint">{hint}</span>}
       {error && <span className="nhsuk-error-message">{error}</span>}
-      <textarea 
+      <textarea
+        key={id + (error ?? '-error')}
         id={id}
         value={query}
         className={textBoxClasses} 
         rows={rows}
         maxLength={100}
-        onChange={handleChange} 
-        {...restProps}></textarea>
+        onChange={handleChange}
+        autoFocus={!!error}
+        {...restProps}>
+      </textarea>
     
       { showText &&
         <div className={classNames((query.length > 95) ? "nhsuk-error-message" : "nhsuk-hint")} id="exceeding-info">

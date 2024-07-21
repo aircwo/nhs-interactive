@@ -20,6 +20,9 @@
     "placeholder": "cuir rudeigin an seo",
     "button": {
       "submit": "Cuir ris"
+    },
+    "warning": {
+      "content": "Tha ceistean agus toraidhean air an stòradh airson tuilleadh sgrùdaidh. Cha toir sinn seachad fiosrachadh a dh' aithnicheas sinn gu pearsanta gu OpenAI no na siostaman a-staigh againn."
     }
   },
   "header": {

@@ -32,14 +32,16 @@ exports[`Search displays loading spinner when searching 1`] = `
       rows="1"
     />
   </div>
-  <a
-    aria-disabled="true"
+  <button
     class="nhsuk-button    disabled"
+    data-module="nhsuk-button"
+    data-prevent-double-click="false"
+    disabled=""
     id="submit"
-    tabindex="-1"
+    type="button"
   >
     Submit
-  </a>
+  </button>
   <span
     class="nhsuk-body-s"
   >
@@ -80,18 +82,20 @@ exports[`Search displays loading spinner when searching 2`] = `
       rows="1"
     />
   </div>
-  <a
-    aria-disabled="true"
+  <button
     class="nhsuk-button    disabled"
+    data-module="nhsuk-button"
+    data-prevent-double-click="false"
+    disabled=""
     id="submit"
-    tabindex="-1"
+    type="button"
   >
     Cyflwyno
-  </a>
+  </button>
   <span
     class="nhsuk-body-s"
   >
-    Queries and results are stored for further analysis. We wont pass personally identifiable information to OpenAI or our internal systems.
+    Cedwir ymholiadau a chanlyniadau ar gyfer dadansoddiad pellach. Ni fyddwn yn trosglwyddo gwybodaeth bersonol adnabyddadwy i OpenAI neu ein systemau mewnol.
   </span>
 </div>
 `;
@@ -128,18 +132,20 @@ exports[`Search displays loading spinner when searching 3`] = `
       rows="1"
     />
   </div>
-  <a
-    aria-disabled="true"
+  <button
     class="nhsuk-button    disabled"
+    data-module="nhsuk-button"
+    data-prevent-double-click="false"
+    disabled=""
     id="submit"
-    tabindex="-1"
+    type="button"
   >
     Cuir ris
-  </a>
+  </button>
   <span
     class="nhsuk-body-s"
   >
-    Queries and results are stored for further analysis. We wont pass personally identifiable information to OpenAI or our internal systems.
+    Tha ceistean agus toraidhean air an stòradh airson tuilleadh sgrùdaidh. Cha toir sinn seachad fiosrachadh a dh' aithnicheas sinn gu pearsanta gu OpenAI no na siostaman a-staigh againn.
   </span>
 </div>
 `;
@@ -172,18 +178,19 @@ exports[`Search rendered component should match snapshot (cy) 1`] = `
         rows="1"
       />
     </div>
-    <a
-      aria-disabled="false"
+    <button
       class="nhsuk-button    "
+      data-module="nhsuk-button"
+      data-prevent-double-click="false"
       id="submit"
-      tabindex="0"
+      type="button"
     >
       Cyflwyno
-    </a>
+    </button>
     <span
       class="nhsuk-body-s"
     >
-      Queries and results are stored for further analysis. We wont pass personally identifiable information to OpenAI or our internal systems.
+      Cedwir ymholiadau a chanlyniadau ar gyfer dadansoddiad pellach. Ni fyddwn yn trosglwyddo gwybodaeth bersonol adnabyddadwy i OpenAI neu ein systemau mewnol.
     </span>
   </div>
 </div>
@@ -217,14 +224,15 @@ exports[`Search rendered component should match snapshot (en) 1`] = `
         rows="1"
       />
     </div>
-    <a
-      aria-disabled="false"
+    <button
       class="nhsuk-button    "
+      data-module="nhsuk-button"
+      data-prevent-double-click="false"
       id="submit"
-      tabindex="0"
+      type="button"
     >
       Submit
-    </a>
+    </button>
     <span
       class="nhsuk-body-s"
     >
@@ -262,18 +270,19 @@ exports[`Search rendered component should match snapshot (gd) 1`] = `
         rows="1"
       />
     </div>
-    <a
-      aria-disabled="false"
+    <button
       class="nhsuk-button    "
+      data-module="nhsuk-button"
+      data-prevent-double-click="false"
       id="submit"
-      tabindex="0"
+      type="button"
     >
       Cuir ris
-    </a>
+    </button>
     <span
       class="nhsuk-body-s"
     >
-      Queries and results are stored for further analysis. We wont pass personally identifiable information to OpenAI or our internal systems.
+      Tha ceistean agus toraidhean air an stòradh airson tuilleadh sgrùdaidh. Cha toir sinn seachad fiosrachadh a dh' aithnicheas sinn gu pearsanta gu OpenAI no na siostaman a-staigh againn.
     </span>
   </div>
 </div>
